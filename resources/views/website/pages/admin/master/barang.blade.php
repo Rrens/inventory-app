@@ -20,595 +20,317 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <section class="col-lg-7 connectedSortable">
+                <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
+                            <h3 class="card-title">Data Barang</h3>
+                            <button type="button" class="btn btn-outline-primary btn-sm" style="float: right;"
+                                data-toggle="modal" data-target="#modal-add">
+                                <i class="fa fa-plus-square "></i>
+                                Tambah Barang
+                            </button>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
+                                        <th>No</th>
+                                        <th>ID Barang</th>
+                                        <th>Nama Barang (satuan)</th>
+                                        <th>Harga Barang</th>
+                                        <th>ROP | QTY</th>
+                                        <th>Biaya Simpan</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 4.0
-                                        </td>
-                                        <td>Win 95+</td>
-                                        <td> 4</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 5.0
-                                        </td>
-                                        <td>Win 95+</td>
-                                        <td>5</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 5.5
-                                        </td>
-                                        <td>Win 95+</td>
-                                        <td>5.5</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 6
-                                        </td>
-                                        <td>Win 98+</td>
-                                        <td>6</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td>7</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td>6</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.7</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Firefox 2.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Firefox 3.0</td>
-                                        <td>Win 2k+ / OSX.3+</td>
-                                        <td>1.9</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Camino 1.0</td>
-                                        <td>OSX.2+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Camino 1.5</td>
-                                        <td>OSX.3+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Netscape 7.2</td>
-                                        <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                        <td>1.7</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Netscape Browser 8</td>
-                                        <td>Win 98SE+</td>
-                                        <td>1.7</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Netscape Navigator 9</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.0</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.1</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1.1</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.2</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1.2</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.3</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1.3</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.4</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1.4</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.5</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1.5</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.6</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>1.6</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.7</td>
-                                        <td>Win 98+ / OSX.1+</td>
-                                        <td>1.7</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.8</td>
-                                        <td>Win 98+ / OSX.1+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Seamonkey 1.1</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gecko</td>
-                                        <td>Epiphany 2.20</td>
-                                        <td>Gnome</td>
-                                        <td>1.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>Safari 1.2</td>
-                                        <td>OSX.3</td>
-                                        <td>125.5</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>Safari 1.3</td>
-                                        <td>OSX.3</td>
-                                        <td>312.8</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>Safari 2.0</td>
-                                        <td>OSX.4+</td>
-                                        <td>419.3</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>Safari 3.0</td>
-                                        <td>OSX.4+</td>
-                                        <td>522.1</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>OmniWeb 5.5</td>
-                                        <td>OSX.4+</td>
-                                        <td>420</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>iPod Touch / iPhone</td>
-                                        <td>iPod</td>
-                                        <td>420.1</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Webkit</td>
-                                        <td>S60</td>
-                                        <td>S60</td>
-                                        <td>413</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 7.0</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 7.5</td>
-                                        <td>Win 95+ / OSX.2+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 8.0</td>
-                                        <td>Win 95+ / OSX.2+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 8.5</td>
-                                        <td>Win 95+ / OSX.2+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 9.0</td>
-                                        <td>Win 95+ / OSX.3+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 9.2</td>
-                                        <td>Win 88+ / OSX.3+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera 9.5</td>
-                                        <td>Win 88+ / OSX.3+</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Opera for Wii</td>
-                                        <td>Wii</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Nokia N800</td>
-                                        <td>N800</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presto</td>
-                                        <td>Nintendo DS browser</td>
-                                        <td>Nintendo DS</td>
-                                        <td>8.5</td>
-                                        <td>C/A<sup>1</sup></td>
-                                    </tr>
-                                    <tr>
-                                        <td>KHTML</td>
-                                        <td>Konqureror 3.1</td>
-                                        <td>KDE 3.1</td>
-                                        <td>3.1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>KHTML</td>
-                                        <td>Konqureror 3.3</td>
-                                        <td>KDE 3.3</td>
-                                        <td>3.3</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>KHTML</td>
-                                        <td>Konqureror 3.5</td>
-                                        <td>KDE 3.5</td>
-                                        <td>3.5</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 4.5</td>
-                                        <td>Mac OS 8-9</td>
-                                        <td>-</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 5.1</td>
-                                        <td>Mac OS 7.6-9</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 5.2</td>
-                                        <td>Mac OS 8-X</td>
-                                        <td>1</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>NetFront 3.1</td>
-                                        <td>Embedded devices</td>
-                                        <td>-</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>NetFront 3.4</td>
-                                        <td>Embedded devices</td>
-                                        <td>-</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>Dillo 0.8</td>
-                                        <td>Embedded devices</td>
-                                        <td>-</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>Links</td>
-                                        <td>Text only</td>
-                                        <td>-</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>Lynx</td>
-                                        <td>Text only</td>
-                                        <td>-</td>
-                                        <td>X</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>IE Mobile</td>
-                                        <td>Windows Mobile 6</td>
-                                        <td>-</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>PSP browser</td>
-                                        <td>PSP</td>
-                                        <td>-</td>
-                                        <td>C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Other browsers</td>
-                                        <td>All others</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>U</td>
-                                    </tr>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>Rp{{ number_format($item->price) }}</td>
+                                            <td></td>
+                                            <td>Rp{{ number_format($item->saving_cost) }}</td>
+                                            <td>
+                                                <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
+                                                    data-target="#modal-edit{{ $item->id }}">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </button>
+                                                <button data-toggle="modal" data-target="#modal-delete{{ $item->id }}"
+                                                    class="btn btn-outline-danger btn-sm">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                                <button data-toggle="modal" data-target="#modal-detail{{ $item->id }}"
+                                                    class="btn btn-outline-info btn-sm">
+                                                    <i class="fa fa-glasses"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </section>
-                <!-- /.Left col -->
-                <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                <section class="col-lg-5 connectedSortable">
+            </div>
+        </div>
+    </section>
 
-                    <!-- Map card -->
-                    <div class="card bg-gradient-primary">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-map-marker-alt mr-1"></i>
-                                Visitors
-                            </h3>
-                            <!-- card tools -->
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                                    <i class="far fa-calendar-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse"
-                                    title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
+    <div class="modal fade" id="modal-add">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah Barang</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('master.barang.store') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="id_barang">ID Barang</label>
+                                    <input type="text" class="form-control" name="id_barang" value="{{ $id_barang }}"
+                                        id="id_barang" readonly>
+                                </div>
                             </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <div class="card-body">
-                            <div id="world-map" style="height: 250px; width: 100%;"></div>
-                        </div>
-                        <!-- /.card-body-->
-                        <div class="card-footer bg-transparent">
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-1"></div>
-                                    <div class="text-white">Visitors</div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="name">Nama Barang</label>
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                        id="name">
                                 </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-2"></div>
-                                    <div class="text-white">Online</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-3"></div>
-                                    <div class="text-white">Sales</div>
-                                </div>
-                                <!-- ./col -->
                             </div>
-                            <!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.card -->
-
-                    <!-- solid sales graph -->
-                    <div class="card bg-gradient-info">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-th mr-1"></i>
-                                Sales Graph
-                            </h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <canvas class="chart" id="line-chart"
-                                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer bg-transparent">
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <input type="text" class="knob" data-readonly="true" value="20" data-width="60"
-                                        data-height="60" data-fgColor="#39CCCC">
-
-                                    <div class="text-white">Mail-Orders</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <input type="text" class="knob" data-readonly="true" value="50" data-width="60"
-                                        data-height="60" data-fgColor="#39CCCC">
-
-                                    <div class="text-white">Online</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <input type="text" class="knob" data-readonly="true" value="30" data-width="60"
-                                        data-height="60" data-fgColor="#39CCCC">
-
-                                    <div class="text-white">In-Store</div>
-                                </div>
-                                <!-- ./col -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.card-footer -->
-                    </div>
-                    <!-- /.card -->
-
-                    <!-- Calendar -->
-                    <div class="card bg-gradient-success">
-                        <div class="card-header border-0">
-
-                            <h3 class="card-title">
-                                <i class="far fa-calendar-alt"></i>
-                                Calendar
-                            </h3>
-                            <!-- tools card -->
-                            <div class="card-tools">
-                                <!-- button with a dropdown -->
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle"
-                                        data-toggle="dropdown" data-offset="-52">
-                                        <i class="fas fa-bars"></i>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a href="#" class="dropdown-item">Add new event</a>
-                                        <a href="#" class="dropdown-item">Clear events</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="#" class="dropdown-item">View calendar</a>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="saving_cost">Biaya Simpan Barang</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                        <input type="number" class="form-control" id="saving_cost"
+                                            value="{{ old('saving_cost') }}" name="saving_cost">
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
                             </div>
-                            <!-- /. tools -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body pt-0">
-                            <!--The calendar -->
-                            <div id="calendar" style="width: 100%"></div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="price">Harga Barang</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp</span>
+                                        </div>
+                                        <input type="number" class="form-control" id="price"
+                                            value="{{ old('price') }}" name="price">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="unit">Satuan Barang</label>
+                                    <select name="unit" id="unit" class="form-control">
+                                        <option selected hidden>Pilih Satuan</option>
+                                        <option {{ !empty(old('unit')) ? 'selected' : '' }} value="unit">Unit</option>
+                                        <option {{ !empty(old('pack')) ? 'selected' : '' }} value="pack">Pack</option>
+                                        <option {{ !empty(old('sak')) ? 'selected' : '' }} value="sak">Zak</option>
+                                        <option {{ !empty(old('pcs')) ? 'selected' : '' }} value="pcs">Pcs</option>
+                                        <option {{ !empty(old('m3')) ? 'selected' : '' }} value="m3">M3</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-                </section>
-                <!-- right col -->
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Save changes</button>
+                    </div>
+                </form>
             </div>
-            <!-- /.row (main row) -->
-        </div><!-- /.container-fluid -->
-    </section>
+        </div>
+    </div>
+
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal-edit{{ $item->id }}">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Barang {{ $item->name }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('master.barang.update') }}" method="post">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="id_barang">ID Barang</label>
+                                        <input type="text" class="form-control" name="id_barang"
+                                            value="{{ $item->id }}" id="id_barang" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="name">Nama Barang</label>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ !empty(old('name')) ? old('name') : $item->name }}" id="name">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="saving_cost">Biaya Simpan Barang</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Rp</span>
+                                            </div>
+                                            <input type="number" class="form-control" id="saving_cost"
+                                                value="{{ !empty(old('saving_cost')) ? old('saving_cost') : $item->saving_cost }}"
+                                                name="saving_cost">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="price">Harga Barang</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Rp</span>
+                                            </div>
+                                            <input type="number" class="form-control" id="price" name="price"
+                                                value="{{ !empty(old('price')) ? old('price') : $item->price }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="unit">Satuan Barang</label>
+                                        <select name="unit" id="unit" class="form-control">
+                                            <option selected hidden>Pilih Satuan</option>
+                                            <option
+                                                {{ (!empty(old('unit')) ? 'selected' : $item->unit == 'unit') ? 'selected' : '' }}
+                                                value="unit">Unit
+                                            </option>
+                                            <option
+                                                {{ (!empty(old('pack')) ? 'selected' : $item->unit == 'pack') ? 'selected' : '' }}
+                                                value="pack">Pack
+                                            </option>
+                                            <option
+                                                {{ (!empty(old('sak')) ? 'selected' : $item->unit == 'sak') ? 'selected' : '' }}
+                                                value="sak">Zak</option>
+                                            <option
+                                                {{ (!empty(old('pcs')) ? 'selected' : $item->unit == 'pcs') ? 'selected' : '' }}
+                                                value="pcs">Pcs</option>
+                                            <option
+                                                {{ (!empty(old('m3')) ? 'selected' : $item->unit == 'm3') ? 'selected' : '' }}
+                                                value="m3">M3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal-delete{{ $item->id }}">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus Barang {{ $item->name }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form action="{{ route('master.barang.delete') }}" method="post">
+                        @csrf
+                        <div class="modal-footer">
+                            <input type="number" value="" name="id_barang" hidden>
+                            <div style="float: right;">
+                                <button type="button" class="btn btn-default pull-left"
+                                    data-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal-detail{{ $item->id }}">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detail Barang {{ $item->name }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-5">
+                                <p>ID Barang:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{ $item->id }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <p>Nama Barang:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{ $item->name }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <p>Biaya Simpan Barang:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Rp{{ number_format($item->saving_cost) }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <p>Harga Barang:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Rp{{ number_format($item->price) }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <p>Satuan Barang:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{ $item->unit }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-end">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
 @endsection
 
 @push('css')
