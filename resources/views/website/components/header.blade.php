@@ -9,21 +9,17 @@
     <ul class="navbar-nav ml-auto">
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                <span class="hidden-xs">admin</span>
+                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+                <span class="hidden-xs">{{ auth()->user()->username }}</span>
             </a>
             <ul class="dropdown-menu">
                 <li class="user-header">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                     <p>
-                        <a href="#" class="btn btn-danger btn-flat">Sign out</a>
+                        <a href="{{ route('logout') }}" class="btn btn-danger btn-flat">Sign out</a>
                     </p>
                 </li>
-                {{-- <li class="user-footer">
-                    <div class="pull-right">
-                    </div>
-                </li> --}}
             </ul>
         </li>
     </ul>

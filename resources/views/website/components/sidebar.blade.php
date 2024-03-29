@@ -14,7 +14,7 @@
                  <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
              </div>
              <div class="info">
-                 <a href="#" class="d-block">Alexander Pierce</a>
+                 <a href="#" class="d-block">{{ auth()->user()->username }}</a>
              </div>
          </div>
 
@@ -34,144 +34,149 @@
          <nav class="mt-2">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                  data-accordion="false">
-                 <li class="nav-header">ADMIN</li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link {{ $active_group == 'master' ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-user-tie"></i>
-                         <p>
-                             Master
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{ route('master.barang.index') }}"
-                                 class="nav-link {{ $active == 'barang' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Barang</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="{{ route('master.supplier.index') }}"
-                                 class="nav-link {{ $active == 'supplier' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Supplier</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link {{ $active_group == 'riwayat' ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-cogs"></i>
-                         <p>
-                             Riwayat
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{ route('pengelolaan.pesan-barang.index') }}"
-                                 class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Pesan Barang</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="{{ route('pengelolaan.barang-masuk.index') }}"
-                                 class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Barang Masuk</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="{{ route('pengelolaan.barang-keluar.index') }}"
-                                 class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Barang Keluar</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link {{ $active_group == 'pengelolaan' ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-history"></i>
-                         <p>
-                             Pengelolaan
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{ route('master.barang.index') }}"
-                                 class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Pesan Barang</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Barang Masuk</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Barang Keluar</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link {{ $active == 'permintaan-barang' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Permintaan Barang</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
-                 <li class="nav-header">OWNER</li>
-                 <li class="nav-item">
-                     <a href="{{ route('pengelolaan.pesan-barang.index') }}"
-                         class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
-                         <i class="fas fa-tachometer-alt nav-icon"></i>
-                         <p>Dashboard</p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
-                     <a href="{{ route('user.index') }}" class="nav-link {{ $active == 'user' ? 'active' : '' }}">
-                         <i class="far fa-user nav-icon"></i>
-                         <p>User</p>
-                     </a>
-                 </li>
-                 <li class="nav-item menu-open">
-                     <a href="#" class="nav-link {{ $active_group == 'riwayat' ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-book"></i>
-                         <p>
-                             Laporan
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{ route('laporan.pesan-pesidaan.index') }}"
-                                 class="nav-link {{ $active == 'pesan-persediaan' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Pesan Persediaan</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link {{ $active == 'persediaan-barang' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Persediaan Barang</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Barang Masuk</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
+                 @if (auth()->user()->role == 'admin')
+                     <li class="nav-header">ADMIN</li>
+                     <li class="nav-item">
+                         <a href="#" class="nav-link {{ $active_group == 'master' ? 'active' : '' }}">
+                             <i class="nav-icon fas fa-user-tie"></i>
+                             <p>
+                                 Master
+                                 <i class="right fas fa-angle-left"></i>
+                             </p>
+                         </a>
+                         <ul class="nav nav-treeview">
+                             <li class="nav-item">
+                                 <a href="{{ route('master.barang.index') }}"
+                                     class="nav-link {{ $active == 'barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ route('master.supplier.index') }}"
+                                     class="nav-link {{ $active == 'supplier' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Supplier</p>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="nav-item">
+                         <a href="#" class="nav-link {{ $active_group == 'riwayat' ? 'active' : '' }}">
+                             <i class="nav-icon fas fa-cogs"></i>
+                             <p>
+                                 Riwayat
+                                 <i class="right fas fa-angle-left"></i>
+                             </p>
+                         </a>
+                         <ul class="nav nav-treeview">
+                             <li class="nav-item">
+                                 <a href="{{ route('pengelolaan.pesan-barang.index') }}"
+                                     class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Pesan Barang</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ route('pengelolaan.barang-masuk.index') }}"
+                                     class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Masuk</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ route('pengelolaan.barang-keluar.index') }}"
+                                     class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Keluar</p>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="nav-item">
+                         <a href="#" class="nav-link {{ $active_group == 'pengelolaan' ? 'active' : '' }}">
+                             <i class="nav-icon fas fa-history"></i>
+                             <p>
+                                 Pengelolaan
+                                 <i class="right fas fa-angle-left"></i>
+                             </p>
+                         </a>
+                         <ul class="nav nav-treeview">
+                             <li class="nav-item">
+                                 <a href="{{ route('master.barang.index') }}"
+                                     class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Pesan Barang</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Masuk</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Keluar</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#"
+                                     class="nav-link {{ $active == 'permintaan-barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Permintaan Barang</p>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                 @else
+                     <li class="nav-header">OWNER</li>
+                     <li class="nav-item">
+                         <a href="{{ route('dashboard.index') }}"
+                             class="nav-link {{ $active == 'dashboard' ? 'active' : '' }}">
+                             <i class="fas fa-tachometer-alt nav-icon"></i>
+                             <p>Dashboard</p>
+                         </a>
+                     </li>
+                     <li class="nav-item">
+                         <a href="{{ route('user.index') }}" class="nav-link {{ $active == 'user' ? 'active' : '' }}">
+                             <i class="far fa-user nav-icon"></i>
+                             <p>User</p>
+                         </a>
+                     </li>
+                     <li class="nav-item menu-open">
+                         <a href="#" class="nav-link {{ $active_group == 'riwayat' ? 'active' : '' }}">
+                             <i class="nav-icon fas fa-book"></i>
+                             <p>
+                                 Laporan
+                                 <i class="right fas fa-angle-left"></i>
+                             </p>
+                         </a>
+                         <ul class="nav nav-treeview">
+                             <li class="nav-item">
+                                 <a href="{{ route('laporan.pesan-pesidaan.index') }}"
+                                     class="nav-link {{ $active == 'pesan-persediaan' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Pesan Persediaan</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#"
+                                     class="nav-link {{ $active == 'persediaan-barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Persediaan Barang</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Masuk</p>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                 @endif
              </ul>
          </nav>
      </div>

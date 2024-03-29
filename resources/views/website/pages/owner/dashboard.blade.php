@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">User Management</h1>
+                    <h1 class="m-0">Dashboard</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">User Management</li>
+                        <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
             </div>
@@ -20,16 +20,28 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-6">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>150</h3>
+
+                            <p>Total Pemesanan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>150</h3>
+
+                            <p>Total Barang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Data user</h3>
-                            <button type="button" class="btn btn-outline-primary btn-sm" style="float: right;"
-                                data-toggle="modal" data-target="#modal-add">
-                                <i class="fa fa-plus-square "></i>
-                                Tambah user
-                            </button>
-                        </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -61,7 +73,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                        </d>
                 </section>
             </div>
         </div>
