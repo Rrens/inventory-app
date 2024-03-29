@@ -1,35 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Master;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class SupplierController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $active = 'supplier';
-        $active_group = 'master';
-
-        $id_supplier = Supplier::count() + 1;
-        $data = Supplier::all();
-        $name_supplier = Supplier::pluck('name');
-        // dd(json_encode($name_supplier));
-
-        return view('website.pages.admin.master.supplier', compact('active', 'active_group', 'id_supplier', 'data', 'name_supplier'));
+        $active = 'user';
+        $active_group = 'user';
+        $data = User::all();
+        $id = User::count() + 1;
+        return view('website.pages.owner.user.user-management', compact('active', 'active_group', 'data', 'id'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'required|unique:suppliers,id',
+            'id' => 'required|unique:users,id',
             'name' => 'required',
-            'telp' => 'required',
-            'description' => 'required'
+            'username' => 'required|unique:users,username',
+            'password' => 'required',
+            'role' => 'required|in:admin,owner'
         ]);
 
         if ($validator->fails()) {
@@ -38,7 +34,7 @@ class SupplierController extends Controller
         }
 
         unset($request['_token']);
-        $data = new Supplier();
+        $data = new User();
         $data->fill($request->all());
         $data->save();
 
@@ -49,20 +45,25 @@ class SupplierController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'required|exists:suppliers,id',
+            'id' => 'required|exists:users,id',
             'name' => 'required',
-            'telp' => 'required',
-            'description' => 'required'
+            'username' => 'required|exists:users,username',
+            'password' => 'nullable',
+            'role' => 'required|in:admin,owner'
         ]);
-
         if ($validator->fails()) {
             Alert::toast($validator->messages()->all(), 'error');
             return back()->withInput();
         }
 
         unset($request['_token']);
-        $data = Supplier::findOrFail($request->id);
-        $data->update($request->all());
+        $data = User::findOrFail($request->id);
+        if (!empty($request->password)) {
+            $data->update($request->all());
+        } else {
+            unset($request['password']);
+            $data->update($request->all());
+        }
 
         Alert::toast('Sukses Mengubah', 'success');
         return back();
@@ -71,7 +72,7 @@ class SupplierController extends Controller
     public function delete(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'required|exists:suppliers,id',
+            'id' => 'required|exists:users,id',
         ]);
 
         if ($validator->fails()) {
@@ -79,7 +80,7 @@ class SupplierController extends Controller
             return back()->withInput();
         }
 
-        Supplier::where('id', $request->id)->delete();
+        User::where('id', $request->id)->delete();
 
         Alert::toast('Sukses Menghapus', 'success');
         return back();

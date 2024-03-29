@@ -1,12 +1,12 @@
 @extends('website.components.master')
-@section('title', 'barang')
+@section('title', 'Barang Masuk')
 @section('container')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pengelolaan Barang Masuk</h1>
-                </div><!-- /.col -->
+                    <h1 class="m-0">Barang Masuk</h1>
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -23,45 +23,34 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Supplier</h3>
-                            <button type="button" class="btn btn-outline-primary btn-sm" style="float: right;"
-                                data-toggle="modal" data-target="#modal-add">
-                                <i class="fa fa-plus-square "></i>
-                                Tambah Supplier
-                            </button>
+                            <a href="{{ route('pengelolaan.pesan-barang.index') }}" class="btn btn-outline-primary btn-sm"
+                                style="float: left;">
+                                Pesan Barang
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="id_supplier">ID Supplier</label>
-                                        <input type="text" class="form-control" name="id_supplier"
-                                            value="{{ old('id_supplier') }}" id="id_supplier">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Nama Supplier</label>
-                                        <input type="text" class="form-control" name="name"
-                                            value="{{ old('name') }}" id="name">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="telp">No Telp</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">+62</span>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-6">Nama Supplier</div>
+                                                        <div class="col-6">Nama Barang</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-6">Jumlah Pembelian</div>
+                                                        <div class="col-6">Tempat penyimpanan</div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <input type="number" class="form-control" id="telp"
-                                                value="{{ old('telp') }}" name="telp">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="description">Keterangan</label>
-                                        <textarea name="description" id="description" rows="5" class="form-control">{{ old('description') }}</textarea>
+                                        <div class="card-footer border-top">
+                                            <p class="font-weight-bold">Rp 0</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
