@@ -14,11 +14,16 @@ use App\Http\Controllers\Pengelolaan\PesanBarangController;
 use App\Http\Controllers\Persetujuan\PemakaianController;
 use App\Http\Controllers\Persetujuan\PesanPersediaanController as PersetujuanPesanPersediaanController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+if (!Auth::check()) {
+    Route::redirect('/', 'auth');
+}
 
 Route::prefix('auth')->group(function () {
     Route::get('', [AuthController::class, 'index'])->name('login');
