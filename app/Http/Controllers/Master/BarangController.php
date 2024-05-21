@@ -26,7 +26,8 @@ class BarangController extends Controller
             'saving_cost' => 'required|numeric',
             'name' => 'required',
             'price' => 'required|numeric',
-            'unit' => 'required|in:unit,pcs,pack,zak'
+            'quantity' => 'required|numeric',
+            'unit' => 'required|in:unit,pcs,pack,zak,m3'
         ]);
 
         if ($validator->fails()) {
@@ -50,7 +51,8 @@ class BarangController extends Controller
             'saving_cost' => 'required|numeric',
             'name' => 'required',
             'price' => 'required|numeric',
-            'unit' => 'required|in:unit,pcs,pack,zak'
+            'quantity' => 'required|numeric',
+            'unit' => 'required|in:unit,pcs,pack,zak,m3'
         ]);
 
         if ($validator->fails()) {

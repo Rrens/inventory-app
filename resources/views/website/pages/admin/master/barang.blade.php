@@ -106,6 +106,13 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label for="quantity">Kuantiti</label>
+                                    <input type="text" class="form-control" name="quantity"
+                                        value="{{ old('quantity') }}" id="quantity">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
                                     <label for="saving_cost">Biaya Simpan Barang</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -180,6 +187,14 @@
                                         <label for="name">Nama Barang</label>
                                         <input type="text" class="form-control" name="name"
                                             value="{{ !empty(old('name')) ? old('name') : $item->name }}" id="name">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="quantity">Kuantiti</label>
+                                        <input type="text" class="form-control" name="quantity"
+                                            value="{{ !empty(old('quantity')) ? old('quantity') : $item->quantity }}"
+                                            id="quantity">
                                     </div>
                                 </div>
                                 <div class="col-12">
