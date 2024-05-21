@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Barang;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class BarangSeeder extends Seeder
 {
@@ -12,6 +14,34 @@ class BarangSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // Barang::factory(10)->create();
+        $buildingSupplies = [
+            'Kran Air Amico 1/2',
+            'Kran Air Sanho 1/2',
+            'Selotip',
+            'Pisau Potong WD',
+            'Paku Beton 3 dim',
+            'Sekrup Baja 3 dim',
+            'Sekrup Baja 2 dim',
+            'Baut Drilling 12x25cm',
+            'Cat Semprot',
+            'Lem Besi Dextone',
+            'Meteran 5M',
+            'Semen Gresik',
+            'Cat Tembok EMCO',
+            'Bor Besi 2MM',
+        ];
+
+        $faker = Faker::create();
+
+        foreach ($buildingSupplies as $item) {
+            $barang = new Barang();
+            $barang->name = $item;
+            $barang->saving_cost = $faker->randomFloat(2, 10000, 30000);
+            $barang->price = $faker->randomFloat(2, 100000, 300000);
+            $barang->unit = $faker->randomElement(['pcs', 'zak', 'unit', 'pack', 'm3']);
+            $barang->quantity = $faker->numberBetween(1, 10);
+            $barang->save();
+        }
     }
 }

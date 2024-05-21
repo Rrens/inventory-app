@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barangs', function (Blueprint $table) {
+        Schema::create('pemesanan_details', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->float('saving_cost');
-            $table->float('price');
-            $table->string('unit');
-            $table->integer('eoq')->default(0);
+            $table->unsignedBigInteger('pemesanan_id')->nullable();
+            $table->foreign('pemesanan_id')->references('id')->on('pemesanans');
+            $table->unsignedBigInteger('barang_id')->nullable();
+            $table->foreign('barang_id')->references('id')->on('barangs');
             $table->integer('quantity');
+            $table->integer('eoq');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barangs');
+        Schema::dropIfExists('pemesanan_details');
     }
 };

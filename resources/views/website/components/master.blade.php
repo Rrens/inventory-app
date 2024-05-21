@@ -45,7 +45,7 @@
         <div class="content-wrapper">
             @yield('container')
         </div>
-        <!-- /.content-wrapper -->
+
         @include('website.components.footer')
 
         <!-- Control Sidebar -->

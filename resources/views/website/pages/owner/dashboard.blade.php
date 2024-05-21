@@ -20,21 +20,35 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
+                <div class="col-3">
                     <div class="small-box">
                         <div class="inner">
                             <h3>150</h3>
-
                             <p>Total Pemesanan</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-3">
                     <div class="small-box">
                         <div class="inner">
                             <h3>150</h3>
-
-                            <p>Total Barang</p>
+                            <p>Total Barang Masuk</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>150</h3>
+                            <p>Total Barang Keluar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>150</h3>
+                            <p>Persetujuan Barang</p>
                         </div>
                     </div>
                 </div>

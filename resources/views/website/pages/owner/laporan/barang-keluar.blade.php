@@ -1,11 +1,11 @@
 @extends('website.components.master')
-@section('title', 'Laporan Pesan Persediaan')
+@section('title', 'Laporan Barang Keluar')
 @section('container')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Laporan Pesan Persediaan</h1>
+                    <h1 class="m-0">Laporan Barang Keluar</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,17 +23,14 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan Pesan Persediaan</h3>
+                            <h3 class="card-title">Data Laporan Barang Keluar</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Nama Supplier</th>
                                         <th>Nama Barang</th>
-                                        <th>Tgl Pesan</th>
-                                        <th>Biaya Pemesanan</th>
                                         <th>Harga</th>
                                         <th>Jumlah Pesanan (satuan)</th>
                                     </tr>
@@ -43,9 +40,6 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
                                             <td>{{ $item->username }}</td>
                                             <td>{{ $item->username }}</td>
                                         </tr>

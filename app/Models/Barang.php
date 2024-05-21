@@ -16,5 +16,27 @@ class Barang extends Model
         'saving_cost',
         'price',
         'unit',
+        'quantity',
+        'eoq',
     ];
+
+    public function pemesanan()
+    {
+        return $this->belongsTo(Pemesanan::class);
+    }
+
+    public function penjualan_detail()
+    {
+        return $this->belongsTo(PenjualanDetail::class);
+    }
+
+    public function pemesanan_detail()
+    {
+        return $this->belongsTo(PemesananDetail::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
 }
