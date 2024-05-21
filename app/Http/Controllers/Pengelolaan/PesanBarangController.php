@@ -110,6 +110,7 @@ class PesanBarangController extends Controller
         }
 
         $pemesanan_ID = Pemesanan::generateID();
+        // dd($pemesanan_ID);
 
         unset($request['_token']);
         $data = new Pemesanan();

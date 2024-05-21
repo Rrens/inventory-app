@@ -12,6 +12,7 @@ class BarangController extends Controller
 {
     public function index()
     {
+        // MENAMPILKAN BARANG
         $active_group = 'master';
         $active = 'barang';
         $data = Barang::all();
@@ -21,6 +22,7 @@ class BarangController extends Controller
 
     public function store(Request $request)
     {
+        // VALIDASI INPUT REQUEST
         $validator = Validator::make($request->all(), [
             'id_barang' => 'required|unique:barangs,id',
             'saving_cost' => 'required|numeric',
@@ -30,11 +32,13 @@ class BarangController extends Controller
             'unit' => 'required|in:unit,pcs,pack,zak,m3'
         ]);
 
+        // JIKA GAGAL MAKA MUNCUL ALERT
         if ($validator->fails()) {
             Alert::toast($validator->messages()->all(), 'error');
             return back()->withInput();
         }
 
+        // MENYIMPAN BARANG BARU
         unset($request['_token']);
         $data = new Barang();
         $data->fill($request->all());
@@ -46,6 +50,7 @@ class BarangController extends Controller
 
     public function update(Request $request)
     {
+        // VALIDASI INPUT REQUEST
         $validator = Validator::make($request->all(), [
             'id_barang' => 'required|exists:barangs,id',
             'saving_cost' => 'required|numeric',
@@ -55,12 +60,14 @@ class BarangController extends Controller
             'unit' => 'required|in:unit,pcs,pack,zak,m3'
         ]);
 
+        // JIKA GAGAL MAKA MUNCUL ALERT
         if ($validator->fails()) {
             Alert::toast($validator->messages()->all(), 'error');
             return back()->withInput();
         }
 
         unset($request['_token']);
+        // MENCARI BARANG DENGAN ID SESUAI REQUEST
         $data = Barang::findOrFail($request->id_barang);
         $data->fill($request->all());
         $data->update();
@@ -80,6 +87,7 @@ class BarangController extends Controller
             return back()->withInput();
         }
 
+        // MENCARI BARANG DENGAN ID SESUAI REQUEST LALU DIHAPUS
         Barang::where('id', $request->id_barang)->delete();
         Alert::toast('Sukses Menghapus', 'success');
         return back();

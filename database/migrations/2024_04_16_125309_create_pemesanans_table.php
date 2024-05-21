@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('order_cost')->default(0);
             $table->double('price_total')->nullable();
             $table->boolean('is_verify')->nullable();
-            $table->boolean('status')->nullable();
+            $table->string('status')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

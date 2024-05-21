@@ -23,40 +23,35 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Pesan Persediaan</h3>
+                            <h3 class="card-title">Data Pesan Persediaan : {{ $pemesanan_id }}</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Nama Supplier</th>
                                         <th>Nama Barang</th>
-                                        <th>Tgl Pesan</th>
-                                        <th>Total Harga</th>
-                                        <th>Jumlah Pemesanan</th>
+                                        <th>Stok Sekarang</th>
                                         <th>EOQ</th>
                                         <th>ROP</th>
+                                        <th>Jumlah Pemesanan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $item)
+                                    @foreach ($detail_penjualan as $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
-                                            <td>{{ $item->supplier[0]->name }}</td>
-                                            <td>{{ $item->barang[0]->name }}</td>
-                                            <td>{{ $item->created_at->format('d/m/Y') }}</td>
-                                            <td>{{ number_format($item->price_total) }}</td>
-                                            <td>{{ $item->quantity }}</td>
-                                            <td>0</td>
-                                            <td>0</td>
+                                            <td>{{ $item->nama_barang }}</td>
+                                            <td>{{ $item->jumlah_pemesanan }}</td>
+                                            <td>{{ $item->eoq }}</td>
+                                            <td>{{ $item->rop }}</td>
+                                            <td>{{ $item->jumlah_pemesanan }}</td>
                                             <td>
                                                 <button class="btn btn-outline-success btn-sm" data-toggle="modal"
-                                                    data-target="#modal-acc{{ $item->id }}">
+                                                    data-target="#modal-acc{{ $item->barang_id }}">
                                                     <i class="fa fa-check-circle"></i>
                                                 </button>
-                                                <button data-toggle="modal" data-target="#modal-decline{{ $item->id }}"
+                                                <button data-toggle="modal"
+                                                    data-target="#modal-decline{{ $item->barang_id }}"
                                                     class="btn btn-outline-danger btn-sm">
                                                     <i class="fa fa-times-circle"></i>
                                                 </button>
@@ -72,7 +67,7 @@
         </div>
     </section>
 
-    @foreach ($data as $item)
+    {{-- @foreach ($data as $item)
         <div class="modal fade" id="modal-acc{{ $item->id }}">
             <div class="modal-dialog modal-md modal-dialog-centered">
                 <div class="modal-content">
@@ -118,7 +113,7 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 
 
 @endsection

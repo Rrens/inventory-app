@@ -24,7 +24,7 @@ class Pemesanan extends Model
 
     public static function generateID()
     {
-        $pemesanan_id = Pemesanan::whereYear('created_at', now()->year)->max('id');
+        $pemesanan_id = Pemesanan::whereYear('created_at', now()->year)->max('pemesanan_id');
         $addZero = '';
         $pemesanan_id = substr($pemesanan_id, 9, 6);
         $pemesanan_id = (int) $pemesanan_id + 1;

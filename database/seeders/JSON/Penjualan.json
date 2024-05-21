@@ -1,1840 +1,10 @@
 [
   {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 16
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 12
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 10
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 6
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 15
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 19
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 18
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 13
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 15
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 9
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 18
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 13
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 11
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 8
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 9
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 18
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 11
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 10
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 11
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 7
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 8
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 17
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 9
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 8
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 10
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 16
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 16
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 18
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 17
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 6
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 7
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 10
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 18
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 17
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 6
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 5
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 12
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 18
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 15
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 7
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 16
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 10
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 13
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 16
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 6
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 10
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 13
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 6
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 14
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 10
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 12
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 14
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 8
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 12
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 5
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 17
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 13
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 14
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 7
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 15
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 11
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 7
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 15
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 17
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 5
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 9
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 16
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 5
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 9
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 12
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 13
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 18
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 15
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 16
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 10
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 5
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 9
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 6
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 15
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 19
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 10
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 13
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 12
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 10
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 6
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-18",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 13
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 11
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 15
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 10
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 9
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 9
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 15
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 13
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 7
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 11
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 8
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 14
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 17
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 11
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 10
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 9
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 14
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 16
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 5
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 17
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 10
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 12
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 17
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 18
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 18
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 16
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 11
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 19
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 10
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 17
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 12
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 14
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 13
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 11
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 16
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 10
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 14
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 16
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 10
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 11
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 18
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 6
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 10
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 12
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 6
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 11
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 18
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 9
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 5
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 6
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 6
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 8
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 5
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 12
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 15
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 17
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 13
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 17
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 14
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 5
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 16
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 11
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 17
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 14
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 18
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 8
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 17
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
+    "order_date": "2024-04-18",
     "items": [
       {
         "product_name": "Pisau Potong WD",
-        "quantity": 5
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 9
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 12
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 14
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 8
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 14
-      },
-      {
-        "product_name": "Meteran 5M",
         "quantity": 17
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 8
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 15
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 8
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Selotip",
-        "quantity": 16
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 16
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 6
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 17
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 12
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 7
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 9
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 13
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 13
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 11
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 12
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 14
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 18
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 10
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 9
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 17
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 17
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 8
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 18
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 17
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-19",
-    "items": [
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 17
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 17
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 16
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 11
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 5
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 10
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 18
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 11
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Selotip",
-        "quantity": 10
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 10
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 19
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 12
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 7
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 5
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 14
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 13
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 12
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 13
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 19
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 17
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 14
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 5
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 14
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 17
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 15
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 12
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 10
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 10
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 10
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 14
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 8
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 14
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 17
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 15
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 17
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 17
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 11
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 13
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 18
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 6
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 12
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 11
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 15
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 7
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 14
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 8
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 8
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 5
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 5
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 13
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 15
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 16
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 7
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 16
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 6
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 17
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 17
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 16
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 12
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 14
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 16
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 11
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 18
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 9
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 12
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 18
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 6
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 9
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 11
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 14
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 8
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 18
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 16
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 17
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 13
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 6
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 13
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 18
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 14
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 15
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 15
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 10
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 10
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 18
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 8
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 10
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 5
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 8
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 10
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 11
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 12
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 13
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 9
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 7
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 16
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 5
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 14
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 15
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 9
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 13
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 5
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 11
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 18
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 10
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 19
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 17
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 11
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 11
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-20",
-    "items": [
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 14
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 5
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 7
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 13
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 16
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 16
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 9
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 17
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 5
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 12
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 18
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 17
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 13
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 15
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 19
       },
       {
         "product_name": "Kran Air Amico 1/2",
@@ -1842,385 +12,7 @@
       },
       {
         "product_name": "Semen Gresik",
-        "quantity": 15
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 18
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 12
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 9
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 7
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 5
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 8
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 18
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 17
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 11
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 10
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 11
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 7
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 12
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 18
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 6
-      },
-      {
-        "product_name": "Meteran 5M",
         "quantity": 16
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 11
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 15
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 12
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 17
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 12
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 17
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 5
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 5
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 12
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 16
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 10
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 7
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 17
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 13
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 9
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 11
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 8
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 7
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 16
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 13
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 11
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 19
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 14
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 15
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 18
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 14
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 15
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 8
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 14
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 6
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 8
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 16
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 8
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 10
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 15
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 9
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 17
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 9
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 15
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 16
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 7
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 17
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 7
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 19
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 5
-      },
-      {
-        "product_name": "Selotip",
-        "quantity": 17
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 9
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 16
-      },
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 17
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 14
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 17
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 6
-      }
-    ]
-  },
-  {
-    "order_date": "2024-05-21",
-    "items": [
-      {
-        "product_name": "Sekrup Baja 2 dim",
-        "quantity": 6
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 16
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 14
-      },
-      {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 17
-      },
-      {
-        "product_name": "Bor Besi 2MM",
-        "quantity": 10
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 7
       },
       {
         "product_name": "Cat Tembok EMCO",
@@ -2228,116 +20,1722 @@
       },
       {
         "product_name": "Selotip",
+        "quantity": 19
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
         "quantity": 15
       },
       {
-        "product_name": "Lem Besi Dextone",
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 18
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 17
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
         "quantity": 18
       },
       {
         "product_name": "Meteran 5M",
-        "quantity": 16
+        "quantity": 17
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 6
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 9
       },
       {
         "product_name": "Cat Semprot",
-        "quantity": 11
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Paku Beton 3 dim",
-        "quantity": 16
-      },
-      {
-        "product_name": "Semen Gresik",
-        "quantity": 14
+        "quantity": 12
       }
     ]
   },
   {
-    "order_date": "2024-05-21",
+    "order_date": "2024-04-18",
     "items": [
       {
-        "product_name": "Cat Semprot",
-        "quantity": 15
-      },
-      {
-        "product_name": "Cat Tembok EMCO",
-        "quantity": 14
-      },
-      {
-        "product_name": "Lem Besi Dextone",
-        "quantity": 16
-      },
-      {
-        "product_name": "Pisau Potong WD",
-        "quantity": 12
-      },
-      {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 15
+        "product_name": "Bor Besi 2MM",
+        "quantity": 8
       },
       {
         "product_name": "Kran Air Amico 1/2",
-        "quantity": 16
+        "quantity": 19
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 5
       },
       {
         "product_name": "Semen Gresik",
-        "quantity": 6
+        "quantity": 14
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 5
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 18
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 12
       },
       {
         "product_name": "Paku Beton 3 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Semprot",
         "quantity": 16
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 15
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 18
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 14
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 6
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 6
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 15
       },
       {
         "product_name": "Bor Besi 2MM",
         "quantity": 13
       },
       {
+        "product_name": "Pisau Potong WD",
+        "quantity": 15
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 6
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 6
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 6
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 18
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 5
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 18
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 5
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 9
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 19
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 6
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 11
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 7
+      },
+      {
         "product_name": "Sekrup Baja 2 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 12
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 19
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 5
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 6
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 11
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 9
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 17
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 15
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 6
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 15
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 9
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 9
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 16
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 19
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 10
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 10
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 18
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 5
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 11
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 11
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 6
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 12
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 18
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 15
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 12
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 19
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 13
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 19
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 15
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Selotip",
         "quantity": 11
       },
       {
         "product_name": "Kran Air Sanho 1/2",
+        "quantity": 18
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 14
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 13
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 6
+      },
+      {
+        "product_name": "Meteran 5M",
         "quantity": 19
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 12
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 18
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 7
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 10
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 9
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-18",
+    "items": [
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 9
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 15
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 9
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 10
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 9
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 19
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 11
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 10
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 15
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 10
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 18
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 12
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 7
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 9
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 13
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 17
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 14
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 11
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 6
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 14
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 14
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 18
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 9
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 7
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 16
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 19
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 6
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 5
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 19
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 12
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 15
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 8
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 10
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 7
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 6
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 16
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 8
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 17
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 16
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 18
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 9
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 14
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 10
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 14
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 6
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 13
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 17
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 5
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 14
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 18
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 5
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 7
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 6
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 19
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 10
       },
       {
         "product_name": "Baut Drilling 12x25cm",
         "quantity": 17
       },
       {
-        "product_name": "Selotip",
-        "quantity": 6
+        "product_name": "Bor Besi 2MM",
+        "quantity": 14
       },
       {
-        "product_name": "Meteran 5M",
-        "quantity": 14
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 8
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 10
       }
     ]
   },
   {
-    "order_date": "2024-05-21",
+    "order_date": "2024-04-19",
     "items": [
       {
         "product_name": "Kran Air Sanho 1/2",
-        "quantity": 8
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 18
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 14
       },
       {
         "product_name": "Sekrup Baja 2 dim",
-        "quantity": 9
+        "quantity": 12
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 5
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 14
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 7
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 15
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 14
       },
       {
         "product_name": "Baut Drilling 12x25cm",
+        "quantity": 14
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 18
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 7
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 15
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 13
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 13
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 13
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Pisau Potong WD",
         "quantity": 9
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 9
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 10
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 15
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 11
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 17
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 8
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 16
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 12
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 11
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 5
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 13
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 9
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 10
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 7
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 10
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 14
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 16
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 19
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 19
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 9
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-19",
+    "items": [
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 11
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 15
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 18
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 8
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 8
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 16
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 18
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 9
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 17
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 11
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 19
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 11
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 9
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 13
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 18
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 5
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 6
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 11
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 18
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 7
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 14
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 19
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 10
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 13
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 15
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 5
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 13
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 17
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 13
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 18
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 16
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 11
       },
       {
         "product_name": "Lem Besi Dextone",
         "quantity": 5
       },
       {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 8
+      },
+      {
         "product_name": "Cat Tembok EMCO",
+        "quantity": 11
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 6
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 13
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 10
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 9
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 17
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 12
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 5
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 6
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 5
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 16
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 6
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 16
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 16
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 7
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 13
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 16
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 7
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 17
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Selotip",
+        "quantity": 8
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 18
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 6
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 16
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 13
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 19
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 16
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 12
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 18
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 13
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 11
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 19
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 18
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 13
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 8
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 12
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 11
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 17
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 19
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 18
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 17
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 14
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 9
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 12
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 13
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 19
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 18
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 5
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 6
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 17
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 14
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-20",
+    "items": [
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 12
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 8
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 6
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 12
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Lem Besi Dextone",
         "quantity": 18
       },
       {
@@ -2345,52 +1743,186 @@
         "quantity": 6
       },
       {
-        "product_name": "Pisau Potong WD",
-        "quantity": 19
-      },
-      {
-        "product_name": "Cat Semprot",
-        "quantity": 13
-      },
-      {
-        "product_name": "Meteran 5M",
-        "quantity": 5
-      },
-      {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 8
-      },
-      {
         "product_name": "Semen Gresik",
-        "quantity": 6
+        "quantity": 18
       },
       {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 11
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 12
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 9
       },
       {
         "product_name": "Paku Beton 3 dim",
-        "quantity": 16
+        "quantity": 13
       },
       {
-        "product_name": "Selotip",
-        "quantity": 12
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 14
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 5
       }
     ]
   },
   {
-    "order_date": "2024-05-21",
+    "order_date": "2024-04-20",
     "items": [
       {
-        "product_name": "Kran Air Amico 1/2",
-        "quantity": 14
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 5
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 15
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 16
       },
       {
         "product_name": "Semen Gresik",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 17
+      },
+      {
+        "product_name": "Pisau Potong WD",
         "quantity": 14
       },
       {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
+      },
+      {
         "product_name": "Paku Beton 3 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 12
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 18
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 19
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 11
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 8
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 16
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 19
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 12
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 19
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 10
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 8
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 17
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 18
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 6
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 13
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 19
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 7
+      },
+      {
+        "product_name": "Lem Besi Dextone",
         "quantity": 16
       },
       {
@@ -2398,23 +1930,255 @@
         "quantity": 11
       },
       {
-        "product_name": "Sekrup Baja 3 dim",
-        "quantity": 16
+        "product_name": "Cat Semprot",
+        "quantity": 6
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 7
       },
       {
         "product_name": "Selotip",
-        "quantity": 16
-      },
-      {
-        "product_name": "Baut Drilling 12x25cm",
-        "quantity": 5
+        "quantity": 14
       },
       {
         "product_name": "Pisau Potong WD",
-        "quantity": 9
+        "quantity": 10
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 17
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 8
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 15
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 19
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 11
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 8
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 19
       },
       {
         "product_name": "Lem Besi Dextone",
+        "quantity": 10
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 18
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 11
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 11
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 8
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 9
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 7
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 15
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 9
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 8
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 13
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 18
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 18
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 13
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 6
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 18
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 5
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 11
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 10
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 17
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 10
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 16
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 5
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 15
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 7
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 8
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 5
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 11
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 13
+      },
+      {
+        "product_name": "Pisau Potong WD",
         "quantity": 16
       },
       {
@@ -2422,20 +2186,256 @@
         "quantity": 14
       },
       {
-        "product_name": "Cat Semprot",
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Kran Air Amico 1/2",
         "quantity": 19
       },
       {
-        "product_name": "Kran Air Sanho 1/2",
-        "quantity": 14
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 19
       },
       {
-        "product_name": "Cat Tembok EMCO",
+        "product_name": "Cat Semprot",
+        "quantity": 10
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 11
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 10
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 7
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 6
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 9
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
         "quantity": 5
       },
       {
         "product_name": "Bor Besi 2MM",
+        "quantity": 17
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 17
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 16
+      },
+      {
+        "product_name": "Pisau Potong WD",
         "quantity": 10
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 10
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 16
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 10
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 17
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 11
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 14
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 8
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 7
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 13
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 15
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 12
+      },
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 19
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 19
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 17
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 6
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 7
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 9
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 18
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 18
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 7
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 14
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 7
+      }
+    ]
+  },
+  {
+    "order_date": "2024-04-21",
+    "items": [
+      {
+        "product_name": "Cat Semprot",
+        "quantity": 9
+      },
+      {
+        "product_name": "Pisau Potong WD",
+        "quantity": 6
+      },
+      {
+        "product_name": "Sekrup Baja 3 dim",
+        "quantity": 16
+      },
+      {
+        "product_name": "Selotip",
+        "quantity": 13
+      },
+      {
+        "product_name": "Semen Gresik",
+        "quantity": 10
+      },
+      {
+        "product_name": "Cat Tembok EMCO",
+        "quantity": 15
+      },
+      {
+        "product_name": "Lem Besi Dextone",
+        "quantity": 15
+      },
+      {
+        "product_name": "Meteran 5M",
+        "quantity": 11
+      },
+      {
+        "product_name": "Paku Beton 3 dim",
+        "quantity": 10
+      },
+      {
+        "product_name": "Kran Air Sanho 1/2",
+        "quantity": 7
+      },
+      {
+        "product_name": "Kran Air Amico 1/2",
+        "quantity": 8
+      },
+      {
+        "product_name": "Baut Drilling 12x25cm",
+        "quantity": 15
+      },
+      {
+        "product_name": "Sekrup Baja 2 dim",
+        "quantity": 10
+      },
+      {
+        "product_name": "Bor Besi 2MM",
+        "quantity": 14
       }
     ]
   }
