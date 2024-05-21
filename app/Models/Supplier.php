@@ -16,4 +16,9 @@ class Supplier extends Model
         'telp',
         'description',
     ];
+
+    public function pemesanan()
+    {
+        return $this->belongsTo(Pemesanan::class);
+    }
 }

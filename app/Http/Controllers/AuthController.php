@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function redirect()
     {
         if (Auth::user()->role == 'admin') {
-            return redirect()->route('master.barang.index');
+            return redirect()->route('pengelolaan.pesan-barang.index');
         }
 
         return redirect()->route('user.index');

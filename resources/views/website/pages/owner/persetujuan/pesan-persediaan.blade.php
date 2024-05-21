@@ -1,16 +1,16 @@
 @extends('website.components.master')
-@section('title', 'Laporan Pesan Persediaan')
+@section('title', 'Persetujuan Pesan Persediaan')
 @section('container')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Laporan Pesan Persediaan</h1>
+                    <h1 class="m-0">Data Pemesanan Persediaan</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Laporan</li>
+                        <li class="breadcrumb-item active">Persetujuan</li>
                     </ol>
                 </div>
             </div>
@@ -23,33 +23,35 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan Pesan Persediaan</h3>
+                            <h3 class="card-title">Data Pemesanan Persediaan</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Nama Supplier</th>
-                                        <th>Nama Barang</th>
-                                        <th>Tgl Pesan</th>
+                                        <th>Supplier</th>
+                                        <th>Status Pemesanan</th>
+                                        <th>Tanggal Pemesanan</th>
                                         <th>Biaya Pemesanan</th>
-                                        <th>Harga</th>
-                                        <th>Jumlah Pesanan (satuan)</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($data as $item)
+                                    @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
+                                            <td>{{ $item->supplier[0]->name }}</td>
+                                            <td>{{ ternary_3($item->is_verify != false, $item->is_verify == true, 'Diterima', 'Ditolak', 'Menunggu Persetujuan') }}
+                                            </td>
+                                            <td>{{ format_date($item->created_at) }}</td>
+                                            <td>{{ format_rupiah($item->order_cost) }}</td>
+                                            <td>
+                                                <a href="{{ route('persetujuan.pesan-persetujuan.detail', $item->slug) }}"
+                                                    class="btn btn-success">Persetujuan</a>
+                                            </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -58,7 +60,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 
 @push('css')

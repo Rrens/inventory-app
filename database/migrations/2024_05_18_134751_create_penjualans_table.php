@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barangs', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->float('saving_cost');
-            $table->float('price');
-            $table->string('unit');
-            $table->integer('eoq')->default(0);
-            $table->integer('quantity');
+        Schema::create('penjualans', function (Blueprint $table) {
+            $table->string('penjualan_id');
+            $table->primary('penjualan_id');
+            $table->string('slug');
+            $table->double('grand_total')->nullable();
+            $table->date('order_date')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index(['penjualan_id']);
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barangs');
+        Schema::dropIfExists('penjualans');
     }
 };
