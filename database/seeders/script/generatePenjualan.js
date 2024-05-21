@@ -19,7 +19,7 @@ function generateOrders(numOrders = 40, buildingSupplies) {
     const orders = [];
     for (let i = 0; i < numOrders; i++) {
         const order = {
-            order_date: `2024-05-${18 + Math.floor(i / 10)}`,
+            order_date: `2024-04-${18 + Math.floor(i / 10)}`,
             items: []
         };
 
