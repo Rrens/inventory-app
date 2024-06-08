@@ -55,6 +55,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::post('add-cart', [PesanBarangController::class, 'store_cart'])->name('pengelolaan.pesan-barang.store-cart');
             Route::post('update-cart', [PesanBarangController::class, 'update_cart'])->name('pengelolaan.pesan-barang.update-cart');
             Route::post('delete-cart', [PesanBarangController::class, 'delete_cart'])->name('pengelolaan.pesan-barang.delete-cart');
+            Route::post('count-eoq',  [PesanBarangController::class, 'count_eoq']);
+            Route::get('check-stock/{id_barang}',  [PesanBarangController::class, 'checkStock']);
         });
 
         Route::prefix('barang-masuk')->group(function () {

@@ -32,7 +32,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="barang_id">Pilih Barang</label>
-                                            <select name="barang_id" id="barang_id" class="form-control">
+                                            <select name="barang_id" id="barang_id" class="form-control" required>
                                                 <option selected hidden>Pilih</option>
                                                 @foreach ($products as $item)
                                                     <option data-price="{{ $item->price }}" value="{{ $item->id }}">
@@ -61,7 +61,7 @@
                                         <div class="form-group">
                                             <label for="quantity">Kuantitas Pembelian</label>
                                             <input type="number" class="form-control" name="quantity"
-                                                value="{{ old('quantity') }}" id="quantity">
+                                                value="{{ old('quantity') }}" id="quantity" readonly required>
                                         </div>
                                     </div>
                                 </div>
@@ -74,11 +74,19 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header d-flex align-items-center">
                                     <h3 class="card-title">List Pemesanan</h3>
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                        data-target="#modal-biaya-pemesanan" style="margin-left: 10px;">
+                                        Biaya Pemesanan
+                                    </button>
                                 </div>
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-head-fixed text-nowrap">
+                                <div class="card-body
+                                        table-responsive p-0">
+                                    <p style="margin-top: 10px; margin-left: 20px;">Biaya Pemesanan: <span id="biaya">Rp
+                                            0,00</span></p>
+
+                                    <table class="table table-head-fixed text-nowrap" id="table-pesan-barang">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -90,10 +98,10 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($cart as $item)
-                                                <tr>
+                                                <tr data-item-id="{{ $item->id }}">
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->barang[0]->name }}</td>
-                                                    <td>{{ $item->barang[0]->eoq }}</td>
+                                                    <td>0</td>
                                                     <td>{{ $item->quantity }}</td>
                                                     <td>
                                                         <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
@@ -112,7 +120,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="button" class="btn btn-default float-right" data-toggle="modal"
-                                        data-target="#modal-save">
+                                        data-target="#modal-save" id="btn-simpan-cart" hidden>
                                         Simpan
                                     </button>
                                 </div>
@@ -168,8 +176,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Rp</span>
                                         </div>
-                                        <input type="number" class="form-control" value="{{ old('order_cost') }}"
-                                            name="order_cost" id="order_cost">
+                                        <input type="number" class="form-control" name="order_cost" id="order_cost"
+                                            readonly>
                                     </div>
                                 </div>
                             </div>
@@ -180,6 +188,38 @@
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-biaya-pemesanan">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Biaya Pemesanan</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Rp</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="biaya-pemesanan-modal"
+                                        placeholder="Masukan biaya pemesanan">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
@@ -271,6 +311,95 @@
 @push('script')
     <script>
         $('#barang_id').on('change', function() {
+            $('#quantity').prop('readonly', false)
+        })
+    </script>
+    <script>
+        $('#quantity').on('input', function() {
+            let quantity = parseInt($(this).val());
+            let itemId = $('#barang_id').val();
+            $.ajax({
+                url: `/pengelolaan/pesan-barang/check-stock/${itemId}`,
+                method: 'GET',
+                dataType: "json",
+                success: function(response) {
+                    // console.log(response[0])
+                    let stock = response[0];
+
+                    if (quantity > stock) {
+                        alert('Kuantitas melebihi stok!');
+                        $('#quantity').val(stock); // Mengatur kuantitas menjadi nilai stok
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error calculating EOQ:', error);
+                }
+            })
+        })
+    </script>
+    <script>
+        function calculateEOQ(data) {
+            $.ajax({
+                url: '/pengelolaan/pesan-barang/count-eoq',
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    data: data,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    // console.log(response.pemesanan)
+                    let data = response.pemesanan
+                    for (let index = 0; index < data.length; index++) {
+                        console.log(data[index]);
+                        let eoq = data[index].eoq;
+                        let rowIndex = data[index].rowIndex;
+                        $('#table-pesan-barang tbody tr').eq(rowIndex).find('td').eq(2).text(eoq);
+
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error calculating EOQ:', error);
+                }
+            });
+        }
+
+        // Event listener for the input field
+        $('#biaya-pemesanan-modal').on('change', function() {
+            let orderingCost = $(this).val();
+            let arrayData = [];
+
+            if (orderingCost > 0) {
+                $('#btn-simpan-cart').prop('hidden', false)
+            } else {
+                $('#btn-simpan-cart').prop('hidden', true)
+            }
+            $('#order_cost').val(orderingCost)
+            $('#biaya').text(formatRupiah(orderingCost))
+            $('#table-pesan-barang tbody tr').each(function(index) {
+                let itemId = $(this).data('item-id');
+                if (itemId) {
+                    arrayData.push({
+                        itemId: itemId,
+                        orderingCost: orderingCost,
+                        rowIndex: index
+                    });
+                }
+            });
+            calculateEOQ(arrayData)
+        });
+
+        function formatRupiah(angka) {
+            const formatter = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
+            return formatter.format(angka);
+        }
+    </script>
+    <script>
+        $('#barang_id').on('change', function() {
             let price_product = $(this).find(':selected');
             let price = price_product[0].attributes[0].value
             $('#price').val(price)
@@ -282,14 +411,11 @@
             $('#price_update').val(price)
         })
 
-        $('#quantity').on('change', function() {
-            let quantity = $(this).val()
-            let price = $('#price').val()
-            let cost = $('#cost').val()
-            console.log(quantity)
-            console.log(price)
-            let total_price = (quantity * price) + parseInt(cost)
-            $('#total_price').text('Rp ' + total_price)
-        })
+        // $('#quantity').on('change', function() {
+        //     let quantity = $(this).val()
+        //     let cost = $('#cost').val()
+        //     let total_price = (quantity * price) + parseInt(cost)
+        //     $('#total_price').text('Rp ' + total_price)
+        // })
     </script>
 @endpush

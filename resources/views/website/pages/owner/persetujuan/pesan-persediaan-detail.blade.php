@@ -41,7 +41,7 @@
                                     @foreach ($detail_penjualan as $item)
                                         <tr>
                                             <td>{{ $item->nama_barang }}</td>
-                                            <td>{{ $item->jumlah_pemesanan }}</td>
+                                            <td>{{ $item->stok }}</td>
                                             <td>{{ $item->eoq }}</td>
                                             <td>{{ $item->rop }}</td>
                                             <td>{{ $item->jumlah_pemesanan }}</td>

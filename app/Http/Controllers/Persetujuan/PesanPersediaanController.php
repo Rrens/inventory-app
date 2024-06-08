@@ -26,6 +26,7 @@ class PesanPersediaanController extends Controller
     {
         $active = 'pesan-persediaan';
         $active_group = 'persetujuan';
+        // dd($slug);
 
         $data = Pemesanan::where('slug', $slug)->first();
         $pemesanan_id = $data->pemesanan_id;
@@ -33,7 +34,7 @@ class PesanPersediaanController extends Controller
         $data_detail = DB::table('pemesanans as p')
             ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
             ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
-            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity')
+            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock')
             ->where('p.slug', $slug)
             ->get();
 
@@ -60,6 +61,7 @@ class PesanPersediaanController extends Controller
                 ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
                 ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
                 ->first();
+            // dd($data);
             $lead_time = !empty($avg_date->lead_time) ? $avg_date->lead_time : 2;
             $ss = ($data->max - $data->avg) * $lead_time;
             $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
@@ -71,7 +73,7 @@ class PesanPersediaanController extends Controller
                 'barang_id' => $item->id,
                 'nama_barang' => $item->name,
                 'jumlah_pemesanan' => $item->quantity,
-                'stok' => $item->quantity,
+                'stok' => $item->stock,
                 'eoq' => $item->eoq,
                 'rop' => $rop,
                 'max' => $data->max,
