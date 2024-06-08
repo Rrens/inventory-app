@@ -98,7 +98,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($cart as $item)
-                                                <tr data-item-id="{{ $item->id }}">
+                                                <tr data-item-id="{{ $item->barang_id }}">
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->barang[0]->name }}</td>
                                                     <td>0</td>
@@ -323,7 +323,6 @@
                 method: 'GET',
                 dataType: "json",
                 success: function(response) {
-                    // console.log(response[0])
                     let stock = response[0];
 
                     if (quantity > stock) {
@@ -349,7 +348,7 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    // console.log(response.pemesanan)
+                    console.log(response.pemesanan)
                     let data = response.pemesanan
                     for (let index = 0; index < data.length; index++) {
                         console.log(data[index]);
