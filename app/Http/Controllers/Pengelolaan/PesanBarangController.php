@@ -119,6 +119,8 @@ class PesanBarangController extends Controller
 
         $pemesanan_ID = Pemesanan::generateID();
 
+        // dd($this->count_eoq_store($request->order_cost, 1));
+
         unset($request['_token']);
         $data = new Pemesanan();
         $data->pemesanan_id = $pemesanan_ID;
@@ -162,7 +164,6 @@ class PesanBarangController extends Controller
 
         $data = DB::table('penjualan_details as dp')
             ->join('penjualans as p', 'dp.penjualan_id', '=', 'p.penjualan_id')
-            // ->join('barang_counters as bc', 'dp.barang_counter_id', '=', 'bc.barang_counter_id')
             ->join('barangs as b', 'dp.barang_id', '=', 'b.id')
             ->selectRaw('max(dp.quantity) as max, round(avg(dp.quantity)) as avg, sum(dp.quantity) as total')
             ->whereRaw("b.id = '" . $item_id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")->first();
@@ -179,6 +180,7 @@ class PesanBarangController extends Controller
             ->selectRaw('DATE_FORMAT(MAX(order_date),"%m-%Y") as bulan')
             ->whereRaw('DATE_FORMAT(order_date, "%m-%Y") < DATE_FORMAT(now(), "%m-%Y")')
             ->first();
+
         $hasil_hitung = [];
         $pemesanans = $request['data'];
         $s = $request['data'][0]['orderingCost'];
@@ -187,7 +189,6 @@ class PesanBarangController extends Controller
         foreach ($pemesanans as $pemesanan) {
             $data = DB::table('penjualan_details as dp')
                 ->join('penjualans as p', 'dp.penjualan_id', '=', 'p.penjualan_id')
-                // ->join('barang_counters as bc', 'dp.barang_counter_id', '=', 'bc.barang_counter_id')
                 ->join('barangs as b', 'dp.barang_id', '=', 'b.id')
                 ->selectRaw('max(dp.quantity) as max, round(avg(dp.quantity)) as avg, sum(dp.quantity) as total')
                 ->whereRaw("b.id = '" . $pemesanan['itemId'] . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")->first();

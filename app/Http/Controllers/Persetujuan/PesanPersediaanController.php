@@ -42,6 +42,8 @@ class PesanPersediaanController extends Controller
             ->selectRaw('DATE_FORMAT(MAX(order_date),"%m-%Y") as bulan')
             ->whereRaw('DATE_FORMAT(order_date, "%m-%Y") < DATE_FORMAT(now(), "%m-%Y")')
             ->first();
+        // dd($bulan_tahun, '09-2024' < '05-2024');
+
         $subdate = Carbon::createFromFormat('d-m-Y', '01' . "-" . $bulan_tahun->bulan)->format('Y-m-d H:i:s');
         $lastdate = Carbon::createFromFormat('d-m-Y H:i:s', '01' . "-" . $bulan_tahun->bulan . " 00:00:00")->addDay($this->jumlahHari($bulan_tahun->bulan))->format('Y-m-d H:i:s');
 

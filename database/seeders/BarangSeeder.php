@@ -21,14 +21,15 @@ class BarangSeeder extends Seeder
             'Selotip',
             'Pisau Potong WD',
             'Paku Beton 3 dim',
-            'Sekrup Baja 3 dim',
             'Sekrup Baja 2 dim',
+            'Kunci Pintu',
             'Baut Drilling 12x25cm',
+            'Sekrup Baja 1 dim',
             'Cat Semprot',
             'Lem Besi Dextone',
             'Meteran 5M',
             'Semen Gresik',
-            'Cat Tembok EMCO',
+            'Cat Tembok Paragon',
             'Bor Besi 2MM',
         ];
 
@@ -40,7 +41,7 @@ class BarangSeeder extends Seeder
             $barang->saving_cost = $faker->randomFloat(2, 10000, 30000);
             $barang->price = $faker->randomFloat(2, 100000, 300000);
             $barang->unit = $faker->randomElement(['pcs', 'zak', 'unit', 'pack', 'm3']);
-            $barang->quantity = $faker->numberBetween(10, 100);
+            $barang->quantity = $faker->numberBetween(100, 900);
             $barang->save();
         }
     }
