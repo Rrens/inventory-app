@@ -15,7 +15,7 @@ let buildingSupplies = [
     'Bor Besi 2MM',
 ];
 
-function generateOrders(numOrders = 40, buildingSupplies) {
+function generateOrders(buildingSupplies, numOrders = 40) {
     const orders = [];
     for (let i = 0; i < numOrders; i++) {
         const order = {
@@ -39,5 +39,5 @@ function generateOrders(numOrders = 40, buildingSupplies) {
     return orders;
 }
 
-const generatedOrders = generateOrders(40, buildingSupplies);
+const generatedOrders = generateOrders(buildingSupplies, 40);
 console.log(JSON.stringify(generatedOrders, null, 2));

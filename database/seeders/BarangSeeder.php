@@ -40,7 +40,7 @@ class BarangSeeder extends Seeder
             $barang->saving_cost = $faker->randomFloat(2, 10000, 30000);
             $barang->price = $faker->randomFloat(2, 100000, 300000);
             $barang->unit = $faker->randomElement(['pcs', 'zak', 'unit', 'pack', 'm3']);
-            $barang->quantity = $faker->numberBetween(1, 10);
+            $barang->quantity = $faker->numberBetween(10, 100);
             $barang->save();
         }
     }
