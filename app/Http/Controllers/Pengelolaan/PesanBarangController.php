@@ -44,13 +44,6 @@ class PesanBarangController extends Controller
         $check_cart =
             Cart::where('barang_id', $request->barang_id)->first();
 
-        $check_stock = Barang::where('id', $request->barang_id)->first();
-
-        if (!empty($check_cart) && $check_cart->quantity > $check_stock->quantity) {
-            Alert::toast('Kuantiti Melebihi Stok!', 'error');
-            return back()->withInput();
-        }
-
         if (!$check_cart) {
             $data = new Cart();
             $data->fill($request->all());
@@ -131,6 +124,8 @@ class PesanBarangController extends Controller
         // dd($data);
         $data->save();
 
+        $array_total_price = [];
+
         $cart = Cart::all();
         foreach ($cart as $item) {
 
@@ -145,7 +140,14 @@ class PesanBarangController extends Controller
             $data_detail->quantity = $item->quantity;
             $data_detail->eoq = $eoq;
             $data_detail->save();
+
+            array_push($array_total_price, ($product->price * $item->quantity));
         }
+
+        $total_price = array_sum($array_total_price);
+        // dd($total_price);
+
+        Pemesanan::where('pemesanan_id', $data->pemesanan_id)->update(['price_total' => $total_price]);
 
         Cart::truncate();
 

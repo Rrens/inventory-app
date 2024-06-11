@@ -88,7 +88,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::prefix('pesan-persetujuan')->group(function () {
             Route::get('', [PersetujuanPesanPersediaanController::class, 'index'])->name('persetujuan.pesan-persetujuan.index');
             Route::get('detail/{slug}', [PersetujuanPesanPersediaanController::class, 'detail'])->name('persetujuan.pesan-persetujuan.detail');
-            Route::post('change-verify', [PersetujuanPesanPersediaanController::class, 'action_verif_or_not'])->name('persetujuan.pesan-persetujuan.action_verif_or_not');
+            Route::get('change-verify/{status}/{id}', [PersetujuanPesanPersediaanController::class, 'action_verif_or_not'])->name('persetujuan.pesan-persetujuan.action_verif_or_not');
         });
 
         Route::prefix('pemakaian')->group(function () {

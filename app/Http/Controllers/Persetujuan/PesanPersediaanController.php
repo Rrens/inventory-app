@@ -28,13 +28,13 @@ class PesanPersediaanController extends Controller
         $active_group = 'persetujuan';
         // dd($slug);
 
-        $data = Pemesanan::where('slug', $slug)->first();
-        $pemesanan_id = $data->pemesanan_id;
+        $data_pemesanan = Pemesanan::where('slug', $slug)->first();
+        $pemesanan_id = $data_pemesanan->pemesanan_id;
 
         $data_detail = DB::table('pemesanans as p')
             ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
             ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
-            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock')
+            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime')
             ->where('p.slug', $slug)
             ->get();
 
@@ -63,8 +63,7 @@ class PesanPersediaanController extends Controller
                 ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
                 ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
                 ->first();
-            // dd($data);
-            $lead_time = !empty($avg_date->lead_time) ? $avg_date->lead_time : 2;
+            $lead_time = !empty($item->leadtime) ? $item->leadtime : 2;
             $ss = ($data->max - $data->avg) * $lead_time;
             $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
             $d = (int)round($data->total / $jumlah_hari);
@@ -93,26 +92,41 @@ class PesanPersediaanController extends Controller
         return view('website.pages.owner.persetujuan.pesan-persediaan-detail', compact(
             'active',
             'active_group',
-            'data',
+            'data_pemesanan',
             'detail_penjualan',
             'pemesanan_id'
         ));
     }
 
-    public function action_verif_or_not(Request $request)
+    public function action_verif_or_not($status, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'id' => 'required|exists:pemesanans,id',
-            'status' => 'required|in:decline,acc'
-        ]);
+        // $validator = Validator::make([$status, $id], [
+        //     'id' => 'required|exists:pemesanans,id',
+        //     'status' => 'required|in:decline,acc'
+        // ]);
 
-        if ($validator->fails()) {
-            Alert::toast($validator->messages()->all(), 'error');
+        // if ($validator->fails()) {
+        //     Alert::toast($validator->messages()->all(), 'error');
+        //     dd($validator->messages()->all(), $status, $id);
+        //     return back();
+        // }
+
+        if (empty($status)) {
+            Alert::toast('The status field is required.', 'error');
             return back();
         }
 
-        $data = Pemesanan::findOrFail($request->id);
-        if ($request->status == 'decline') {
+        if (empty($id)) {
+            Alert::toast('The slug field is required.', 'error');
+            return back();
+        }
+
+        $data = Pemesanan::where('pemesanan_id', $id)->first();
+        if (empty($data)) {
+            Alert::toast('Data not found.', 'error');
+            return back();
+        }
+        if ($status == 'decline') {
             $data->is_verify = false;
         } else {
             $data->is_verify = true;

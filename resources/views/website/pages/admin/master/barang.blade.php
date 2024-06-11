@@ -35,10 +35,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Barang</th>
                                         <th>Nama Barang (satuan)</th>
                                         <th>Harga Barang</th>
-                                        <th>ROP | QTY</th>
                                         <th>Biaya Simpan</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,10 +46,8 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>Rp{{ number_format($item->price) }}</td>
-                                            <td></td>
                                             <td>Rp{{ number_format($item->saving_cost) }}</td>
                                             <td>
                                                 <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
@@ -107,9 +103,9 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="quantity">Kuantiti</label>
-                                    <input type="text" class="form-control" name="quantity"
-                                        value="{{ old('quantity') }}" id="quantity">
+                                    <label for="leadtime">Lead Time</label>
+                                    <input type="text" class="form-control" name="leadtime"
+                                        value="{{ old('leadtime') }}" id="leadtime">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -192,10 +188,10 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="quantity">Kuantiti</label>
-                                        <input type="text" class="form-control" name="quantity"
-                                            value="{{ !empty(old('quantity')) ? old('quantity') : $item->quantity }}"
-                                            id="quantity">
+                                        <label for="leadtime">Lead Time</label>
+                                        <input type="text" class="form-control" name="leadtime"
+                                            value="{{ !empty(old('leadtime')) ? old('leadtime') : $item->leadtime }}"
+                                            id="leadtime">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -303,7 +299,7 @@
                                 <p>ID Barang:</p>
                             </div>
                             <div class="col-6">
-                                <p>{{ $item->id }}</p>
+                                <p>: {{ $item->id }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -311,7 +307,15 @@
                                 <p>Nama Barang:</p>
                             </div>
                             <div class="col-6">
-                                <p>{{ $item->name }}</p>
+                                <p>: {{ $item->name }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <p>Kuantiti:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>: {{ $item->quantity }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -319,7 +323,7 @@
                                 <p>Biaya Simpan Barang:</p>
                             </div>
                             <div class="col-6">
-                                <p>Rp{{ number_format($item->saving_cost) }}</p>
+                                <p>: Rp{{ number_format($item->saving_cost) }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -327,7 +331,7 @@
                                 <p>Harga Barang:</p>
                             </div>
                             <div class="col-6">
-                                <p>Rp{{ number_format($item->price) }}</p>
+                                <p>: Rp{{ number_format($item->price) }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -335,7 +339,7 @@
                                 <p>Satuan Barang:</p>
                             </div>
                             <div class="col-6">
-                                <p>{{ $item->unit }}</p>
+                                <p>: {{ $item->unit }}</p>
                             </div>
                         </div>
                     </div>

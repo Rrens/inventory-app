@@ -314,7 +314,7 @@
             $('#quantity').prop('readonly', false)
         })
     </script>
-    <script>
+    {{-- <script>
         $('#quantity').on('input', function() {
             let quantity = parseInt($(this).val());
             let itemId = $('#barang_id').val();
@@ -336,7 +336,7 @@
                 }
             })
         })
-    </script>
+    </script> --}}
     <script>
         function calculateEOQ(data) {
             $.ajax({

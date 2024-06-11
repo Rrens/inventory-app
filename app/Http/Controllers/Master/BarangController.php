@@ -28,7 +28,7 @@ class BarangController extends Controller
             'saving_cost' => 'required|numeric',
             'name' => 'required',
             'price' => 'required|numeric',
-            'quantity' => 'required|numeric',
+            'leadtime' => 'required|numeric',
             'unit' => 'required|in:unit,pcs,pack,zak,m3'
         ]);
 
@@ -56,7 +56,7 @@ class BarangController extends Controller
             'saving_cost' => 'required|numeric',
             'name' => 'required',
             'price' => 'required|numeric',
-            'quantity' => 'required|numeric',
+            'leadtime' => 'required|numeric',
             'unit' => 'required|in:unit,pcs,pack,zak,m3'
         ]);
 

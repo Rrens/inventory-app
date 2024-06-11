@@ -24,6 +24,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Pesan Persediaan : {{ $pemesanan_id }}</h3>
+                            {{-- @dd($data_pemesanan) --}}
+                            @if ($data_pemesanan->is_verify == true)
+                                <button class="btn btn-outline-success btn-sm float-right m-auto" data-toggle="modal"
+                                    data-target="#modal-acc">
+                                    Simpan
+                                </button>
+                            @endif
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -34,7 +41,6 @@
                                         <th>EOQ</th>
                                         <th>ROP</th>
                                         <th>Jumlah Pemesanan</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,17 +51,6 @@
                                             <td>{{ $item->eoq }}</td>
                                             <td>{{ $item->rop }}</td>
                                             <td>{{ $item->jumlah_pemesanan }}</td>
-                                            <td>
-                                                <button class="btn btn-outline-success btn-sm" data-toggle="modal"
-                                                    data-target="#modal-acc{{ $item->barang_id }}">
-                                                    <i class="fa fa-check-circle"></i>
-                                                </button>
-                                                <button data-toggle="modal"
-                                                    data-target="#modal-decline{{ $item->barang_id }}"
-                                                    class="btn btn-outline-danger btn-sm">
-                                                    <i class="fa fa-times-circle"></i>
-                                                </button>
-                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -67,31 +62,34 @@
         </div>
     </section>
 
-    {{-- @foreach ($data as $item)
-        <div class="modal fade" id="modal-acc{{ $item->id }}">
-            <div class="modal-dialog modal-md modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Setuju Pesan Persediaan {{ $item->barang[0]->name }}?</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+    {{-- @dd($pemesanan_id); --}}
+    <div class="modal fade" id="modal-acc">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Setuju Pesan Persediaan?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @csrf
+                <div class="modal-footer justify-content-between">
+                    <input type="number" value="{{ $pemesanan_id }}" name="id" hidden>
+                    <div class="flex-start">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
-                    <form action="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not') }}" method="post">
-                        @csrf
-                        <div class="modal-footer justify-content-between">
-                            <input type="number" value="{{ $item->id }}" name="id" hidden>
-                            <input type="text" name="status" value="acc" hidden>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Setuju</button>
-                        </div>
-                    </form>
+                    <div class="flex-end">
+                        <a href="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not', ['status' => 'decline', 'id' => $pemesanan_id]) }}"
+                            class="btn btn-outline-danger">Tolak</a>
+                        <a href="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not', ['status' => 'acc', 'id' => $pemesanan_id]) }}"
+                            class="btn btn-outline-success">Setuju</a>
+                    </div>
                 </div>
             </div>
         </div>
-    @endforeach
+    </div>
 
-    @foreach ($data as $item)
+    {{-- @foreach ($data as $item)
         <div class="modal fade" id="modal-decline{{ $item->id }}">
             <div class="modal-dialog modal-md modal-dialog-centered">
                 <div class="modal-content">

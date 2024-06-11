@@ -48,7 +48,7 @@
                                             <td>{{ format_rupiah($item->order_cost) }}</td>
                                             <td>
                                                 <a href="{{ route('persetujuan.pesan-persetujuan.detail', $item->slug) }}"
-                                                    class="btn btn-success">Persetujuan</a>
+                                                    class="btn btn-{{ $item->is_verify == true ? 'success' : 'primary' }}">{{ $item->is_verify == true ? 'Persetujuan' : 'Detail' }}</a>
                                             </td>
                                         </tr>
                                     @endforeach
