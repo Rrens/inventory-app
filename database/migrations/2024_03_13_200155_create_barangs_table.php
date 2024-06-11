@@ -18,7 +18,8 @@ return new class extends Migration
             $table->float('price');
             $table->string('unit');
             $table->integer('eoq')->default(0);
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
+            $table->integer('leadtime')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

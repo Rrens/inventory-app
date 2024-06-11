@@ -17,6 +17,7 @@ class Barang extends Model
         'price',
         'unit',
         'quantity',
+        'leadtime',
         'eoq',
     ];
 

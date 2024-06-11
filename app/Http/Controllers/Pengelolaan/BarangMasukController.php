@@ -18,7 +18,6 @@ class BarangMasukController extends Controller
         $active_group = 'pengelolaan';
 
         $data = Pemesanan::all();
-        // dd($data);
         $data_detail = PemesananDetail::all();
 
         return view('website.pages.admin.pengelolaan.barang-masuk', compact(
@@ -40,13 +39,20 @@ class BarangMasukController extends Controller
             return back();
         }
 
+
         $data = Pemesanan::find($request->id);
         $data->status = true;
         $data->save();
 
-        $barang = Barang::where('id', $data->barang_id)->first();
-        $barang->quantity += $data->quantity;
-        $barang->save();
+        $data_detail = PemesananDetail::where('pemesanan_id', $data->id)->get();
+        // dd($data_detail);
+        foreach ($data_detail as $item) {
+            $barang = Barang::where('id', $item->barang_id)->first();
+            $barang->quantity += $item->quantity;
+            $barang->save();
+        }
+
+
 
         Alert::toast('Barang Masuk Selesai disimpan', 'success');
         return back();
