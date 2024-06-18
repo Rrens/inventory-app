@@ -47,7 +47,7 @@
                                             @foreach ($products as $item)
                                                 <option data-price="{{ $item->price }}" data-stock="{{ $item->quantity }}"
                                                     data-name="{{ $item->name }}" value="{{ $item->id }}">
-                                                    {{ $item->name }}
+                                                    {{ $item->name . ' || (' . $item->quantity . ')' }}
                                                 </option>
                                             @endforeach
                                         </select>

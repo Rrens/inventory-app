@@ -32,7 +32,7 @@
                                         <th>ID</th>
                                         <th>Nama Barang</th>
                                         <th>Tgl Keluar</th>
-                                        <th>Jumlah Pakai</th>
+                                        <th>Jumlah Permintaan</th>
                                         <th>Stok Tersedia</th>
                                         <th>EOQ</th>
                                         <th>ROP</th>

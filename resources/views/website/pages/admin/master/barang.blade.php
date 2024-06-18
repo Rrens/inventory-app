@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Barang (satuan)</th>
+                                        <th>Stok</th>
                                         <th>Harga Barang</th>
                                         <th>Biaya Simpan</th>
                                         <th>Tempat Barang</th>
@@ -48,6 +49,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name }}</td>
+                                            <td>{{ $item->quantity }}</td>
                                             <td>{{ format_rupiah($item->price) }}</td>
                                             <td>{{ format_rupiah($item->saving_cost) }}</td>
                                             <td>{{ $item->place }}</td>
