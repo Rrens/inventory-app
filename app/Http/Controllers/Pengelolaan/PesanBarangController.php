@@ -20,7 +20,7 @@ class PesanBarangController extends Controller
         $active = 'pesan-barang';
         $active_group = 'pengelolaan';
 
-        $products = Barang::all();
+        $products = Barang::groupBy('name')->get();
         $suppliers = Supplier::all();
 
         $cart = Cart::all();
@@ -110,6 +110,8 @@ class PesanBarangController extends Controller
             return back()->withInput();
         }
 
+        // dd($request->all());
+
         $pemesanan_ID = Pemesanan::generateID();
 
         // dd($this->count_eoq_store($request->order_cost, 1));
@@ -121,6 +123,7 @@ class PesanBarangController extends Controller
         $data->supplier_id = $request->supplier_id;
         $data->store_for = $request->store_for;
         $data->order_cost = $request->order_cost;
+        $data->order_date = $request->order_date;
         // dd($data);
         $data->save();
 
