@@ -38,6 +38,7 @@
                                         <th>Nama Barang (satuan)</th>
                                         <th>Harga Barang</th>
                                         <th>Biaya Simpan</th>
+                                        <th>Tempat Barang</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,8 +48,9 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>Rp{{ number_format($item->price) }}</td>
-                                            <td>Rp{{ number_format($item->saving_cost) }}</td>
+                                            <td>{{ format_rupiah($item->price) }}</td>
+                                            <td>{{ format_rupiah($item->saving_cost) }}</td>
+                                            <td>{{ $item->place }}</td>
                                             <td>
                                                 <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                                     data-target="#modal-edit{{ $item->id }}">
@@ -106,6 +108,18 @@
                                     <label for="leadtime">Lead Time</label>
                                     <input type="text" class="form-control" name="leadtime"
                                         value="{{ old('leadtime') }}" id="leadtime">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="place">Tempat Barang</label>
+                                    <select name="place" id="place" class="form-control">
+                                        <option selected hidden>Pilih Tempat</option>
+                                        <option {{ old('place') == 'gudang' ? 'selected' : '' }} value="gudang">Gudang
+                                        </option>
+                                        <option {{ old('place') == 'toko' ? 'selected' : '' }} value="toko">Toko
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -192,6 +206,22 @@
                                         <input type="text" class="form-control" name="leadtime"
                                             value="{{ !empty(old('leadtime')) ? old('leadtime') : $item->leadtime }}"
                                             id="leadtime">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="place">Tempat Barang</label>
+                                        <select name="place" id="place" class="form-control">
+                                            <option selected hidden>Pilih Tempat</option>
+                                            <option
+                                                {{ old('place') == 'gudang' ? 'selected' : ($item->place == 'gudang' ? 'selected' : '') }}
+                                                value="gudang">Gudang
+                                            </option>
+                                            <option
+                                                {{ old('place') == 'toko' ? 'selected' : ($item->place == 'toko' ? 'selected' : '') }}
+                                                value="toko">Toko
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12">

@@ -40,25 +40,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>
-                                            <button class="btn btn-outline-success btn-sm" data-toggle="modal"
-                                                data-target="#modal-acc">
-                                                <i class="fa fa-check-circle"></i>
-                                            </button>
-                                            <button data-toggle="modal" data-target="#modal-decline"
-                                                class="btn btn-outline-danger btn-sm">
-                                                <i class="fa fa-times-circle"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->penjualan[0]->barang[0]->name }}</td>
+                                            <td>{{ $item->penjualan[0]->order_date }}</td>
+                                            <td>{{ $item->penjualan[0]->quantity }}</td>
+                                            <td>{{ $item->penjualan[0]->barang[0]->quantity }}</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>
+                                                <button class="btn btn-outline-success btn-sm" data-toggle="modal"
+                                                    data-target="#modal-acc">
+                                                    <i class="fa fa-check-circle"></i>
+                                                </button>
+                                                <button data-toggle="modal" data-target="#modal-decline"
+                                                    class="btn btn-outline-danger btn-sm">
+                                                    <i class="fa fa-times-circle"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

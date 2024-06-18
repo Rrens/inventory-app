@@ -25,7 +25,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Data Pesan Persediaan : {{ $pemesanan_id }}</h3>
                             {{-- @dd($data_pemesanan) --}}
-                            @if ($data_pemesanan->is_verify == true)
+                            @if ($data_pemesanan->is_verify != true)
                                 <button class="btn btn-outline-success btn-sm float-right m-auto" data-toggle="modal"
                                     data-target="#modal-acc">
                                     Simpan

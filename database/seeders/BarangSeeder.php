@@ -6,6 +6,7 @@ use App\Models\Barang;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Support\Arr;
 
 class BarangSeeder extends Seeder
 {
@@ -33,6 +34,11 @@ class BarangSeeder extends Seeder
             'Bor Besi 2MM',
         ];
 
+        $arrayPlace = [
+            'gudang',
+            'toko'
+        ];
+
         $faker = Faker::create();
 
         foreach ($buildingSupplies as $item) {
@@ -42,6 +48,8 @@ class BarangSeeder extends Seeder
             $barang->price = $faker->randomFloat(2, 100000, 300000);
             $barang->unit = $faker->randomElement(['pcs', 'zak', 'unit', 'pack', 'm3']);
             $barang->leadtime = $faker->numberBetween(1, 10);
+            $barang->place = Arr::random($arrayPlace);
+            $barang->quantity = $faker->numberBetween(100, 200);
             $barang->save();
         }
     }

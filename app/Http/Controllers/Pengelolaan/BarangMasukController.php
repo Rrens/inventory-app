@@ -17,13 +17,15 @@ class BarangMasukController extends Controller
         $active = 'barang-masuk-pengelolaan';
         $active_group = 'pengelolaan';
 
-        $data = Pemesanan::all();
-        $data_detail = PemesananDetail::all();
+        $data_detail = PemesananDetail::where('status', null)
+            ->whereHas('pemesanan', function ($query) {
+                $query->where('is_verify', true);
+            })
+            ->get();
 
         return view('website.pages.admin.pengelolaan.barang-masuk', compact(
             'active',
             'active_group',
-            'data',
             'data_detail'
         ));
     }
@@ -31,7 +33,9 @@ class BarangMasukController extends Controller
     public function barang_masuk_selesai(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id' => 'required|exists:pemesanans,id'
+            'id' => 'required|exists:barangs,id|exists:pemesanan_details,barang_id',
+            'pemesanan_id' => 'required|exists:pemesanans,id',
+            'place' => 'required|in:toko,gudang',
         ]);
 
         if ($validator->fails()) {
@@ -39,20 +43,33 @@ class BarangMasukController extends Controller
             return back();
         }
 
+        $data = Pemesanan::find($request->pemesanan_id);
 
-        $data = Pemesanan::find($request->id);
-        $data->status = true;
-        $data->save();
+        PemesananDetail::where('pemesanan_id', $data->id)->where('barang_id', (int) $request->id)->update(['status' => true, 'date_in' => now()]);
 
         $data_detail = PemesananDetail::where('pemesanan_id', $data->id)->get();
-        // dd($data_detail);
+
         foreach ($data_detail as $item) {
-            $barang = Barang::where('id', $item->barang_id)->first();
-            $barang->quantity += $item->quantity;
-            $barang->save();
+            $barang = Barang::where('id', $item->barang_id)
+                ->where('place', $request->place)
+                ->first();
+            if (!empty($barang)) {
+                $barang->quantity += $item->quantity;
+                $barang->save();
+            } else {
+                $barang_other_place = Barang::where('name', Barang::find($request->id)->name)->first();
+                $barang_new = new Barang();
+                $barang_new->quantity = $item->quantity;
+                // dd($barang_other_place->saving_cost, $barang_new);
+                $barang_new->name = $barang_other_place->name;
+                $barang_new->saving_cost = $barang_other_place->saving_cost;
+                $barang_new->price = $barang_other_place->price;
+                $barang_new->eoq = $barang_other_place->eoq;
+                $barang_new->unit = $barang_other_place->unit;
+                $barang_new->place = $request->place;
+                $barang_new->save();
+            }
         }
-
-
 
         Alert::toast('Barang Masuk Selesai disimpan', 'success');
         return back();

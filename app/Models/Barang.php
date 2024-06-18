@@ -19,6 +19,7 @@ class Barang extends Model
         'quantity',
         'leadtime',
         'eoq',
+        'place',
     ];
 
     public function pemesanan()
@@ -29,6 +30,11 @@ class Barang extends Model
     public function penjualan_detail()
     {
         return $this->belongsTo(PenjualanDetail::class);
+    }
+
+    public function penjualan()
+    {
+        return $this->belongsTo(Penjualan::class);
     }
 
     public function pemesanan_detail()

@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barangs', function (Blueprint $table) {
+        Schema::create('pemakaians', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->float('saving_cost');
-            $table->float('price');
-            $table->string('unit');
-            $table->integer('eoq')->default(0);
-            $table->integer('quantity')->default(0);
-            $table->integer('leadtime')->nullable();
-            $table->string('place')->nullable();
+            $table->string('penjualan_id')->nullable();
+            $table->foreign('penjualan_id')->references('penjualan_id')->on('penjualans');
+            $table->boolean('status')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barangs');
+        Schema::dropIfExists('pemakaians');
     }
 };
