@@ -16,6 +16,8 @@ class PemesananDetail extends Model
         'barang_id',
         'quantity',
         'eoq',
+        'status',
+        'date_in',
     ];
 
     public function pemesanan()

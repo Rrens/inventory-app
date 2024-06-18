@@ -19,6 +19,7 @@ class PesanPersediaanController extends Controller
         $active_group = 'persetujuan';
 
         $data = Pemesanan::all();
+        // dd($data);
         return view('website.pages.owner.persetujuan.pesan-persediaan', compact('active', 'active_group', 'data'));
     }
 
@@ -42,27 +43,37 @@ class PesanPersediaanController extends Controller
             ->selectRaw('DATE_FORMAT(MAX(order_date),"%m-%Y") as bulan')
             ->whereRaw('DATE_FORMAT(order_date, "%m-%Y") < DATE_FORMAT(now(), "%m-%Y")')
             ->first();
-        // dd($bulan_tahun, '09-2024' < '05-2024');
 
-        $subdate = Carbon::createFromFormat('d-m-Y', '01' . "-" . $bulan_tahun->bulan)->format('Y-m-d H:i:s');
-        $lastdate = Carbon::createFromFormat('d-m-Y H:i:s', '01' . "-" . $bulan_tahun->bulan . " 00:00:00")->addDay($this->jumlahHari($bulan_tahun->bulan))->format('Y-m-d H:i:s');
+        if (!empty($bulan_tahun->bulan)) {
+            $subdate = Carbon::createFromFormat('d-m-Y', '01' . "-" . $bulan_tahun->bulan)->format('Y-m-d H:i:s');
+            $lastdate = Carbon::createFromFormat('d-m-Y H:i:s', '01' . "-" . $bulan_tahun->bulan . " 00:00:00")->addDay($this->jumlahHari($bulan_tahun->bulan))->format('Y-m-d H:i:s');
+        }
 
-        $avg_date = DB::table('pemesanans as p')
-            ->join('persediaan_masuks as pm', 'p.pemesanan_id', '=', 'pm.pemesanan_id')
-            ->selectRaw('round(avg(DATEDIFF( pm.persediaan_masuk_date, p.created_at))) as lead_time')
-            ->where('p.status', 'Selesai')
-            ->whereBetween('pm.persediaan_masuk_date', [$subdate, $lastdate])
-            ->first();
+
+        // $avg_date = DB::table('pemesanans as p')
+        //     ->join('persediaan_masuks as pm', 'p.pemesanan_id', '=', 'pm.pemesanan_id')
+        //     ->selectRaw('round(avg(DATEDIFF( pm.persediaan_masuk_date, p.created_at))) as lead_time')
+        //     ->where('p.status', 'Selesai')
+        //     ->whereBetween('pm.persediaan_masuk_date', [$subdate, $lastdate])
+        //     ->first();
 
         $no = 1;
         $detail_penjualan = array();
         foreach ($data_detail as $item) {
-            $data = DB::table('penjualan_details as pd')
-                ->join('penjualans as p', 'pd.penjualan_id', '=', 'p.penjualan_id')
-                ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
-                ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
-                ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
-                ->first();
+            if (!empty($bulan_tahun->bulan)) {
+                $data = DB::table('penjualan_details as pd')
+                    ->join('penjualans as p', 'pd.penjualan_id', '=', 'p.penjualan_id')
+                    ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
+                    ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
+                    ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
+                    ->first();
+            } else {
+                $data = DB::table('penjualan_details as pd')
+                    ->join('penjualans as p', 'pd.penjualan_id', '=', 'p.penjualan_id')
+                    ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
+                    ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
+                    ->first();
+            }
             $lead_time = !empty($item->leadtime) ? $item->leadtime : 2;
             $ss = ($data->max - $data->avg) * $lead_time;
             $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);

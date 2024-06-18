@@ -72,14 +72,14 @@
                          </a>
                          <ul class="nav nav-treeview">
                              <li class="nav-item">
-                                 <a href="{{ route('pengelolaan.pesan-barang.index') }}"
+                                 <a href="{{ route('riwayat.barang-masuk.index') }}"
                                      class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
                                      <p>Pesan Barang</p>
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a href="{{ route('pengelolaan.barang-masuk.index') }}"
+                                 <a href="{{ route('riwayat.barang-masuk.index') }}"
                                      class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
                                      <p>Barang Masuk</p>
@@ -118,7 +118,8 @@
                                  </a>
                              </li>
                              <li class="nav-item">
-                                 <a href="#" class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
+                                 <a href="{{ route('pengelolaan.barang-keluar.index') }}"
+                                     class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
                                      <p>Barang Keluar</p>
                                  </a>

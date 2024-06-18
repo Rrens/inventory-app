@@ -29,7 +29,8 @@ class BarangController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'leadtime' => 'required|numeric',
-            'unit' => 'required|in:unit,pcs,pack,zak,m3'
+            'unit' => 'required|in:unit,pcs,pack,zak,m3',
+            'place' => 'required|in:gudang,toko',
         ]);
 
         // JIKA GAGAL MAKA MUNCUL ALERT
@@ -57,7 +58,8 @@ class BarangController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'leadtime' => 'required|numeric',
-            'unit' => 'required|in:unit,pcs,pack,zak,m3'
+            'unit' => 'required|in:unit,pcs,pack,zak,m3',
+            'place' => 'required|in:gudang,toko',
         ]);
 
         // JIKA GAGAL MAKA MUNCUL ALERT
