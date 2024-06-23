@@ -41,26 +41,28 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Nama Barang</th>
+                                        <th>Tanggal Masuk</th>
                                         <th>Harga</th>
                                         <th>Jumlah Pesanan (satuan)</th>
-                                        <th>Detail</th>
+                                        {{-- <th>Detail</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data_detail as $item)
                                         {{-- @dd($item, $data, $data->where('id', $item->pemesanan_id)[0]->order_cost) --}}
                                         <tr>
-                                            <td>{{ $item->pemesanan[0]->order_date }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->barang[0]->name }}</td>
+                                            <td>{{ $item->date_in }}</td>
                                             <td>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</td>
                                             </td>
                                             <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
-                                            <td>
+                                            {{-- <td>
                                                 <button class="btn btn-primary" data-toggle="modal"
                                                     data-target="#modal-detail{{ $item->id }}">
                                                     <i class="far fa-eye"></i>
                                                 </button>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -77,7 +79,6 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Setuju Pesan Persediaan?</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -102,7 +103,7 @@
                             </div>
                             <div class="col-6">
                                 <p>{{ $item->barang[0]->name }}</p>
-                                <p>{{ $item->pemesanan[0]->store_for }}</p>
+                                <p>{{ $item->barang[0]->place }}</p>
                                 <p>{{ $item->pemesanan[0]->order_date }}</p>
                                 <p>{{ $item->date_in }}</p>
                             </div>

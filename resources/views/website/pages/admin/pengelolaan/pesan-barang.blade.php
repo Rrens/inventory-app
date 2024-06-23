@@ -35,7 +35,9 @@
                                             <select name="barang_id" id="barang_id" class="form-control" required>
                                                 <option selected hidden>Pilih</option>
                                                 @foreach ($products as $item)
-                                                    <option data-price="{{ $item->price }}" value="{{ $item->id }}">
+                                                    <option data-price="{{ $item->price }}"
+                                                        {{ (empty(old('barang_id')) ? '' : old('barang_id') == $item->id) ? 'selected' : '' }}
+                                                        value="{{ $item->id }}">
                                                         {{ $item->name }}
                                                     </option>
                                                 @endforeach
@@ -160,14 +162,6 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12">
-                                <div class="form-group">
-                                    <label for="store_for">Dibeli untuk</label>
-                                    <select name="store_for" id="store_for" class="form-control">
-                                        <option selected hidden>Pilih tempat</option>
-                                        <option value="gudang">Gudang</option>
-                                        <option value="toko">Toko</option>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="quantity">Tanggal Pesan</label>
                                     <input type="date" name="order_date" class="form-control"

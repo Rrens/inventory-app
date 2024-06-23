@@ -39,6 +39,7 @@
                                         <th>Nama Barang</th>
                                         <th>Biaya Pesan</th>
                                         <th>Jumlah Pembelian</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,6 +51,12 @@
                                             <td>{{ $item->pemesanan[0]->order_cost }}</td>
                                             </td>
                                             <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
+                                            <td>
+                                                <button class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#modal-detail{{ $item->id }}">
+                                                    <i class="far fa-eye"></i>
+                                                </button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -67,7 +74,6 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Setuju Pesan Persediaan?</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -92,7 +98,7 @@
                             </div>
                             <div class="col-6">
                                 <p>{{ $item->barang[0]->name }}</p>
-                                <p>{{ $item->pemesanan[0]->store_for }}</p>
+                                <p>{{ $item->barang[0]->place }}</p>
                                 <p>{{ $item->pemesanan[0]->order_date }}</p>
                                 <p>{{ $item->date_in }}</p>
                             </div>

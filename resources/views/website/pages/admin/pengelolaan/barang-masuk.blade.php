@@ -51,7 +51,7 @@
                                                                 {{ format_number($item->quantity) }} pcs
                                                             </div>
                                                             <div class="col-6">Tempat penyimpanan :
-                                                                {{ $item->pemesanan[0]->store_for }}
+                                                                {{ $item->barang[0]->place }}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -66,8 +66,8 @@
                                                     @csrf
                                                     <input type="number" name="id" value="{{ $item->barang[0]->id }}"
                                                         hidden>
-                                                    <input type="text"name="place"
-                                                        value="{{ $item->pemesanan[0]->store_for }}" hidden>
+                                                    <input type="text"name="place" value="{{ $item->barang[0]->place }}"
+                                                        hidden>
                                                     <input type="number" name="pemesanan_id"
                                                         value="{{ $item->pemesanan[0]->id }}" hidden>
                                                     <button type="submit" class="btn btn-primary btn-sm"
