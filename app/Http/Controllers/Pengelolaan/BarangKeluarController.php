@@ -35,8 +35,6 @@ class BarangKeluarController extends Controller
             return response()->json($validator->messages()->all());
         }
 
-
-
         if ($request->value_stock == 'false') {
             $data = new Penjualan();
             $data->penjualan_id = Penjualan::generateID();
@@ -106,12 +104,13 @@ class BarangKeluarController extends Controller
 
             $data = DB::table('penjualans as p')
                 ->join('barangs as b', 'p.barang_id', '=', 'b.id')
-                ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total, b.leadtime')
+                ->selectRaw('max(b.quantity) as max, round(avg(b.quantity)) as avg, sum(b.quantity) as total, b.leadtime')
                 ->first();
         }
 
-        $lead_time = !empty($data->leadtime) ? $data->leadtime : 2;
+        $lead_time = !empty($data->leadtime) ? $data->leadtime : 5;
         $ss = ($data->max - $data->avg) * $lead_time;
+        // dd($ss, $data);
 
         return response()->json($ss);
     }

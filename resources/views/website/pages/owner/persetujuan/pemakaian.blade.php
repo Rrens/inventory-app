@@ -45,16 +45,16 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->penjualan[0]->barang[0]->name }}</td>
                                             <td>{{ $item->penjualan[0]->order_date }}</td>
-                                            <td>{{ $item->penjualan[0]->quantity }}</td>
-                                            <td>{{ $item->penjualan[0]->barang[0]->quantity }}</td>
+                                            <td>{{ format_number($item->penjualan[0]->quantity) }}</td>
+                                            <td>{{ format_number($item->penjualan[0]->barang[0]->quantity) }}</td>
                                             <td>0</td>
                                             <td>0</td>
                                             <td>
                                                 <button class="btn btn-outline-success btn-sm" data-toggle="modal"
-                                                    data-target="#modal-acc">
+                                                    data-target="#modal-acc{{ $item->id }}">
                                                     <i class="fa fa-check-circle"></i>
                                                 </button>
-                                                <button data-toggle="modal" data-target="#modal-decline"
+                                                <button data-toggle="modal" data-target="#modal-decline{{ $item->id }}"
                                                     class="btn btn-outline-danger btn-sm">
                                                     <i class="fa fa-times-circle"></i>
                                                 </button>
@@ -70,45 +70,53 @@
         </div>
     </section>
 
-    <div class="modal fade" id="modal-acc">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Setuju Pemakaian?</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="" method="post">
-                    @csrf
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Setuju</button>
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal-acc{{ $item->id }}">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Setuju Pemakaian?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </form>
+                    <form action="{{ route('persetujuan.pemakaian.store') }}" method="post">
+                        @csrf
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="text" name="id" value="{{ $item->id }}" hidden>
+                            <input type="text" value="approve" name="status" hidden>
+                            <button type="submit" class="btn btn-success">Setuju</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    @endforeach
 
-    <div class="modal fade" id="modal-decline">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tolak Pemakaian?</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="" method="post">
-                    @csrf
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Tolak</button>
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal-decline{{ $item->id }}">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tolak Pemakaian?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </form>
+                    <form action="{{ route('persetujuan.pemakaian.store') }}" method="post">
+                        @csrf
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="text" name="id" value="{{ $item->id }}" name="id" hidden>
+                            <input type="text" value="decline" name="status" hidden>
+                            <button type="submit" class="btn btn-danger">Tolak</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    @endforeach
 
 @endsection
 

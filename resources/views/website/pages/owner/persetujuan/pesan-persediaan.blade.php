@@ -30,7 +30,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Supplier</th>
+                                        {{-- <th>Supplier</th> --}}
                                         <th>Status Pemesanan</th>
                                         <th>Tanggal Pemesanan</th>
                                         <th>Biaya Pemesanan</th>
@@ -39,9 +39,10 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
+                                        {{-- @dd($item->pemesanan_detail); --}}
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->supplier[0]->name }}</td>
+                                            {{-- <td>{{ $item->pemesanan_detail->supplier[0]->name }}</td> --}}
                                             <td>{{ ternary_3($item->is_verify != false, $item->is_verify == true, 'Diterima', 'Ditolak', 'Menunggu Persetujuan') }}
                                             </td>
                                             <td>{{ format_date($item->created_at) }}</td>

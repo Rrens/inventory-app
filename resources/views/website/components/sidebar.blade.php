@@ -62,38 +62,6 @@
                              </li>
                          </ul>
                      </li>
-                     <li class="nav-item {{ $active_group == 'riwayat' ? 'menu-open' : '' }}">
-                         <a href="#" class="nav-link {{ $active_group == 'riwayat' ? 'active' : '' }}">
-                             <i class="nav-icon fas fa-cogs"></i>
-                             <p>
-                                 Riwayat
-                                 <i class="right fas fa-angle-left"></i>
-                             </p>
-                         </a>
-                         <ul class="nav nav-treeview">
-                             <li class="nav-item">
-                                 <a href="{{ route('riwayat.barang-masuk.index') }}"
-                                     class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
-                                     <i class="far fa-circle nav-icon"></i>
-                                     <p>Pesan Barang</p>
-                                 </a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ route('riwayat.barang-masuk.index') }}"
-                                     class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
-                                     <i class="far fa-circle nav-icon"></i>
-                                     <p>Barang Masuk</p>
-                                 </a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ route('pengelolaan.barang-keluar.index') }}"
-                                     class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
-                                     <i class="far fa-circle nav-icon"></i>
-                                     <p>Barang Keluar</p>
-                                 </a>
-                             </li>
-                         </ul>
-                     </li>
                      <li class="nav-item {{ $active_group == 'pengelolaan' ? 'menu-open' : '' }}">
                          <a href="#" class="nav-link {{ $active_group == 'pengelolaan' ? 'active' : '' }}">
                              <i class="nav-icon fas fa-history"></i>
@@ -119,6 +87,38 @@
                              </li>
                              <li class="nav-item">
                                  <a href="{{ route('pengelolaan.barang-keluar.index') }}"
+                                     class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Keluar</p>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="nav-item {{ $active_group == 'riwayat' ? 'menu-open' : '' }}">
+                         <a href="#" class="nav-link {{ $active_group == 'riwayat' ? 'active' : '' }}">
+                             <i class="nav-icon fas fa-cogs"></i>
+                             <p>
+                                 Riwayat
+                                 <i class="right fas fa-angle-left"></i>
+                             </p>
+                         </a>
+                         <ul class="nav nav-treeview">
+                             <li class="nav-item">
+                                 <a href="{{ route('riwayat.pesan-barang.index') }}"
+                                     class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Pesan Barang</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ route('riwayat.barang-masuk.index') }}"
+                                     class="nav-link {{ $active == 'barang-masuk' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Barang Masuk</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ route('riwayat.barang-keluar.index') }}"
                                      class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
                                      <p>Barang Keluar</p>
@@ -176,10 +176,10 @@
                          </a>
                          <ul class="nav nav-treeview">
                              <li class="nav-item">
-                                 <a href="{{ route('laporan.pesan-persediaan.index') }}"
-                                     class="nav-link {{ $active == 'pesan-persediaan' ? 'active' : '' }}">
+                                 <a href="{{ route('laporan.pesan-barang.index') }}"
+                                     class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Pesan Persediaan</p>
+                                     <p>Pesan Barang</p>
                                  </a>
                              </li>
                              <li class="nav-item">

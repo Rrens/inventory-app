@@ -37,6 +37,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nama Barang</th>
+                                        <th>Nama Supplier</th>
                                         <th>Stok Sekarang</th>
                                         <th>EOQ</th>
                                         <th>ROP</th>
@@ -47,10 +48,11 @@
                                     @foreach ($detail_penjualan as $item)
                                         <tr>
                                             <td>{{ $item->nama_barang }}</td>
-                                            <td>{{ $item->stok }}</td>
-                                            <td>{{ $item->eoq }}</td>
-                                            <td>{{ $item->rop }}</td>
-                                            <td>{{ $item->jumlah_pemesanan }}</td>
+                                            <td>{{ $item->supplier_name }}</td>
+                                            <td>{{ format_number($item->stok) }}</td>
+                                            <td>{{ format_number($item->eoq) }}</td>
+                                            <td>{{ format_number($item->rop) }}</td>
+                                            <td>{{ format_number($item->jumlah_pemesanan) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

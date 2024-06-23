@@ -13,7 +13,6 @@ class Pemesanan extends Model
     protected $table = 'pemesanans';
     protected $fillable = [
         'pemesanan_id',
-        'supplier_id',
         'barang_id',
         'store_for',
         'order_cost',
@@ -43,11 +42,6 @@ class Pemesanan extends Model
 
         $newPemesananId = "PMP." . now()->year . "." . $addZero . $incrementPemesananId;
         return $newPemesananId;
-    }
-
-    public function supplier()
-    {
-        return $this->hasMany(Supplier::class, 'id', 'supplier_id');
     }
 
     public function pemesanan_detail()

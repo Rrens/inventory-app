@@ -13,6 +13,11 @@ function format_rupiah($nominal)
     return 'Rp ' . number_format($nominal, 0, ',', '.');
 }
 
+function format_number($value)
+{
+    return number_format($value, 0, ',', '.');
+}
+
 function format_date($date)
 {
     return $date->translatedFormat('d, F Y');
@@ -23,4 +28,9 @@ function ternary_3($condition1, $condition2, $result1,  $result2, $elseResult)
     // $item->is_verify != false ? ($item->is_verify == true ? 'Diterima' : 'Ditolak') : 'Menunggu Persetujuan';
     // return $condition1 ? $result1 : ($condition2 ? $result2 : $elseResult);
     return $condition1 ? ($condition2 ? $result1 : $result2) : $elseResult;
+}
+
+function check_null($value)
+{
+    return $value == null ? '-' : $value;
 }

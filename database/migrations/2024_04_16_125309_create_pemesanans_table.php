@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('pemesanans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('supplier_id')->nullable();
-            $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->foreign('barang_id')
                 ->references('id')
