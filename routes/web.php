@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Dashboard\AdminDashboardController;
+use App\Http\Controllers\Dashboard\OwnerDashboardController;
 use App\Http\Controllers\Laporan\BarangKeluarController as LaporanBarangKeluarController;
 use App\Http\Controllers\Laporan\BarangMasukController as LaporanBarangMasukController;
 use App\Http\Controllers\Laporan\PesanBarangController as LaporanPesanBarangController;
+use App\Http\Controllers\Laporan\PesanPersediaanController;
 use App\Http\Controllers\Master\BarangController;
 use App\Http\Controllers\Master\SupplierController;
 use App\Http\Controllers\Pengelolaan\BarangKeluarController as PengelolaanBarangKeluarController;
@@ -86,6 +88,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::get('check-safety-stock/{id}', [PengelolaanBarangKeluarController::class, 'checkSafetyStock']);
         });
     });
+
+    Route::prefix('admin-dashboard')->group(function () {
+        Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard.index');
+        Route::get('{filter}', [AdminDashboardController::class, 'filter'])->name('admin.dashboard.filter');
+    });
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {
@@ -94,12 +101,6 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::post('', [UserController::class, 'store'])->name('user.store');
         Route::post('update', [UserController::class, 'update'])->name('user.update');
         Route::post('delete', [UserController::class, 'delete'])->name('user.delete');
-    });
-
-    Route::prefix('laporan')->group(function () {
-        Route::get('pesan-barang', [LaporanPesanBarangController::class, '__construct'])->name('laporan.pesan-barang.index');
-        Route::get('barang-masuk', [LaporanBarangMasukController::class, '__construct'])->name('laporan.barang-masuk.index');
-        Route::get('barang-keluar', [LaporanBarangKeluarController::class, '__construct'])->name('laporan.barang-keluar.index');
     });
 
     Route::prefix('persetujuan')->group(function () {
@@ -115,7 +116,16 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         });
     });
 
+    Route::prefix('laporan')->group(function () {
+        Route::get('pesan-barang', [LaporanPesanBarangController::class, '__construct'])->name('laporan.pesan-barang.index');
+        Route::get('barang-masuk', [LaporanBarangMasukController::class, '__construct'])->name('laporan.barang-masuk.index');
+        Route::get('barang-keluar', [LaporanBarangKeluarController::class, '__construct'])->name('laporan.barang-keluar.index');
+        Route::get('pesan-persediaan', [PesanPersediaanController::class, 'index'])->name('laporan.pesan-persediaan.index');
+        Route::get('pesan-persediaan/{filter}', [PesanPersediaanController::class, 'filter'])->name('laporan.pesan-persediaan.filter');
+    });
+
     Route::prefix('owner-dashboard')->group(function () {
-        Route::get('', [DashboardController::class, 'owner'])->name('dashboard.index');
+        Route::get('', [OwnerDashboardController::class, 'index'])->name('owner.dashboard.index');
+        Route::get('{filter}', [OwnerDashboardController::class, 'filter'])->name('owner.dashboard.filter');
     });
 });

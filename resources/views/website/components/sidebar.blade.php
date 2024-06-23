@@ -38,6 +38,13 @@
                  @if (auth()->user()->role == 'admin')
                      <li class="nav-header">ADMIN</li>
                      <li class="nav-item">
+                         <a href="{{ route('admin.dashboard.index') }}"
+                             class="nav-link {{ $active == 'dashboard' ? 'active' : '' }}">
+                             <i class="fas fa-tachometer-alt nav-icon"></i>
+                             <p>Dashboard</p>
+                         </a>
+                     </li>
+                     <li class="nav-item">
                          <a href="#" class="nav-link {{ $active_group == 'master' ? 'active' : '' }}">
                              <i class="nav-icon fas fa-user-tie"></i>
                              <p>
@@ -129,7 +136,7 @@
                  @else
                      <li class="nav-header">OWNER</li>
                      <li class="nav-item">
-                         <a href="{{ route('dashboard.index') }}"
+                         <a href="{{ route('owner.dashboard.index') }}"
                              class="nav-link {{ $active == 'dashboard' ? 'active' : '' }}">
                              <i class="fas fa-tachometer-alt nav-icon"></i>
                              <p>Dashboard</p>
@@ -196,6 +203,13 @@
                                      <p>Barang Keluar</p>
                                  </a>
                              </li>
+                             <div class="nav-item">
+                                 <a href="{{ route('laporan.pesan-persediaan.index') }}"
+                                     class="nav-link {{ $active == 'laporan-pesan-persediaan' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Pesan Persediaan</p>
+                                 </a>
+                             </div>
                          </ul>
                      </li>
                  @endif
