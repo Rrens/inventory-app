@@ -15,12 +15,21 @@ class PesanPersediaanController extends Controller
         $active_group = 'laporan';
 
         $value_filter = false;
-        $data = $this->data();
+        if (!empty($_REQUEST['date'])) {
+            $filter_date = $_REQUEST['date'];
+            $data = $this->data($value_filter, $filter_date);
+            // dd($data);
+        } else {
+            $data = $this->data();
+            $filter_date = false;
+        }
+
+
 
         $logo_verify = $this->logo_verify();
         $logo_warning = $this->logo_warning();
         $logo_danger = $this->logo_danger();
-
+        $value_filter = false;
         return view('website.pages.owner.laporan.pesan-persediaan', compact(
             'active',
             'active_group',
@@ -28,7 +37,8 @@ class PesanPersediaanController extends Controller
             'logo_verify',
             'logo_warning',
             'logo_danger',
-            'data'
+            'data',
+            'filter_date'
         ));
     }
 
@@ -38,7 +48,14 @@ class PesanPersediaanController extends Controller
         $active_group = 'laporan';
 
         $value_filter = $filter;
-        $data = $this->data($filter);
+
+        if (!empty($_REQUEST['date'])) {
+            $filter_date = $_REQUEST['date'];
+            $data = $this->data($filter, $filter_date);
+        } else {
+            $data = $this->data($value_filter);
+            $filter_date = false;
+        }
 
         $logo_verify = $this->logo_verify();
         $logo_warning = $this->logo_warning();
@@ -50,13 +67,23 @@ class PesanPersediaanController extends Controller
             'logo_verify',
             'logo_warning',
             'logo_danger',
-            'data'
+            'data',
+            'filter_date'
         ));
     }
 
-    public function data($filter = false)
+    public function data($filter = false, $date = false)
     {
-        if ($filter) {
+        if ($filter && $date) {
+            $data_detail = DB::table('pemesanans as p')
+                ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
+                ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
+                ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
+                ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->where('b.place', $filter)
+                ->whereDate('p.order_date', $date)
+                ->get();
+        } elseif ($filter) {
             $data_detail = DB::table('pemesanans as p')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
@@ -65,7 +92,16 @@ class PesanPersediaanController extends Controller
                 ->where('b.place', $filter)
                 // ->where('p.slug', $slug)
                 ->get();
-        } else {
+        } elseif ($date) {
+            $data_detail = DB::table('pemesanans as p')
+                ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
+                ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
+                ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
+                ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->whereDate('p.order_date', $date)
+                ->get();
+            // dd($data_detail);
+        } elseif ($filter == false && $date == false) {
             $data_detail = DB::table('pemesanans as p')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')

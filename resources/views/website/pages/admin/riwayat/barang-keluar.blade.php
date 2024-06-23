@@ -24,6 +24,12 @@
                     <div class="card">
                         <div class="card-header">
                             Riwayat Barang Keluar
+                            <form id="filter-form" method="get" style="float: right;"
+                                class="d-flex justify-content-center align-items-center">
+                                <input type="date" class="form-control mr-2" name="date"
+                                    value="{{ !empty($value_filter) ? $value_filter : null }}" id="dateInput">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </form>
                         </div>
                         <div class="card-body table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
@@ -37,9 +43,8 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data_detail as $item)
-                                        {{-- @dd($item, $data, $data->where('id', $item->pemesanan_id)[0]->order_cost) --}}
                                         <tr>
-                                            <td>{{ $item->updated_at }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('Y-m-d') }}</td>
                                             <td>{{ $item->barang[0]->name }}</td>
                                             <td>{{ format_number($item->quantity) }}</td>
                                             </td>
@@ -71,17 +76,6 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row border-bottom border-dark">
-                            <div class="col-6">
-                                <p>Nama Supplier</p>
-                                <p>No Telpon</p>
-                            </div>
-                            <div class="col-6">
-                                @dd($item->barang[0])
-                                <p>{{ check_null($item->supplier[0]->name) }}</p>
-                                <p>{{ check_null($item->supplier[0]->telp) }}</p>
-                            </div>
-                        </div>
                         <div class="row border-dotted mt-3">
                             <div class="col-6">
                                 <p>Nama Barang</p>
@@ -109,7 +103,7 @@
                                 <p style="font-weight: bold">Total Harga</p>
                             </div>
                             <div class="col-6">
-                                <p>{{ format_rupiah($item->pemesanan[0]->price_total) }}</p>
+                                <p>{{ format_rupiah($item->quantity * $item->barang[0]->price) }}</p>
                             </div>
                         </div>
                     </div>
@@ -153,6 +147,19 @@
                 "autoWidth": false,
                 "responsive": true,
             });
+        });
+    </script>
+    <script>
+        $('#filter-form').on('submit', function(event) {
+            event.preventDefault();
+            let dateValue = $('#dateInput').val();
+
+            if (dateValue) {
+                let actionUrl = `{{ env('BASE_URL') }}/riwayat/barang-keluar/${dateValue}`
+                window.location.href = actionUrl;
+            } else {
+                alert('Please select a date');
+            }
         });
     </script>
 @endpush
