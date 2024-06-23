@@ -50,14 +50,6 @@ class PesanPersediaanController extends Controller
             $lastdate = Carbon::createFromFormat('d-m-Y H:i:s', '01' . "-" . $bulan_tahun->bulan . " 00:00:00")->addDay($this->jumlahHari($bulan_tahun->bulan))->format('Y-m-d H:i:s');
         }
 
-
-        // $avg_date = DB::table('pemesanans as p')
-        //     ->join('persediaan_masuks as pm', 'p.pemesanan_id', '=', 'pm.pemesanan_id')
-        //     ->selectRaw('round(avg(DATEDIFF( pm.persediaan_masuk_date, p.created_at))) as lead_time')
-        //     ->where('p.status', 'Selesai')
-        //     ->whereBetween('pm.persediaan_masuk_date', [$subdate, $lastdate])
-        //     ->first();
-
         $no = 1;
         $detail_penjualan = array();
         foreach ($data_detail as $item) {

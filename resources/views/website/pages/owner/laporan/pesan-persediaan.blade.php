@@ -1,16 +1,16 @@
 @extends('website.components.master')
-@section('title', 'barang')
+@section('title', 'Laporan Pesan Persediaan')
 @section('container')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
+                    <h1 class="m-0">Laporan Pesan Barang</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">Laporan</li>
                     </ol>
                 </div>
             </div>
@@ -20,53 +20,18 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3>{{ format_number($total_pemesanan) }}</h3>
-                            <p>Total Pemesanan</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3>{{ format_number($total_barang_masuk) }}</h3>
-                            <p>Total Barang Masuk</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3>{{ format_number($total_barang_keluar) }}</h3>
-                            <p>Total Barang Keluar</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3>{{ format_number($total_persetujuan) }}</h3>
-                            <p>Persetujuan Barang</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('owner.dashboard.index') }}"
+                                <a href="{{ route('laporan.pesan-persediaan.index') }}"
                                     class="btn btn-outline-{{ $value_filter == false ? 'primary' : 'secondary' }} btn-sm">All</a>
-                                <a href="{{ route('owner.dashboard.filter', 'gudang') }}"
+                                <a href="{{ route('laporan.pesan-persediaan.filter', 'gudang') }}"
                                     class="btn btn-outline-{{ $value_filter == 'gudang' ? 'primary' : 'secondary' }}  btn-sm"
                                     style="margin: 0 5px;">Gudang</a>
-                                <a href="{{ route('owner.dashboard.filter', 'toko') }}"
+                                <a href="{{ route('laporan.pesan-persediaan.filter', 'toko') }}"
                                     class="btn btn-outline-{{ $value_filter == 'toko' ? 'primary' : 'secondary' }}  btn-sm">Toko</a>
                             </div>
-
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -107,6 +72,7 @@
             </div>
         </div>
     </section>
+
 @endsection
 
 @push('css')
