@@ -35,7 +35,8 @@ class PesanPersediaanController extends Controller
         $data_detail = DB::table('pemesanans as p')
             ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
             ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
-            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime')
+            ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
+            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
             ->where('p.slug', $slug)
             ->get();
 
@@ -85,6 +86,7 @@ class PesanPersediaanController extends Controller
                 'barang_id' => $item->id,
                 'nama_barang' => $item->name,
                 'jumlah_pemesanan' => $item->quantity,
+                'supplier_name' => $item->supplier_name,
                 'stok' => $item->stock,
                 'eoq' => $item->eoq,
                 'rop' => $rop,

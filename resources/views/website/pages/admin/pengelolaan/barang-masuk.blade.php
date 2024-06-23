@@ -38,7 +38,7 @@
                                                     <div class="col-12">
                                                         <div class="row">
                                                             <div class="col-6">Nama Supplier :
-                                                                {{ $item->pemesanan[0]->supplier[0]->name }}
+                                                                {{ $item->supplier[0]->name }}
                                                             </div>
                                                             <div class="col-6">Nama Barang :
                                                                 {{ $item->barang[0]->name }}
@@ -48,7 +48,7 @@
                                                     <div class="col-12">
                                                         <div class="row">
                                                             <div class="col-6">Jumlah Pembelian :
-                                                                {{ $item->quantity }} pcs
+                                                                {{ format_number($item->quantity) }} pcs
                                                             </div>
                                                             <div class="col-6">Tempat penyimpanan :
                                                                 {{ $item->pemesanan[0]->store_for }}
@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="card-footer border-top">
                                                 <p class="font-weight-bold" style="float: left;">Rp
-                                                    {{ number_format($item->quantity * $item->barang[0]->price) }}
+                                                    {{ format_number($item->quantity * $item->barang[0]->price) }}
                                                 </p>
                                                 <form action="{{ route('pengelolaan.barang-masuk.barang_masuk_selesai') }}"
                                                     method="post">

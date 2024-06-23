@@ -12,10 +12,16 @@ class Cart extends Model
     protected $fillable = [
         'barang_id',
         'quantity',
+        'supplier_id'
     ];
 
     public function barang()
     {
         return $this->hasMany(Barang::class, 'id', 'barang_id');
+    }
+
+    public function supplier()
+    {
+        return $this->hasMany(Supplier::class, 'id', 'supplier_id');
     }
 }

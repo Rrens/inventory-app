@@ -42,6 +42,18 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="supplier_id">Supplier</label>
+                                            <select name="supplier_id" id="supplier_id" class="form-control">
+                                                <option selected hidden>Pilih Supplier...</option>
+                                                @foreach ($suppliers as $item)
+                                                    <option {{ old('supplier_id') == $item->id ? 'selected' : '' }}
+                                                        value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="price">Harga per Satuan</label>
@@ -91,6 +103,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
+                                                <th>Supplier</th>
                                                 <th>EOQ</th>
                                                 <th>Jumlah Pemesanan</th>
                                                 <th>Action</th>
@@ -101,8 +114,9 @@
                                                 <tr data-item-id="{{ $item->barang_id }}">
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->barang[0]->name }}</td>
+                                                    <td>{{ $item->supplier[0]->name }}</td>
                                                     <td>0</td>
-                                                    <td>{{ $item->quantity }}</td>
+                                                    <td>{{ format_number($item->quantity) }}</td>
                                                     <td>
                                                         <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                                             data-target="#modal-edit">
@@ -146,16 +160,6 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12">
-                                <div class="form-group">
-                                    <label for="supplier_id">Supplier</label>
-                                    <select name="supplier_id" id="supplier_id" class="form-control">
-                                        <option selected hidden>Pilih Supplier...</option>
-                                        @foreach ($suppliers as $item)
-                                            <option {{ old('supplier_id') == $item->id ? 'selected' : '' }}
-                                                value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="store_for">Dibeli untuk</label>
                                     <select name="store_for" id="store_for" class="form-control">

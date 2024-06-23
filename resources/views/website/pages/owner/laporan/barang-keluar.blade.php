@@ -36,14 +36,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($data as $item)
+                                    @foreach ($data_detail as $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->username }}</td>
-                                            <td>{{ $item->username }}</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->barang[0]->name }}</td>
+                                            <td>{{ format_rupiah($item->barang[0]->price) }}</td>
+                                            <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

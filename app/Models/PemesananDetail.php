@@ -18,7 +18,13 @@ class PemesananDetail extends Model
         'eoq',
         'status',
         'date_in',
+        'supplier_id',
     ];
+
+    public function supplier()
+    {
+        return $this->hasMany(Supplier::class, 'id', 'supplier_id');
+    }
 
     public function pemesanan()
     {

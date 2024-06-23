@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Laporan\BarangKeluarController as LaporanBarangKeluarController;
 use App\Http\Controllers\Laporan\BarangMasukController as LaporanBarangMasukController;
-use App\Http\Controllers\Laporan\PesanPersediaanController;
+use App\Http\Controllers\Laporan\PesanBarangController as LaporanPesanBarangController;
 use App\Http\Controllers\Master\BarangController;
 use App\Http\Controllers\Master\SupplierController;
 use App\Http\Controllers\Pengelolaan\BarangKeluarController as PengelolaanBarangKeluarController;
@@ -14,6 +14,8 @@ use App\Http\Controllers\Pengelolaan\PesanBarangController;
 use App\Http\Controllers\Persetujuan\PemakaianController;
 use App\Http\Controllers\Persetujuan\PesanPersediaanController as PersetujuanPesanPersediaanController;
 use App\Http\Controllers\Riwayat\BarangMasukController as RiwayatBarangMasukController;
+use App\Http\Controllers\Riwayat\PesanBarangController as RiwayatPesanBarangController;
+use App\Http\Controllers\Riwayat\BarangKeluarController as RiwayatBarangKeluarController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -50,8 +52,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     Route::prefix('riwayat')->group(function () {
+        Route::prefix('pesan-barang')->group(function () {
+            Route::get('', [RiwayatPesanBarangController::class, 'index'])->name('riwayat.pesan-barang.index');
+        });
         Route::prefix('barang-masuk')->group(function () {
             Route::get('', [RiwayatBarangMasukController::class, 'index'])->name('riwayat.barang-masuk.index');
+        });
+        Route::prefix('barang-keluar')->group(function () {
+            Route::get('', [RiwayatBarangKeluarController::class, 'index'])->name('riwayat.barang-keluar.index');
         });
     });
 
@@ -89,7 +97,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
     });
 
     Route::prefix('laporan')->group(function () {
-        Route::get('pesan-persedian', [PesanPersediaanController::class, 'index'])->name('laporan.pesan-persediaan.index');
+        Route::get('pesan-barang', [LaporanPesanBarangController::class, '__construct'])->name('laporan.pesan-barang.index');
         Route::get('barang-masuk', [LaporanBarangMasukController::class, '__construct'])->name('laporan.barang-masuk.index');
         Route::get('barang-keluar', [LaporanBarangKeluarController::class, '__construct'])->name('laporan.barang-keluar.index');
     });
@@ -103,6 +111,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
 
         Route::prefix('pemakaian')->group(function () {
             Route::get('', [PemakaianController::class, 'index'])->name('pesetujuan.pemakaian.index');
+            Route::post('', [PemakaianController::class, 'store'])->name('persetujuan.pemakaian.store');
         });
     });
 

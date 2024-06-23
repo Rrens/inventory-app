@@ -17,8 +17,13 @@ class Supplier extends Model
         'description',
     ];
 
-    public function pemesanan()
+    public function pemesanan_detail()
     {
-        return $this->belongsTo(Pemesanan::class);
+        return $this->belongsTo(PemesananDetail::class);
+    }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
     }
 }

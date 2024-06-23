@@ -20,11 +20,17 @@ class Barang extends Model
         'leadtime',
         'eoq',
         'place',
+        'supplier_id'
     ];
 
     public function pemesanan()
     {
         return $this->belongsTo(Pemesanan::class);
+    }
+
+    public function supplier()
+    {
+        return $this->hasMany(Supplier::class, 'supplier_id', 'id');
     }
 
     public function penjualan_detail()

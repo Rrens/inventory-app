@@ -118,28 +118,31 @@
 
                             console.log('ss', ss)
 
-                            if (quantity > res) {
-                                confirmStock = confirm(
-                                    'Quantity melebihi stock, apakah tetap ingin melanjutkan?'
-                                );
-                                if (confirmStock) {
+                            if (quantity > ss) {
+                                confirmSS = confirm(
+                                    'Quantity melebihi Safety Stock, apakah tetap ingin melanjutkan?'
+                                )
+
+                                if (confirmSS) {
                                     $('#quantity').val(res);
                                     valueStock = true
                                 } else {
-
+                                    $('#quantity').val(ss);
+                                    quantity = ss
+                                    return
                                 }
-                            } else {
-                                confirmStock = true;
+
                             }
 
-                            if (quantity > ss) {
-                                alert('Melebihi Safety Safety Stock')
-                                $('#quantity').val(ss);
-                                quantity = ss
+                            if (quantity > res) {
+                                alert('Quantity melebihi stock!!!')
+                                return
                             }
+
+
+                            doSave(valueStock, productID, quantity, orderDate)
 
                             // console.log(quantity)
-                            doSave(valueStock, productID, quantity, orderDate)
                         },
                         error: function(error, xhr) {
                             console.log(error, xhr)

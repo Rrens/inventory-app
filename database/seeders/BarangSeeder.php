@@ -49,7 +49,8 @@ class BarangSeeder extends Seeder
             $barang->unit = $faker->randomElement(['pcs', 'zak', 'unit', 'pack', 'm3']);
             $barang->leadtime = $faker->numberBetween(1, 10);
             $barang->place = Arr::random($arrayPlace);
-            $barang->quantity = $faker->numberBetween(100, 200);
+            $barang->quantity = $faker->numberBetween(10000, 20000);
+            $barang->supplier_id = $faker->numberBetween(1, 10);
             $barang->save();
         }
     }

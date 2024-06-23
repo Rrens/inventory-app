@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Barang Masuk</h1>
+                    <h1 class="m-0">Riwayat Barang Masuk</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
                                     <tr>
                                         <th>Tanggal Pesan</th>
                                         <th>Nama Barang</th>
-                                        <th>Biaya Pesan</th>
+                                        <th>Biaya Pemesanan</th>
                                         <th>Jumlah Pembelian</th>
                                         <th>Detail</th>
                                     </tr>
@@ -42,9 +42,9 @@
                                         <tr>
                                             <td>{{ $item->pemesanan[0]->order_date }}</td>
                                             <td>{{ $item->barang[0]->name }}</td>
-                                            <td>{{ $item->pemesanan[0]->order_cost }}</td>
+                                            <td>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</td>
                                             </td>
-                                            <td>{{ $item->quantity . ' ' . $item->barang[0]->unit }}</td>
+                                            <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
                                             <td>
                                                 <button class="btn btn-primary" data-toggle="modal"
                                                     data-target="#modal-detail{{ $item->id }}">
@@ -63,7 +63,6 @@
     </section>
 
     @foreach ($data_detail as $item)
-        {{-- @dd($item) --}}
         <div class="modal fade" id="modal-detail{{ $item->id }}">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
@@ -80,8 +79,8 @@
                                 <p>No Telpon</p>
                             </div>
                             <div class="col-6">
-                                <p>{{ $item->pemesanan[0]->supplier[0]->name }}</p>
-                                <p>{{ $item->pemesanan[0]->supplier[0]->telp }}</p>
+                                <p>{{ $item->supplier[0]->name }}</p>
+                                <p>{{ $item->supplier[0]->telp }}</p>
                             </div>
                         </div>
                         <div class="row border-dotted mt-3">
@@ -105,7 +104,7 @@
                                 <p>Harga Barang</p>
                             </div>
                             <div class="col-6">
-                                <p>{{ $item->quantity . ' ' . $item->barang[0]->unit }}</p>
+                                <p>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</p>
                                 <p>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</p>
                                 <p>{{ format_rupiah($item->barang[0]->price) }}</p>
                             </div>

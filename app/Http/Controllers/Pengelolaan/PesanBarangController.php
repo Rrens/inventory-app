@@ -32,7 +32,8 @@ class PesanBarangController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'barang_id' => 'required|exists:barangs,id',
-            'quantity' => 'required|numeric'
+            'quantity' => 'required|numeric',
+            'supplier_id' => 'required|exists:suppliers,id',
         ]);
 
         if ($validator->fails()) {
@@ -100,7 +101,6 @@ class PesanBarangController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'supplier_id' => 'required|exists:suppliers,id',
             'store_for' => 'required|in:gudang,toko',
             'order_cost' => 'required|numeric',
         ]);
@@ -120,7 +120,6 @@ class PesanBarangController extends Controller
         $data = new Pemesanan();
         $data->pemesanan_id = $pemesanan_ID;
         $data->slug = generate_slug('PEM');
-        $data->supplier_id = $request->supplier_id;
         $data->store_for = $request->store_for;
         $data->order_cost = $request->order_cost;
         $data->order_date = $request->order_date;
@@ -141,6 +140,7 @@ class PesanBarangController extends Controller
             $data_detail->pemesanan_id = $data->id;
             $data_detail->barang_id = $item->barang_id;
             $data_detail->quantity = $item->quantity;
+            $data_detail->supplier_id = $item->supplier_id;
             $data_detail->eoq = $eoq;
             $data_detail->save();
 
