@@ -358,7 +358,7 @@
                         console.log(data[index]);
                         let eoq = data[index].eoq;
                         let rowIndex = data[index].rowIndex;
-                        $('#table-pesan-barang tbody tr').eq(rowIndex).find('td').eq(2).text(eoq);
+                        $('#table-pesan-barang tbody tr').eq(rowIndex).find('td').eq(3).text(eoq);
 
                     }
                 },

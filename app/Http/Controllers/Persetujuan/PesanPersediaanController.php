@@ -62,20 +62,18 @@ class PesanPersediaanController extends Controller
         $detail_penjualan = array();
         foreach ($data_detail as $item) {
             if (!empty($bulan_tahun->bulan)) {
-                $data = DB::table('penjualan_details as pd')
-                    ->join('penjualans as p', 'pd.penjualan_id', '=', 'p.penjualan_id')
-                    ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
-                    ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
+                $data = DB::table('penjualans as p')
+                    ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
                     ->first();
             } else {
-                $data = DB::table('penjualan_details as pd')
-                    ->join('penjualans as p', 'pd.penjualan_id', '=', 'p.penjualan_id')
-                    ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
-                    ->selectRaw('max(pd.quantity) as max, round(avg(pd.quantity)) as avg, sum(pd.quantity) as total')
+                $data = DB::table('penjualans as p')
+                    ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->first();
             }
-            $lead_time = !empty($item->leadtime) ? $item->leadtime : 2;
+            $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
             $ss = ($data->max - $data->avg) * $lead_time;
             $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
             $d = (int)round($data->total / $jumlah_hari);

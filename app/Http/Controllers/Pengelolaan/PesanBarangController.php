@@ -167,10 +167,9 @@ class PesanBarangController extends Controller
 
         $s = $orderingCost;
 
-        $data = DB::table('penjualan_details as dp')
-            ->join('penjualans as p', 'dp.penjualan_id', '=', 'p.penjualan_id')
-            ->join('barangs as b', 'dp.barang_id', '=', 'b.id')
-            ->selectRaw('max(dp.quantity) as max, round(avg(dp.quantity)) as avg, sum(dp.quantity) as total')
+        $data = DB::table('penjualans as p')
+            ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+            ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
             ->whereRaw("b.id = '" . $item_id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")->first();
         $barang = DB::table('barangs')->where('id', $item_id)->first();
         $h = $barang->saving_cost;
@@ -192,10 +191,10 @@ class PesanBarangController extends Controller
         $no = 1;
 
         foreach ($pemesanans as $pemesanan) {
-            $data = DB::table('penjualan_details as dp')
-                ->join('penjualans as p', 'dp.penjualan_id', '=', 'p.penjualan_id')
-                ->join('barangs as b', 'dp.barang_id', '=', 'b.id')
-                ->selectRaw('max(dp.quantity) as max, round(avg(dp.quantity)) as avg, sum(dp.quantity) as total')
+
+            $data = DB::table('penjualans as p')
+                ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                 ->whereRaw("b.id = '" . $pemesanan['itemId'] . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")->first();
             $barang = DB::table('barangs')->where('id', $pemesanan['itemId'])->first();
 

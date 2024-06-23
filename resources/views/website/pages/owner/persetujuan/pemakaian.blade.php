@@ -34,8 +34,6 @@
                                         <th>Tgl Keluar</th>
                                         <th>Jumlah Permintaan</th>
                                         <th>Stok Tersedia</th>
-                                        <th>EOQ</th>
-                                        <th>ROP</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -47,8 +45,6 @@
                                             <td>{{ $item->penjualan[0]->order_date }}</td>
                                             <td>{{ format_number($item->penjualan[0]->quantity) }}</td>
                                             <td>{{ format_number($item->penjualan[0]->barang[0]->quantity) }}</td>
-                                            <td>0</td>
-                                            <td>0</td>
                                             <td>
                                                 <button class="btn btn-outline-success btn-sm" data-toggle="modal"
                                                     data-target="#modal-acc{{ $item->id }}">
