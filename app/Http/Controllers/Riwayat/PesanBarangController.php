@@ -15,6 +15,20 @@ class PesanBarangController extends Controller
 
         $data_detail = PemesananDetail::all();
 
-        return view('website.pages.admin.riwayat.pesan-barang', compact('active', 'active_group', 'data_detail'));
+        $value_filter = false;
+
+        return view('website.pages.admin.riwayat.pesan-barang', compact('active', 'active_group', 'data_detail', 'value_filter'));
+    }
+
+    public function filter($filter)
+    {
+        $active = 'pesan-barang';
+        $active_group = 'riwayat';
+
+        $data_detail = PemesananDetail::where('date_in', $filter)->get();
+
+        $value_filter = $filter;
+
+        return view('website.pages.admin.riwayat.pesan-barang', compact('active', 'active_group', 'data_detail', 'value_filter'));
     }
 }

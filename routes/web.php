@@ -56,12 +56,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::prefix('riwayat')->group(function () {
         Route::prefix('pesan-barang')->group(function () {
             Route::get('', [RiwayatPesanBarangController::class, 'index'])->name('riwayat.pesan-barang.index');
+            Route::get('{filter}', [RiwayatPesanBarangController::class, 'filter'])->name('riwayat.pesan-barang.filter');
         });
         Route::prefix('barang-masuk')->group(function () {
             Route::get('', [RiwayatBarangMasukController::class, 'index'])->name('riwayat.barang-masuk.index');
+            Route::get('{filter}', [RiwayatBarangMasukController::class, 'filter'])->name('riwayat.barang-masuk.filter');
         });
         Route::prefix('barang-keluar')->group(function () {
             Route::get('', [RiwayatBarangKeluarController::class, 'index'])->name('riwayat.barang-keluar.index');
+            Route::get('{filter}', [RiwayatBarangKeluarController::class, 'filter'])->name('riwayat.barang-keluar.filter');
         });
     });
 
@@ -117,11 +120,24 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
     });
 
     Route::prefix('laporan')->group(function () {
-        Route::get('pesan-barang', [LaporanPesanBarangController::class, '__construct'])->name('laporan.pesan-barang.index');
-        Route::get('barang-masuk', [LaporanBarangMasukController::class, '__construct'])->name('laporan.barang-masuk.index');
-        Route::get('barang-keluar', [LaporanBarangKeluarController::class, '__construct'])->name('laporan.barang-keluar.index');
-        Route::get('pesan-persediaan', [PesanPersediaanController::class, 'index'])->name('laporan.pesan-persediaan.index');
-        Route::get('pesan-persediaan/{filter}', [PesanPersediaanController::class, 'filter'])->name('laporan.pesan-persediaan.filter');
+        Route::prefix('pesan-barang')->group(function () {
+            Route::get('', [LaporanPesanBarangController::class, 'index'])->name('laporan.pesan-barang.index');
+            Route::get('{filter}', [LaporanPesanBarangController::class, 'filter'])->name('laporan.pesan-barang.filter');
+        });
+        Route::prefix('barang-masuk')->group(function () {
+            Route::get('', [LaporanBarangMasukController::class, 'index'])->name('laporan.barang-masuk.index');
+            Route::get('{filter}', [LaporanBarangMasukController::class, 'filter'])->name('laporan.barang-masuk.filter');
+        });
+        // Route::get('barang-masuk', [LaporanBarangMasukController::class, '__construct'])->name('laporan.barang-masuk.index');
+        Route::prefix('barang-keluar')->group(function () {
+            Route::get('', [LaporanBarangKeluarController::class, 'index'])->name('laporan.barang-keluar.index');
+            Route::get('{filter}', [LaporanBarangKeluarController::class, 'filter'])->name('laporan.barang-keluar.filter');
+        });
+        // Route::get('barang-keluar', [LaporanBarangKeluarController::class, '__construct'])->name('laporan.barang-keluar.index');
+        Route::prefix('pesan-persediaan')->group(function () {
+            Route::get('', [PesanPersediaanController::class, 'index'])->name('laporan.pesan-persediaan.index');
+            Route::get('{filter}', [PesanPersediaanController::class, 'filter'])->name('laporan.pesan-persediaan.filter');
+        });
     });
 
     Route::prefix('owner-dashboard')->group(function () {

@@ -24,6 +24,12 @@
                     <div class="card">
                         <div class="card-header">
                             Riwayat Pesan Barang
+                            <form id="filter-form" method="get" style="float: right;"
+                                class="d-flex justify-content-center align-items-center">
+                                <input type="date" class="form-control mr-2" name="date"
+                                    value="{{ !empty($value_filter) ? $value_filter : null }}" id="dateInput">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </form>
                         </div>
                         <div class="card-body table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
@@ -152,6 +158,19 @@
                 "autoWidth": false,
                 "responsive": true,
             });
+        });
+    </script>
+    <script>
+        $('#filter-form').on('submit', function(event) {
+            event.preventDefault();
+            let dateValue = $('#dateInput').val();
+
+            if (dateValue) {
+                let actionUrl = `{{ env('BASE_URL') }}/riwayat/pesan-barang/${dateValue}`
+                window.location.href = actionUrl;
+            } else {
+                alert('Please select a date');
+            }
         });
     </script>
 @endpush

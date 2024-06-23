@@ -24,6 +24,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Laporan Barang Masuk</h3>
+                            <form id="filter-form" method="get" style="float: right;"
+                                class="d-flex justify-content-center align-items-center">
+                                <input type="date" class="form-control mr-2" name="date"
+                                    value="{{ !empty($value_filter) ? $value_filter : null }}" id="dateInput">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                                {{-- <a href="#" class="btn btn-primary ml-2 d-flex align-items-center">
+                                    <span>Print</span>
+                                    <i class="fa fa-print ml-2"></i>
+                                </a> --}}
+                            </form>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -131,12 +141,21 @@
 @push('css')
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endpush
 @push('script')
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    {{-- <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script> --}}
+    <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    {{-- <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script> --}}
     <script>
         $(function() {
             $("#example1").DataTable({
@@ -154,6 +173,19 @@
                 "autoWidth": false,
                 "responsive": true,
             });
+        });
+    </script>
+    <script>
+        $('#filter-form').on('submit', function(event) {
+            event.preventDefault();
+            let dateValue = $('#dateInput').val();
+
+            if (dateValue) {
+                let actionUrl = `{{ env('BASE_URL') }}/laporan/barang-masuk/${dateValue}`
+                window.location.href = actionUrl;
+            } else {
+                alert('Please select a date');
+            }
         });
     </script>
 @endpush

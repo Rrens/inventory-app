@@ -14,10 +14,28 @@ class BarangKeluarController extends Controller
         $active = 'barang-keluar';
         $active_group = 'riwayat';
         $data_detail = Penjualan::where('status', true)->get();
+        $value_filter = false;
         return view('website.pages.admin.riwayat.barang-keluar', compact(
             'active',
             'active_group',
-            'data_detail'
+            'data_detail',
+            'value_filter'
+        ));
+    }
+
+    public function filter($filter)
+    {
+        $active = 'barang-keluar';
+        $active_group = 'riwayat';
+        $data_detail = Penjualan::where('status', true)
+            ->whereDate('updated_at', $filter)
+            ->get();
+        $value_filter = $filter;
+        return view('website.pages.admin.riwayat.barang-keluar', compact(
+            'active',
+            'active_group',
+            'data_detail',
+            'value_filter'
         ));
     }
 }
