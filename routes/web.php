@@ -9,6 +9,7 @@ use App\Http\Controllers\Laporan\PesanBarangController as LaporanPesanBarangCont
 use App\Http\Controllers\Laporan\PesanPersediaanController;
 use App\Http\Controllers\Master\BarangController;
 use App\Http\Controllers\Master\SupplierController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Pengelolaan\BarangKeluarController as PengelolaanBarangKeluarController;
 use App\Http\Controllers\Pengelolaan\BarangMasukController as PengelolaanBarangMasukController;
 use App\Http\Controllers\Pengelolaan\PermintaanBarangController;
@@ -110,7 +111,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::prefix('pesan-persetujuan')->group(function () {
             Route::get('', [PersetujuanPesanPersediaanController::class, 'index'])->name('persetujuan.pesan-persetujuan.index');
             Route::get('detail/{slug}', [PersetujuanPesanPersediaanController::class, 'detail'])->name('persetujuan.pesan-persetujuan.detail');
-            Route::get('change-verify/{status}/{id}', [PersetujuanPesanPersediaanController::class, 'action_verif_or_not'])->name('persetujuan.pesan-persetujuan.action_verif_or_not');
+            Route::get('change-verify/{status}/{id}/{id_barang}', [PersetujuanPesanPersediaanController::class, 'action_verif_or_not'])->name('persetujuan.pesan-persetujuan.action_verif_or_not');
         });
 
         Route::prefix('pemakaian')->group(function () {
@@ -145,3 +146,5 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::get('{filter}', [OwnerDashboardController::class, 'filter'])->name('owner.dashboard.filter');
     });
 });
+
+Route::get('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notification.read')->middleware('auth');

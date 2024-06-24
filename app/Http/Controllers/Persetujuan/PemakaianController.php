@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Persetujuan;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\Pemakaian;
 use App\Models\Penjualan;
 use Illuminate\Http\Request;
@@ -40,6 +41,12 @@ class PemakaianController extends Controller
             $penjualan = Penjualan::findOrFail($data->penjualan[0]->penjualan_id);
             $penjualan->status = true;
             $penjualan->save();
+
+            $notification = new Notification();
+            $notification->title = "Permintaan Barang Keluar {$penjualan->barang[0]->name} Disetujui oleh Owner";
+            $notification->role = 'admin';
+            $notification->link = route('riwayat.barang-keluar.index');
+            $notification->save();
         } else {
             $data->status = false;
         }

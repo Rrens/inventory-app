@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pengelolaan;
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use App\Models\Cart;
+use App\Models\Notification;
 use App\Models\Pemesanan;
 use App\Models\PemesananDetail;
 use App\Models\Supplier;
@@ -135,6 +136,12 @@ class PesanBarangController extends Controller
             $eoq = $this->count_eoq_store($request->order_cost, $product->id);
             $product->eoq = $eoq;
             $product->save();
+
+            $notification = new Notification();
+            $notification->title = "Permintaan Pesan Persediaan {$product->name} oleh Admin";
+            $notification->role = 'owner';
+            $notification->link = route('persetujuan.pesan-persetujuan.index');
+            $notification->save();
 
             $data_detail = new PemesananDetail();
             $data_detail->pemesanan_id = $data->id;

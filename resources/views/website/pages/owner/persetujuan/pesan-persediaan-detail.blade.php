@@ -80,9 +80,9 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                     <div class="flex-end">
-                        <a href="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not', ['status' => 'decline', 'id' => $pemesanan_id]) }}"
+                        <a href="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not', ['status' => 'decline', 'id' => $pemesanan_id, 'id_barang' => $item->barang_id]) }}"
                             class="btn btn-outline-danger">Tolak</a>
-                        <a href="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not', ['status' => 'acc', 'id' => $pemesanan_id]) }}"
+                        <a href="{{ route('persetujuan.pesan-persetujuan.action_verif_or_not', ['status' => 'acc', 'id' => $pemesanan_id, 'id_barang' => $item->barang_id]) }}"
                             class="btn btn-outline-success">Setuju</a>
                     </div>
                 </div>
