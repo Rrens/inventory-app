@@ -39,6 +39,15 @@ class BarangController extends Controller
             return back()->withInput();
         }
 
+        $check_place = Barang::where('place', $request->place)
+            ->where('name', $request->name)
+            ->pluck('place');
+        if (empty($check_place[0])) {
+            $value = $request->place == 'toko' ? 'gudang' : 'toko';
+            Alert::toast("Barang Already in {$value}", 'error');
+            return back()->withInput();
+        }
+
         // MENYIMPAN BARANG BARU
         unset($request['_token']);
         $data = new Barang();

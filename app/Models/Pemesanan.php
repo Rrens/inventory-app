@@ -14,7 +14,7 @@ class Pemesanan extends Model
     protected $fillable = [
         'pemesanan_id',
         'barang_id',
-        'store_for',
+        // 'store_for',
         'order_cost',
         'price_total',
         'is_verify',

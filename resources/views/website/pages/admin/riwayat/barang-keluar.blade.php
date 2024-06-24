@@ -46,7 +46,7 @@
                                         <tr>
                                             <td>{{ \Carbon\Carbon::parse($item->updated_at)->format('Y-m-d') }}</td>
                                             <td>{{ $item->barang[0]->name }}</td>
-                                            <td>{{ format_number($item->quantity) }}</td>
+                                            <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
                                             </td>
                                             <td>
                                                 <button class="btn btn-primary" data-toggle="modal"
@@ -70,7 +70,6 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Setuju Pesan Persediaan?</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

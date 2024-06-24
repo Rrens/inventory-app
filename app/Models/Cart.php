@@ -12,7 +12,7 @@ class Cart extends Model
     protected $fillable = [
         'barang_id',
         'quantity',
-        'supplier_id'
+        'supplier_id',
     ];
 
     public function barang()

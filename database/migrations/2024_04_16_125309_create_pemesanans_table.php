@@ -19,7 +19,7 @@ return new class extends Migration
                 ->on('barangs');
             $table->string('pemesanan_id')->unique();
             $table->string('slug')->unique();
-            $table->string('store_for');
+            // $table->string('store_for');
             $table->double('order_cost')->default(0);
             $table->double('price_total')->nullable();
             $table->boolean('is_verify')->nullable();

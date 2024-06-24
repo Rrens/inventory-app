@@ -101,7 +101,7 @@ class PesanBarangController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'store_for' => 'required|in:gudang,toko',
+            // 'store_for' => 'required|in:gudang,toko',
             'order_cost' => 'required|numeric',
         ]);
 
@@ -120,7 +120,7 @@ class PesanBarangController extends Controller
         $data = new Pemesanan();
         $data->pemesanan_id = $pemesanan_ID;
         $data->slug = generate_slug('PEM');
-        $data->store_for = $request->store_for;
+        // $data->store_for = $request->store_for;
         $data->order_cost = $request->order_cost;
         $data->order_date = $request->order_date;
         // dd($data);
