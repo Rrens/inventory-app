@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,10 +22,12 @@ class NotificationProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('*', function ($view) {
-            $data = Notification::where('role', auth()->user()->role)->get();
+        if (Auth::check()) {
+            View::composer('*', function ($view) {
+                $data = Notification::where('role', auth()->user()->role)->get();
 
-            $view->with('notificationData', $data);
-        });
+                $view->with('notificationData', $data);
+            });
+        }
     }
 }
