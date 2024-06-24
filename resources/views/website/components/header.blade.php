@@ -13,11 +13,13 @@
             <li class="dropdown mr-3">
                 <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="true">
                     <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">{{ count($notificationData) }}</span>
+                    <span
+                        class="badge badge-warning navbar-badge">{{ count($notificationData->where('is_read', false)) }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right"
                     style="left: inherit; right: 0px; min-width: 900px !important;">
-                    <span class="dropdown-item dropdown-header">{{ count($notificationData) }} Notifications</span>
+                    <span class="dropdown-item dropdown-header">{{ count($notificationData->where('is_read', false)) }}
+                        Notifications</span>
                     @foreach ($notificationData as $item)
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('notification.read', $item->id) }}" class="dropdown-item"
