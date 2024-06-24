@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pengelolaan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
+use App\Models\Notification;
 use App\Models\Pemakaian;
 use App\Models\Pemesanan;
 use App\Models\Penjualan;
@@ -53,6 +54,18 @@ class BarangKeluarController extends Controller
             $data->order_date = $request->order_date;
             $data->status = true;
             $data->save();
+
+            $notification = new Notification();
+            $notification->title = "Permintaan Persetujuan Pemakaian {$data->barang[0]->name} oleh Admin";
+            $notification->role = 'owner';
+            $notification->link = route('pesetujuan.pemakaian.index');
+            $notification->save();
+
+            $notification = new Notification();
+            $notification->title = "Stok {$data->barang[0]->name} Telah Mencapai Batas Minimal, Segera Lakukan Pemesanan Pada Supplier";
+            $notification->role = 'admin';
+            $notification->link = route('pengelolaan.pesan-barang.index');
+            $notification->save();
 
             $pemakaian = new Pemakaian();
             $pemakaian->penjualan_id = $data->penjualan_id;

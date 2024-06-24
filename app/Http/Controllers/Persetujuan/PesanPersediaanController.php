@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Persetujuan;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barang;
+use App\Models\Notification;
 use App\Models\Pemesanan;
 use App\Models\PemesananDetail;
 use Carbon\Carbon;
@@ -101,7 +103,7 @@ class PesanPersediaanController extends Controller
         ));
     }
 
-    public function action_verif_or_not($status, $id)
+    public function action_verif_or_not($status, $id, $id_barang)
     {
         // $validator = Validator::make([$status, $id], [
         //     'id' => 'required|exists:pemesanans,id',
@@ -135,6 +137,13 @@ class PesanPersediaanController extends Controller
             $data->is_verify = true;
         }
         $data->save();
+        $barang = Barang::where('id', $id_barang)->pluck('name');
+        // dd($barang[0]);
+        $notification = new Notification();
+        $notification->title = "Permintaan Persetujuan Persan {$barang[0]} Disetujui oleh Owner";
+        $notification->role = 'admin';
+        $notification->link = route('riwayat.pesan-barang.index');
+        $notification->save();
 
         Alert::toast('Sukses Menyimpan data', 'success');
         return back();

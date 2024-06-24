@@ -44,6 +44,11 @@ class Pemesanan extends Model
         return $newPemesananId;
     }
 
+    // public function barang()
+    // {
+    //     return $this->hasMany(Barang::class, 'barang_id', 'id');
+    // }
+
     public function pemesanan_detail()
     {
         return $this->belongsTo(PemesananDetail::class);
