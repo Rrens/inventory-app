@@ -31,7 +31,10 @@ class NotificationProvider extends ServiceProvider
             ];
 
             if (!in_array(request()->route()->getName(), $authRoutes)) {
-                $data = Notification::where('role', auth()->user()->role)->get();
+                $data = Notification::where('role', auth()->user()->role)
+                    ->whereDate('created_at', '>=', now()->subDays(3))
+                    ->where('is_read', false)
+                    ->get();
                 $view->with('notificationData', $data);
             }
         });

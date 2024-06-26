@@ -5,6 +5,8 @@ use App\Http\Controllers\Dashboard\AdminDashboardController;
 use App\Http\Controllers\Dashboard\OwnerDashboardController;
 use App\Http\Controllers\Laporan\BarangKeluarController as LaporanBarangKeluarController;
 use App\Http\Controllers\Laporan\BarangMasukController as LaporanBarangMasukController;
+use App\Http\Controllers\Laporan\PersetujuanPemakaianBarangController;
+use App\Http\Controllers\Laporan\PersetujuanPesanBarangController;
 use App\Http\Controllers\Laporan\PesanBarangController as LaporanPesanBarangController;
 use App\Http\Controllers\Laporan\PesanPersediaanController;
 use App\Http\Controllers\Master\BarangController;
@@ -138,6 +140,16 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::prefix('pesan-persediaan')->group(function () {
             Route::get('', [PesanPersediaanController::class, 'index'])->name('laporan.pesan-persediaan.index');
             Route::get('{filter}', [PesanPersediaanController::class, 'filter'])->name('laporan.pesan-persediaan.filter');
+        });
+
+        Route::prefix('persetujuan-barang')->group(function () {
+            Route::get('', [PersetujuanPemakaianBarangController::class, 'index'])->name('laporan.persetujuan-pemakian.index');
+            Route::get('{date}', [PersetujuanPemakaianBarangController::class, 'filter'])->name('laporan.persetujuan-pemakian.filter');
+        });
+
+        Route::prefix('persetujuan-pesan-barang')->group(function () {
+            Route::get('', [PersetujuanPesanBarangController::class, 'index'])->name('laporan.persetujuan-pesan-barang.index');
+            Route::get('{date}', [PersetujuanPesanBarangController::class, 'filter'])->name('laporan.persetujuan-pesan-barang.filter');
         });
     });
 

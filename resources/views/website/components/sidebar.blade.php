@@ -1,9 +1,10 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link">
-         <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-             style="opacity: .8">
-         <span class="brand-text font-weight-light">Inventory</span>
+     <a href="{{ auth()->user()->role == 'admin' ? route('admin.dashboard.index') : route('owner.dashboard.index') }}"
+         class="brand-link">
+         <span class="brand-text font-weight-bold text-center">
+             <center>Inventory Toko Murah</center>
+         </span>
      </a>
 
      <!-- Sidebar -->
@@ -161,7 +162,7 @@
                                  <a href="{{ route('persetujuan.pesan-persetujuan.index') }}"
                                      class="nav-link {{ $active == 'pesan-persediaan' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Pesan Persediaan</p>
+                                     <p>Pesan Barang</p>
                                  </a>
                              </li>
                              <li class="nav-item">
@@ -207,7 +208,21 @@
                                  <a href="{{ route('laporan.pesan-persediaan.index') }}"
                                      class="nav-link {{ $active == 'laporan-pesan-persediaan' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Pesan Persediaan</p>
+                                     <p>Persediaan Barang</p>
+                                 </a>
+                             </div>
+                             <div class="nav-item">
+                                 <a href="{{ route('laporan.persetujuan-pemakian.index') }}"
+                                     class="nav-link {{ $active == 'laporan-persetujuan-pemakaian' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Persetujuan Barang</p>
+                                 </a>
+                             </div>
+                             <div class="nav-item">
+                                 <a href="{{ route('laporan.persetujuan-pesan-barang.index') }}"
+                                     class="nav-link {{ $active == 'laporan-persetujuan-pesan-barang' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Persetujuan Pemakaian</p>
                                  </a>
                              </div>
                          </ul>
