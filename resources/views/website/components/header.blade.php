@@ -9,7 +9,6 @@
 
     <ul class="navbar-nav ml-auto">
         @if (!empty($notificationData))
-
             <li class="dropdown mr-3">
                 <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="true">
                     <i class="far fa-bell"></i>

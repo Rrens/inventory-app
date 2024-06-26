@@ -42,7 +42,7 @@
                                         <th>ID</th>
                                         <th>Nama Barang</th>
                                         <th>Harga</th>
-                                        <th>Jumlah Pesanan (satuan)</th>
+                                        <th>Jumlah Stok Keluar (satuan)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,7 +78,7 @@
     <script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
     {{-- <script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script> --}}
+    <script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
     <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     {{-- <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script> --}}

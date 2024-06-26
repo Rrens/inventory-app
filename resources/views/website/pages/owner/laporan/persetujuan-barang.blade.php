@@ -1,11 +1,11 @@
 @extends('website.components.master')
-@section('title', 'Laporan Pesan Persediaan')
+@section('title', 'Laporan Barang Masuk')
 @section('container')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Laporan Pesan Barang</h1>
+                    <h1 class="m-0">Laporan Persetujuan Pesan Barang</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,7 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan Pesan Barang</h3>
+                            <h3 class="card-title">Data Laporan Persetujuan Pesan Barang</h3>
                             <form id="filter-form" method="get" style="float: right;"
                                 class="d-flex justify-content-center align-items-center">
                                 <input type="date" class="form-control mr-2" name="date"
@@ -39,27 +39,28 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Nama Supplier</th>
+                                        <th>NO</th>
+                                        <th>DateN</th>
                                         <th>Nama Barang</th>
-                                        <th>Tgl Pesan</th>
-                                        <th>Biaya Pemesanan</th>
-                                        <th>Harga</th>
-                                        <th>Jumlah Pesanan (satuan)</th>
+                                        <th>Supplier</th>
+                                        <th>Jumlah Pesanan</th>
                                         <th>Total Harga</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->supplier[0]->name }}</td>
-                                            <td>{{ $item->barang[0]->name }}</td>
                                             <td>{{ $item->pemesanan[0]->order_date }}</td>
-                                            <td>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</td>
-                                            <td>{{ format_rupiah($item->barang[0]->price) }}</td>
-                                            <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
-                                            <td>{{ format_rupiah($item->pemesanan[0]->price_total) }}</td>
+                                            <td>{{ $item->barang[0]->name }}</td>
+                                            <td>{{ $item->supplier[0]->name }}</td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>{{ format_rupiah($item->quantity) . ' ' . $item->barang[0]->price }}</td>
+                                            <td>
+                                                <span
+                                                    class="btn-{{ $item->pemesanan[0]->is_verify == true ? 'success' : 'danger' }} btn-sm">{{ $item->pemesanan[0]->is_verify == true ? 'SETUJU' : 'TIDAK SETUJU' }}</span>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -116,7 +117,7 @@
             let dateValue = $('#dateInput').val();
 
             if (dateValue) {
-                let actionUrl = `{{ env('BASE_URL') }}/laporan/pesan-barang/${dateValue}`
+                let actionUrl = `{{ env('BASE_URL') }}/laporan/persetujuan-pemakaian/${dateValue}`
                 window.location.href = actionUrl;
             } else {
                 alert('Please select a date');

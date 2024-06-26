@@ -23,7 +23,85 @@ class PenjualanSeeder extends Seeder
     public function run(): void
     {
 
-        $datas = [
+        $datas_juni = [
+            [
+                "product_name" => "Kran Air Amico 1/2",
+                "quantity" => 25,
+                'barang_id' => 1
+            ],
+            [
+                "product_name" => "Kran Air Sanho 1/2",
+                "quantity" => 30,
+                'barang_id' => 1
+            ],
+            [
+                "product_name" => "Selotip",
+                "quantity" => 107,
+                'barang_id' => 3
+            ],
+            [
+                "product_name" => "Pisau Potong WD",
+                "quantity" => 330,
+                'barang_id' => 4
+            ],
+            [
+                "product_name" => "Paku Beton 3 dim",
+                "quantity" => 26,
+                'barang_id' => 5
+            ],
+            [
+                "product_name" => "Sekrup Baja 2 dim",
+                "quantity" => 4,
+                'barang_id' => 6
+            ],
+            [
+                "product_name" => "Kunci Pintu",
+                "quantity" => 15,
+                'barang_id' => 7
+            ],
+            [
+                "product_name" => "Baut Drilling 12x25cm",
+                "quantity" => 14,
+                'barang_id' => 8
+            ],
+            [
+                "product_name" => "Sekrup Baja 1 dim",
+                "quantity" => 28,
+                'barang_id' => 9
+            ],
+            [
+                "product_name" => "Cat Semprot",
+                "quantity" => 50,
+                'barang_id' => 10
+            ],
+            [
+                "product_name" => "Lem Besi Dextone",
+                "quantity" => 30,
+                'barang_id' => 11
+            ],
+            [
+                "product_name" => "Meteran 5M",
+                "quantity" => 39,
+                'barang_id' => 12
+            ],
+            [
+                "product_name" => "Semen Gresik",
+                "quantity" => 930,
+                'barang_id' => 13
+            ],
+            [
+                "product_name" => "Cat Tembok Paragon",
+                "quantity" => 39,
+                'barang_id' => 14
+            ],
+            [
+                "product_name" => "Bor Besi 2MM",
+                "quantity" => 14,
+                'barang_id' => 15
+            ]
+        ];
+
+        $datas_juli = [
             [
                 "product_name" => "Kran Air Amico 1/2",
                 "quantity" => 30,
@@ -101,27 +179,37 @@ class PenjualanSeeder extends Seeder
             ]
         ];
 
-        foreach ($datas as $item) {
+        foreach ($datas_juni as $item) {
             $penjualan = new Penjualan;
             $penjualan->penjualan_id = Penjualan::generateID();
             $penjualan->slug = Str::random(5);
-            $penjualan->order_date = '2023-03-10';
+            $penjualan->order_date = '2023-06-10';
             $penjualan->quantity = $item['quantity'];
             $penjualan->barang_id = $item['barang_id'];
             $penjualan->save();
         }
 
-        $faker = Faker::create();
+        // foreach ($datas_juli as $item) {
+        //     $penjualan = new Penjualan;
+        //     $penjualan->penjualan_id = Penjualan::generateID();
+        //     $penjualan->slug = Str::random(5);
+        //     $penjualan->order_date = '2023-06-10';
+        //     $penjualan->quantity = $item['quantity'];
+        //     $penjualan->barang_id = $item['barang_id'];
+        //     $penjualan->save();
+        // }
 
-        for ($i = 0; $i < 100; $i++) {
-            $penjualan = new Penjualan;
-            $penjualan->penjualan_id = Penjualan::generateID();
-            $penjualan->slug = Str::random(5);
-            $penjualan->order_date = '2023-03-10';
-            $penjualan->quantity = $faker->numberBetween(10, 100);
-            $penjualan->barang_id = $faker->numberBetween(1, 15);
-            $penjualan->save();
-        }
+        // $faker = Faker::create();
+
+        // for ($i = 0; $i < 100; $i++) {
+        //     $penjualan = new Penjualan;
+        //     $penjualan->penjualan_id = Penjualan::generateID();
+        //     $penjualan->slug = Str::random(5);
+        //     $penjualan->order_date = '2023-03-10';
+        //     $penjualan->quantity = $faker->numberBetween(10, 100);
+        //     $penjualan->barang_id = $faker->numberBetween(1, 15);
+        //     $penjualan->save();
+        // }
 
 
 
