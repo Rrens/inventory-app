@@ -127,7 +127,7 @@
                              </li>
                              <li class="nav-item">
                                  <a href="{{ route('riwayat.barang-keluar.index') }}"
-                                     class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
+                                     class="nav-link {{ $active == 'riwayat-barang-keluar' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
                                      <p>Barang Keluar</p>
                                  </a>

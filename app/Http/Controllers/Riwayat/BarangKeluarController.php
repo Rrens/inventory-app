@@ -11,7 +11,7 @@ class BarangKeluarController extends Controller
 {
     public function index()
     {
-        $active = 'barang-keluar';
+        $active = 'riwayat-barang-keluar';
         $active_group = 'riwayat';
         $data_detail = Penjualan::where('status', true)->get();
         $value_filter = false;

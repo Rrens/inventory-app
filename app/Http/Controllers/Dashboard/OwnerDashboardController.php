@@ -123,11 +123,14 @@ class OwnerDashboardController extends Controller
                     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->first();
             }
+
+            // dd($data);
             $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
-            $ss = ($data->max - $data->avg) * $lead_time;
+            $ss = ($data->max - $data->avg) * $lead_time; // SAFETY STOCK
             $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
             $d = (int)round($data->total / $jumlah_hari);
             $rop = ($d * $lead_time) + $ss;
+            // dd($rop, $d, $ss, $lead_time);
 
             $temp = (object)[
                 'no' => $no++,
