@@ -102,6 +102,7 @@ class AdminDashboardController extends Controller
             $lastdate = Carbon::createFromFormat('d-m-Y H:i:s', '01' . "-" . $bulan_tahun->bulan . " 00:00:00")->addDay($this->jumlahHari($bulan_tahun->bulan))->format('Y-m-d H:i:s');
         }
 
+        // PERHITUNGAN ROP & SS
         $no = 1;
         $detail_penjualan = array();
         foreach ($data_detail as $item) {

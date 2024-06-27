@@ -249,8 +249,10 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Rp</span>
                                             </div>
-                                            <input type="number" class="form-control" id="price" name="price"
-                                                value="{{ !empty(old('price')) ? old('price') : $item->price }}">
+                                            <input type="text" class="form-control" id="price"
+                                                oninput="priceInput(this)"
+                                                value="{{ !empty(old('price')) ? old('price') : $item->price }}"
+                                                name="price">
                                         </div>
                                     </div>
                                 </div>
@@ -392,6 +394,13 @@
 @endpush
 @push('script')
     <script>
+        function priceInput(element) {
+            console.log(price)
+            let value = element.value;
+            let newValue = value.replace(/[^0-9]/g, '');
+            element.value = newValue;
+        }
+
         function savingCost(element) {
             let value = element.value;
             let newValue = value.replace(/[^0-9]/g, '');

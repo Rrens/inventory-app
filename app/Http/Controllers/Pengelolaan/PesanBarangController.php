@@ -185,6 +185,7 @@ class PesanBarangController extends Controller
         return $eoq;
     }
 
+    // PERHITUNGAN EOQ
     public function count_eoq(Request $request)
     {
         $bulan_tahun = DB::table('penjualans')
@@ -196,6 +197,7 @@ class PesanBarangController extends Controller
         $pemesanans = $request['data'];
         $s = $request['data'][0]['orderingCost'];
         $no = 1;
+        $example = [];
 
         foreach ($pemesanans as $pemesanan) {
 
@@ -216,8 +218,9 @@ class PesanBarangController extends Controller
             ];
 
             array_push($hasil_hitung, $hasil_eoq);
+            array_push($example, ['saving_cost' => $h, 'data_total' => $data->total, 'order_cost' =>  $s]);
         }
-        return response()->json(['pemesanan' => $hasil_hitung], 200);
+        return response()->json(['pemesanan' => $hasil_hitung, 'example' => $example], 200);
     }
 
     public function checkStock($id_barang)

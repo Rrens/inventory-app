@@ -32,7 +32,7 @@ class PenjualanSeeder extends Seeder
             [
                 "product_name" => "Kran Air Sanho 1/2",
                 "quantity" => 30,
-                'barang_id' => 1
+                'barang_id' => 2
             ],
             [
                 "product_name" => "Selotip",

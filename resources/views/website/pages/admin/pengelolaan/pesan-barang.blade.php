@@ -346,7 +346,7 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    console.log(response.pemesanan)
+                    console.log(response)
                     let data = response.pemesanan
                     for (let index = 0; index < data.length; index++) {
                         console.log(data[index]);
