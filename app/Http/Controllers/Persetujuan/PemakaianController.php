@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Persetujuan;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barang;
 use App\Models\Notification;
 use App\Models\Pemakaian;
 use App\Models\Penjualan;
@@ -41,6 +42,10 @@ class PemakaianController extends Controller
             $penjualan = Penjualan::findOrFail($data->penjualan[0]->penjualan_id);
             $penjualan->status = true;
             $penjualan->save();
+
+            $barang = Barang::findOrFail($penjualan->barang_id);
+            $barang->quantity -= $request->quantity;
+            $barang->save();
 
             $notification = new Notification();
             $notification->title = "Permintaan Barang Keluar {$penjualan->barang[0]->name} Disetujui oleh Owner";
