@@ -45,6 +45,10 @@ class BarangKeluarController extends Controller
             $data->order_date = $request->order_date;
             $data->status = false;
             $data->save();
+
+            $barang = Barang::findOrFail($request->barang_id);
+            $barang->quantity -= $request->quantity;
+            $barang->save();
         } else {
             $data = new Penjualan();
             $data->penjualan_id = Penjualan::generateID();

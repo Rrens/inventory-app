@@ -138,6 +138,11 @@ class PesanPersediaanController extends Controller
         }
         $data->save();
         $barang = Barang::where('id', $id_barang)->pluck('name');
+
+        $change_quantiy = Barang::findOrFail($id_barang);
+        $change_quantiy->quantity += $data->quantity;
+        $change_quantiy->save();
+
         // dd($barang[0]);
         $notification = new Notification();
         $notification->title = "Permintaan Persetujuan Persan {$barang[0]} Disetujui oleh Owner";
