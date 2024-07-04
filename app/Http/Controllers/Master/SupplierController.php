@@ -37,6 +37,15 @@ class SupplierController extends Controller
             return back()->withInput();
         }
 
+        $check_name = Supplier::pluck('name');
+
+        foreach ($check_name as $item) {
+            if ($this->convert_name($item) == $this->convert_name($request->name)) {
+                Alert::toast('Data Supplier sudah tersedia', 'error');
+                return back()->withInput();
+            }
+        }
+
         unset($request['_token']);
         $data = new Supplier();
         $data->fill($request->all());
@@ -48,16 +57,42 @@ class SupplierController extends Controller
 
     public function update(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'id' => 'required|exists:suppliers,id',
-            'name' => 'required',
-            'telp' => 'required',
-            'description' => 'required'
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'id' => 'required|exists:suppliers,id',
+                'name' => 'required',
+                'telp' => 'required',
+                'description' => 'required'
+            ],
+            [
+                'name.required' => 'Nama harus diisi',
+                'telp.required' => 'Telp harus diisi',
+                'description.required' => 'Deskripsi harus diisi'
+            ]
+        );
 
         if ($validator->fails()) {
             Alert::toast($validator->messages()->all(), 'error');
+            // dd($validator->messages());
             return back()->withInput();
+        }
+
+        $check_name = Supplier::all();
+        $current_data = Supplier::where('id', $request->id)->pluck('name');
+
+        foreach ($check_name as $item) {
+            if ($this->convert_name($item->name) != $this->convert_name($current_data[0])) {
+                if ($this->convert_name($item->name) == $this->convert_name($request->name)) {
+                    Alert::toast('Data Supplier sudah tersedia', 'error');
+                    return back()->withInput();
+                }
+
+                if ($this->telp == $request->telp) {
+                    Alert::toast('Data Telp Sudah tersedia di supplier lain', 'error');
+                    return back()->withInput();
+                }
+            }
         }
 
         unset($request['_token']);
@@ -83,5 +118,10 @@ class SupplierController extends Controller
 
         Alert::toast('Sukses Menghapus', 'success');
         return back();
+    }
+
+    public function convert_name($data)
+    {
+        return str_replace(' ', '', strtolower($data));
     }
 }

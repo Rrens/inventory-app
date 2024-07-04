@@ -137,13 +137,56 @@ class PesanPersediaanController extends Controller
             $data->is_verify = true;
         }
         $data->save();
-        $barang = Barang::where('id', $id_barang)->pluck('name');
-        // dd($barang[0]);
-        $notification = new Notification();
-        $notification->title = "Permintaan Persetujuan Persan {$barang[0]} Disetujui oleh Owner";
-        $notification->role = 'admin';
-        $notification->link = route('riwayat.pesan-barang.index');
-        $notification->save();
+
+        // $data_detail = PemesananDetail::where('pemesanan_id', $data->id)->get();
+        $data_detail = DB::table('pemesanans as p')
+            ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
+            ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
+            ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
+            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+            ->where('p.id', $data->id)
+            ->get();
+
+        $bulan_tahun = DB::table('penjualans')
+            ->selectRaw('DATE_FORMAT(MAX(order_date),"%m-%Y") as bulan')
+            ->whereRaw('DATE_FORMAT(order_date, "%m-%Y") < DATE_FORMAT(now(), "%m-%Y")')
+            ->first();
+        // dd($data_detail, $id);
+
+        foreach ($data_detail as $item) {
+
+            if (!empty($bulan_tahun->bulan)) {
+                $data_penjualan = DB::table('penjualans as p')
+                    ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+                    ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
+                    ->first();
+            } else {
+                $data_penjualan = DB::table('penjualans as p')
+                    ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+                    ->first();
+            }
+            $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
+            $ss = ($data_penjualan->max - $data_penjualan->avg) * $lead_time;
+            $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
+            $d = (int)round($data_penjualan->total / $jumlah_hari);
+            $rop = ($d * $lead_time) + $ss;
+            // dd($item);
+            $change_quantiy = Barang::findOrFail($item->id);
+            $change_quantiy->quantity += $item->quantity;
+            $change_quantiy->rop = $rop;
+            $change_quantiy->save();
+
+            $barang = Barang::where('id', $item->id)->pluck('name');
+            // dd($barang[0]);
+            $notification = new Notification();
+            $notification->title = "Permintaan Persetujuan Persan {$barang[0]} Disetujui oleh Owner";
+            $notification->role = 'admin';
+            $notification->link = route('riwayat.pesan-barang.index');
+            $notification->save();
+        }
+
 
         Alert::toast('Sukses Menyimpan data', 'success');
         return back();

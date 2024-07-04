@@ -19,6 +19,7 @@ class Barang extends Model
         'quantity',
         'leadtime',
         'eoq',
+        'rop',
         'place',
         'supplier_id'
     ];

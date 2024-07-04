@@ -74,23 +74,27 @@ class AdminDashboardController extends Controller
     public function data($filter = false)
     {
         if ($filter) {
-            $data_detail = DB::table('pemesanans as p')
+            $data_detail = DB::table('barangs as b')
+                ->join('pemesanans as p', 'pd.barang_id', '=', 'b.id')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
-                ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-                ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
                 ->where('b.place', $filter)
                 // ->where('p.slug', $slug)
+                ->groupBy('b.id')
                 ->get();
         } else {
             $data_detail = DB::table('pemesanans as p')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-                ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
                 // ->where('p.slug', $slug)
+                ->groupBy('b.id')
                 ->get();
         }
+
+        // dd($data_detail);
 
         $bulan_tahun = DB::table('penjualans')
             ->selectRaw('DATE_FORMAT(MAX(order_date),"%m-%Y") as bulan')
@@ -102,6 +106,7 @@ class AdminDashboardController extends Controller
             $lastdate = Carbon::createFromFormat('d-m-Y H:i:s', '01' . "-" . $bulan_tahun->bulan . " 00:00:00")->addDay($this->jumlahHari($bulan_tahun->bulan))->format('Y-m-d H:i:s');
         }
 
+        // PERHITUNGAN ROP & SS
         $no = 1;
         $detail_penjualan = array();
         foreach ($data_detail as $item) {
@@ -116,12 +121,52 @@ class AdminDashboardController extends Controller
                     ->join('barangs as b', 'p.barang_id', '=', 'b.id')
                     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->first();
+
+                // $barangs = DB::table('barangs as b')
+                //     ->join('barang_gudangs as bg', 'b.barang_id', '=', 'bg.barang_id')
+                //     ->join('barang_counters as bc', 'b.barang_id', '=', 'bc.barang_id')
+                //     ->join('detail_penjualans as dp', 'bc.barang_counter_id', '=', 'dp.barang_counter_id')
+                //     ->selectRaw('b.barang_id,
+                //     b.slug,
+                //     b.nama_barang,
+                //     b.harga_barang,
+                //     b.biaya_penyimpanan,
+                //     b.rop,((SELECT SUM(stok_masuk)-SUM(stok_keluar) FROM barang_gudangs
+                //          WHERE barang_id = b.barang_id GROUP BY barang_id) + (SELECT SUM(stok_masuk)-SUM(stok_keluar) FROM barang_counters
+                //          WHERE barang_id = b.barang_id GROUP BY barang_id)) as qty_total,
+                //         round(avg(dp.quantity)) as avg')
+                //     ->groupByRaw("b.barang_id,
+                //     b.slug,
+                //     b.nama_barang,
+                //     b.harga_barang,
+                //     b.biaya_penyimpanan,
+                //     b.rop, ((SELECT SUM(stok_masuk)-SUM(stok_keluar) FROM barang_gudangs
+                //         WHERE barang_id = b.barang_id GROUP BY barang_id) + (SELECT SUM(stok_masuk)-SUM(stok_keluar) FROM barang_counters
+                //         WHERE barang_id = b.barang_id GROUP BY barang_id))")
+                //     ->orderByRaw("((SELECT SUM(stok_masuk)-SUM(stok_keluar) FROM barang_gudangs
+                //         WHERE barang_id = b.barang_id GROUP BY barang_id) + (SELECT SUM(stok_masuk)-SUM(stok_keluar) FROM barang_counters
+                //         WHERE barang_id = b.barang_id GROUP BY barang_id)) <= b.rop desc, b.barang_id asc")
+                //     ->get();
+
+                // $data = DB::table('barangs as b')
+                // ->join('penjualans as p', 'p.barang_id', '=', 'b.id')
+                // ->selectRaw('sum(p.quantity) as total,
+                //     round(avg(p.quantity)) as avg,
+                //     max(p.quantity) as max')
+                // ->groupByRaw('b.id,
+                //     ')
             }
-            $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
-            $ss = ($data->max - $data->avg) * $lead_time;
-            $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
-            $d = (int)round($data->total / $jumlah_hari);
-            $rop = ($d * $lead_time) + $ss;
+
+            // $data = DB::table('penjualans as p')
+            //     ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+            //     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+            //     ->first();
+
+            // $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
+            // $ss = ($data->max - $data->avg) * $lead_time;
+            // $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
+            // $d = (int)round($data->total / $jumlah_hari);
+            // $rop = ($d * $lead_time) + $ss;
 
             $temp = (object)[
                 'no' => $no++,
@@ -131,13 +176,13 @@ class AdminDashboardController extends Controller
                 'supplier_name' => $item->supplier_name,
                 'stok' => $item->stock,
                 'eoq' => $item->eoq,
-                'rop' => $rop,
+                'rop' => $item->rop,
                 'max' => $data->max,
                 'avg' => $data->avg,
                 'sum' => $data->total,
-                'd' => $d,
-                'lead_time' => $lead_time,
-                'ss' => $ss,
+                // 'd' => $d,
+                // 'lead_time' => $item->lead_time,
+                // 'ss' => $ss,
             ];
 
             array_push($detail_penjualan, $temp);
