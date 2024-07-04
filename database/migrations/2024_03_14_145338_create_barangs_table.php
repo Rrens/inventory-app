@@ -20,6 +20,7 @@ return new class extends Migration
             $table->float('price');
             $table->string('unit');
             $table->integer('eoq')->default(0);
+            $table->integer('rop')->default(0);
             $table->integer('quantity')->default(0);
             $table->integer('leadtime')->nullable();
             $table->string('place')->nullable();

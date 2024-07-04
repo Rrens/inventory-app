@@ -7,6 +7,7 @@ use App\Models\Barang;
 use App\Models\Notification;
 use App\Models\Pemakaian;
 use App\Models\Penjualan;
+use App\Models\PenjualanDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -44,7 +45,9 @@ class PemakaianController extends Controller
             $penjualan->save();
 
             $barang = Barang::findOrFail($penjualan->barang_id);
-            $barang->quantity -= $request->quantity;
+            $barang->quantity -= $penjualan->quantity;
+            // dd($penjualan, $barang, $penjualan->quantity);
+            // dd($data_detail, $barang);
             $barang->save();
 
             $notification = new Notification();
