@@ -29,7 +29,11 @@ class SupplierController extends Controller
             'id' => 'required|unique:suppliers,id',
             'name' => 'required',
             'telp' => 'required',
-            'description' => 'required'
+            'description' => 'nullable'
+        ], [
+            'name.required' => 'Nama harus diisi',
+            'telp.required' => 'Telp harus diisi',
+            // 'description.required' => 'Deskripsi harus diisi'
         ]);
 
         if ($validator->fails()) {
@@ -63,12 +67,12 @@ class SupplierController extends Controller
                 'id' => 'required|exists:suppliers,id',
                 'name' => 'required',
                 'telp' => 'required',
-                'description' => 'required'
+                'description' => 'nullable'
             ],
             [
                 'name.required' => 'Nama harus diisi',
                 'telp.required' => 'Telp harus diisi',
-                'description.required' => 'Deskripsi harus diisi'
+                // 'description.required' => 'Deskripsi harus diisi'
             ]
         );
 
@@ -88,7 +92,7 @@ class SupplierController extends Controller
                     return back()->withInput();
                 }
 
-                if ($this->telp == $request->telp) {
+                if ($item->telp == $request->telp) {
                     Alert::toast('Data Telp Sudah tersedia di supplier lain', 'error');
                     return back()->withInput();
                 }
