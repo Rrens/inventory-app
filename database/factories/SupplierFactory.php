@@ -18,7 +18,7 @@ class SupplierFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'telp' => $this->faker->phoneNumber(),
+            'telp' => $this->faker->regexify('812[0-9]{9}'),
             'description' => $this->faker->paragraph(),
         ];
     }
