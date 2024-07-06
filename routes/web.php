@@ -14,6 +14,7 @@ use App\Http\Controllers\Master\SupplierController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Pengelolaan\BarangKeluarController as PengelolaanBarangKeluarController;
 use App\Http\Controllers\Pengelolaan\BarangMasukController as PengelolaanBarangMasukController;
+use App\Http\Controllers\Pengelolaan\PenjualanController;
 use App\Http\Controllers\Pengelolaan\PermintaanBarangController;
 use App\Http\Controllers\Pengelolaan\PesanBarangController;
 use App\Http\Controllers\Persetujuan\PemakaianController;
@@ -43,17 +44,19 @@ Route::redirect('/master', '/master/barang', 301);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::prefix('master')->group(function () {
-        Route::get('', [BarangController::class, 'index'])->name('master.barang.index');
-        Route::post('', [BarangController::class, 'store'])->name('master.barang.store');
-        Route::post('update', [BarangController::class, 'update'])->name('master.barang.update');
-        Route::post('delete', [BarangController::class, 'delete'])->name('master.barang.delete');
-    });
+        Route::prefix('barang')->group(function () {
+            Route::get('', [BarangController::class, 'index'])->name('master.barang.index');
+            Route::post('', [BarangController::class, 'store'])->name('master.barang.store');
+            Route::post('update', [BarangController::class, 'update'])->name('master.barang.update');
+            Route::post('delete', [BarangController::class, 'delete'])->name('master.barang.delete');
+        });
 
-    Route::prefix('suppplier')->group(function () {
-        Route::get('', [SupplierController::class, 'index'])->name('master.supplier.index');
-        Route::post('', [SupplierController::class, 'store'])->name('master.supplier.store');
-        Route::post('update', [SupplierController::class, 'update'])->name('master.supplier.update');
-        Route::post('delete', [SupplierController::class, 'delete'])->name('master.supplier.delete');
+        Route::prefix('suppplier')->group(function () {
+            Route::get('', [SupplierController::class, 'index'])->name('master.supplier.index');
+            Route::post('', [SupplierController::class, 'store'])->name('master.supplier.store');
+            Route::post('update', [SupplierController::class, 'update'])->name('master.supplier.update');
+            Route::post('delete', [SupplierController::class, 'delete'])->name('master.supplier.delete');
+        });
     });
 
     Route::prefix('riwayat')->group(function () {
@@ -65,7 +68,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::get('', [RiwayatBarangMasukController::class, 'index'])->name('riwayat.barang-masuk.index');
             Route::get('{filter}', [RiwayatBarangMasukController::class, 'filter'])->name('riwayat.barang-masuk.filter');
         });
-        Route::prefix('barang-keluar')->group(function () {
+        Route::prefix('penjualan')->group(function () {
             Route::get('', [RiwayatBarangKeluarController::class, 'index'])->name('riwayat.barang-keluar.index');
             Route::get('{filter}', [RiwayatBarangKeluarController::class, 'filter'])->name('riwayat.barang-keluar.filter');
         });
@@ -92,6 +95,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::post('', [PengelolaanBarangKeluarController::class, 'store'])->name('pengelolaan.barang-keluar.store');
             Route::get('check-stock/{id}/{place}',  [PengelolaanBarangKeluarController::class, 'checkStock']);
             Route::get('check-safety-stock/{id}', [PengelolaanBarangKeluarController::class, 'checkSafetyStock']);
+        });
+
+        Route::prefix('penjualan')->group(function () {
+            Route::get('', [PenjualanController::class, 'index'])->name('pengelolaan.penjualan.index');
+            Route::post('store-cart', [PenjualanController::class, 'store_cart'])->name('pengelolaan.penjualan.store-cart');
+            Route::post('delete-cart', [PenjualanController::class, 'delete_cart'])->name('pengelolaan.penjualan.delete-cart');
+            Route::post('store', [PenjualanController::class, 'store'])->name('pengelolaan.penjualan.store');
+            Route::get('check-stock/{id}/{place}',  [PenjualanController::class, 'checkStock']);
+            Route::get('check-safety-stock/{id}', [PenjualanController::class, 'checkSafetyStock']);
         });
     });
 
@@ -132,7 +144,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
             Route::get('{filter}', [LaporanBarangMasukController::class, 'filter'])->name('laporan.barang-masuk.filter');
         });
         // Route::get('barang-masuk', [LaporanBarangMasukController::class, '__construct'])->name('laporan.barang-masuk.index');
-        Route::prefix('barang-keluar')->group(function () {
+        Route::prefix('penjualan')->group(function () {
             Route::get('', [LaporanBarangKeluarController::class, 'index'])->name('laporan.barang-keluar.index');
             Route::get('{filter}', [LaporanBarangKeluarController::class, 'filter'])->name('laporan.barang-keluar.filter');
         });
