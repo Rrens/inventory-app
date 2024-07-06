@@ -93,11 +93,18 @@
                                      <p>Barang Masuk</p>
                                  </a>
                              </li>
-                             <li class="nav-item">
+                             {{-- <li class="nav-item">
                                  <a href="{{ route('pengelolaan.barang-keluar.index') }}"
                                      class="nav-link {{ $active == 'barang-keluar' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
                                      <p>Barang Keluar</p>
+                                 </a>
+                             </li> --}}
+                             <li class="nav-item">
+                                 <a href="{{ route('pengelolaan.penjualan.index') }}"
+                                     class="nav-link {{ $active == 'penjualan-pengelolaan' ? 'active' : '' }}">
+                                     <i class="far fa-circle nav-icon"></i>
+                                     <p>Penjualan</p>
                                  </a>
                              </li>
                          </ul>
@@ -129,7 +136,7 @@
                                  <a href="{{ route('riwayat.barang-keluar.index') }}"
                                      class="nav-link {{ $active == 'riwayat-barang-keluar' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Barang Keluar</p>
+                                     <p>Penjualan</p>
                                  </a>
                              </li>
                          </ul>
@@ -201,7 +208,7 @@
                                  <a href="{{ route('laporan.barang-keluar.index') }}"
                                      class="nav-link {{ $active == 'laporan-barang-keluar' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Barang Keluar</p>
+                                     <p>Penjualan</p>
                                  </a>
                              </li>
                              <div class="nav-item">

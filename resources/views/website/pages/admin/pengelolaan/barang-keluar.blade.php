@@ -139,7 +139,6 @@
                                 return
                             }
 
-
                             doSave(valueStock, productID, quantity, orderDate)
 
                             // console.log(quantity)
