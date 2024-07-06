@@ -53,4 +53,9 @@ class Barang extends Model
     {
         return $this->belongsTo(Cart::class);
     }
+
+    public function cart_penjualan()
+    {
+        return $this->belongsTo(CartPenjualan::class);
+    }
 }
