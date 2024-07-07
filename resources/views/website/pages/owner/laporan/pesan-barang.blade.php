@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Laporan Pesan Barang</h1>
+                    <h1 class="m-0">Laporan Penjualan Barang</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,7 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan Pesan Barang</h3>
+                            <h3 class="card-title">Data Laporan Penjualan Barang</h3>
                             <form id="filter-form" method="get" style="float: right;"
                                 class="d-flex justify-content-center align-items-center">
                                 <input type="date" class="form-control mr-2" name="date"

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pesan Barang</h1>
+                    <h1 class="m-0">Penjualan Barang</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,7 @@
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Pesan Barang</h3>
+                            <h3 class="card-title">Penjualan Barang</h3>
                         </div>
                         <div class="card-body">
                             {{-- <form action="{{ route('pengelolaan.penjualan.store-cart') }}" method="post"> --}}
@@ -105,7 +105,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
-                                                <th>Jumlah Pemesanan</th>
+                                                <th>Quantity</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
