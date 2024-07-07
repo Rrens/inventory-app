@@ -89,6 +89,7 @@ class PesanPersediaanController extends Controller
                 'lead_time' => $lead_time,
                 'ss' => $ss
             ];
+            // dd($temp);
 
             array_push($detail_penjualan, $temp);
         }
@@ -174,7 +175,7 @@ class PesanPersediaanController extends Controller
             $rop = ($d * $lead_time) + $ss;
             // dd($item);
             $change_quantiy = Barang::findOrFail($item->id);
-            $change_quantiy->quantity += $item->quantity;
+            // $change_quantiy->quantity += $item->quantity;
             $change_quantiy->rop = $rop;
             $change_quantiy->save();
 

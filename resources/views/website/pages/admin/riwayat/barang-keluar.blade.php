@@ -37,7 +37,7 @@
                                     <tr>
                                         <th>Tanggal Keluar</th>
                                         <th>Nama Barang</th>
-                                        <th>Jumlah Stok Keluar</th>
+                                        <th>Quantity</th>
                                         <th>Detail</th>
                                     </tr>
                                 </thead>
