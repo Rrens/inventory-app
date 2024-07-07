@@ -42,7 +42,7 @@
                                         <th>ID</th>
                                         <th>Nama Barang</th>
                                         <th>Harga</th>
-                                        <th>Jumlah Stok Keluar (satuan)</th>
+                                        <th>Quantity (satuan)</th>
                                     </tr>
                                 </thead>
                                 <tbody>

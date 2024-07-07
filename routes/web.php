@@ -60,7 +60,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     Route::prefix('riwayat')->group(function () {
-        Route::prefix('pesan-barang')->group(function () {
+        Route::prefix('penjualan-barang')->group(function () {
             Route::get('', [RiwayatPesanBarangController::class, 'index'])->name('riwayat.pesan-barang.index');
             Route::get('{filter}', [RiwayatPesanBarangController::class, 'filter'])->name('riwayat.pesan-barang.filter');
         });
@@ -75,7 +75,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     Route::prefix('pengelolaan')->group(function () {
-        Route::prefix('pesan-barang')->group(function () {
+        Route::prefix('penjualan-barang')->group(function () {
             Route::get('', [PesanBarangController::class, 'index'])->name('pengelolaan.pesan-barang.index');
             Route::post('', [PesanBarangController::class, 'store'])->name('pengelolaan.pesan-barang.store');
             Route::post('add-cart', [PesanBarangController::class, 'store_cart'])->name('pengelolaan.pesan-barang.store-cart');
@@ -135,7 +135,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
     });
 
     Route::prefix('laporan')->group(function () {
-        Route::prefix('pesan-barang')->group(function () {
+        Route::prefix('penjualan-barang')->group(function () {
             Route::get('', [LaporanPesanBarangController::class, 'index'])->name('laporan.pesan-barang.index');
             Route::get('{filter}', [LaporanPesanBarangController::class, 'filter'])->name('laporan.pesan-barang.filter');
         });
@@ -149,7 +149,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
             Route::get('{filter}', [LaporanBarangKeluarController::class, 'filter'])->name('laporan.barang-keluar.filter');
         });
         // Route::get('barang-keluar', [LaporanBarangKeluarController::class, '__construct'])->name('laporan.barang-keluar.index');
-        Route::prefix('pesan-persediaan')->group(function () {
+        Route::prefix('penjualan-persediaan')->group(function () {
             Route::get('', [PesanPersediaanController::class, 'index'])->name('laporan.pesan-persediaan.index');
             Route::get('{filter}', [PesanPersediaanController::class, 'filter'])->name('laporan.pesan-persediaan.filter');
         });
