@@ -143,6 +143,7 @@ class PenjualanController extends Controller
                 $barang->quantity -= $item->quantity;
                 $barang->save();
             } else {
+                // dd($item->status == true);
                 $data = new Penjualan();
                 $data->penjualan_id = Penjualan::generateID();
                 $data->slug = Penjualan::generateSLUG();
