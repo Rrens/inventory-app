@@ -287,7 +287,7 @@
             let productID = $('#barang_id option:selected').val();
 
             $.ajax({
-                url: `/pengelolaan/penjualan/check-stock/${productID}/${place}`,
+                url: `/pengelolaan/penjualan/check-stock/${productID}`,
                 method: 'GET',
                 success: function(res) {
                     if (res === 'data tidak ditemukan') {
