@@ -75,6 +75,37 @@ class PenjualanController extends Controller
         }
     }
 
+    public function update_cart(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'barang_id' => 'required|exists:barangs,id',
+            'quantity' => 'required|numeric',
+            'status' => 'required|in:true,false'
+        ], [
+            'barang_id.required' => 'Barang harus diisi',
+            'quantity.required' => 'Quantity harus diisi',
+            'quantity.numeric' => 'Quantity harus berisi nomor',
+            'status.required' => 'Status harus ada',
+            'status.in' => 'Status harus antara true atau false',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->messages()->all(), 404);
+        }
+
+        try {
+            unset($request['_token']);
+
+            $data = CartPenjualan::where('barang_id', $request->id)->first();
+            $data->quantity = $request->quantity;
+            $data->save();
+
+            return response()->json('sukses');
+        } catch (Exception $error) {
+            return response()->json($error->getMessage());
+        }
+    }
+
     public function delete_cart(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -145,10 +176,9 @@ class PenjualanController extends Controller
         return back();
     }
 
-    public function checkStock($id, $place)
+    public function checkStock($id)
     {
         $data = Barang::where('id', $id)
-            ->where('place', $place)
             ->pluck('quantity');
         if (!empty($data[0])) {
             return response()->json($data[0]);
