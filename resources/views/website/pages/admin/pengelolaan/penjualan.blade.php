@@ -285,6 +285,7 @@
             let quantity = $('#quantity').val()
             let orderDate = $('#date_use').val()
             let productID = $('#barang_id option:selected').val();
+            let stock = $('#barang_id option:selected').data('stock')
 
             $.ajax({
                 url: `/pengelolaan/penjualan/check-stock/${productID}`,
@@ -307,9 +308,17 @@
                             let confirmSafetyStock = false;
                             let valueStock = false;
 
+                            let totalCheckResult = stock - quantity;
                             console.log('ss', ss)
+                            console.log('stock - quantity = ', totalCheckResult)
 
-                            if (quantity > ss) {
+                            if (quantity > res) {
+                                alert('Quantity melebihi stock!!!')
+                                return
+                            }
+
+
+                            if (totalCheckResult <= ss) {
                                 confirmSS = confirm(
                                     'Quantity melebihi Safety Stock, apakah tetap ingin melanjutkan?'
                                 )

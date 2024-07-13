@@ -207,6 +207,7 @@ class PenjualanController extends Controller
                 ->first();
         }
 
+
         $lead_time = !empty($data->leadtime) ? $data->leadtime : 5;
         $ss = ($data->max - $data->avg) * $lead_time;
 
