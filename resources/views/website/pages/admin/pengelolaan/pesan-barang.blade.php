@@ -338,7 +338,7 @@
     <script>
         function calculateEOQ(data) {
             $.ajax({
-                url: '/pengelolaan/pesan-barang/count-eoq',
+                url: '/pengelolaan/penjualan-barang/count-eoq',
                 method: 'POST',
                 dataType: "json",
                 data: {

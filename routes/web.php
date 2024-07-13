@@ -105,6 +105,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::post('store', [PenjualanController::class, 'store'])->name('pengelolaan.penjualan.store');
             Route::get('check-stock/{id}',  [PenjualanController::class, 'checkStock']);
             Route::get('check-safety-stock/{id}', [PenjualanController::class, 'checkSafetyStock']);
+            Route::get('check-cart-stock/{barang_id}', [PenjualanController::class, 'checkQuantityCart']);
         });
     });
 
