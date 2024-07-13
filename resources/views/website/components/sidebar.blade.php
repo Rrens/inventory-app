@@ -83,7 +83,7 @@
                                  <a href="{{ route('pengelolaan.pesan-barang.index') }}"
                                      class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Penjualan Barang</p>
+                                     <p>Pemesanan Barang</p>
                                  </a>
                              </li>
                              <li class="nav-item">
@@ -122,7 +122,7 @@
                                  <a href="{{ route('riwayat.pesan-barang.index') }}"
                                      class="nav-link {{ $active == 'pesan-barang' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Penjualan Barang</p>
+                                     <p>Pemesanan Barang</p>
                                  </a>
                              </li>
                              <li class="nav-item">
@@ -169,7 +169,7 @@
                                  <a href="{{ route('persetujuan.pesan-persetujuan.index') }}"
                                      class="nav-link {{ $active == 'pesan-persediaan' ? 'active' : '' }}">
                                      <i class="far fa-circle nav-icon"></i>
-                                     <p>Penjualan Barang</p>
+                                     <p>Pemesanan Barang</p>
                                  </a>
                              </li>
                              <li class="nav-item">
