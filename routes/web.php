@@ -100,10 +100,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::prefix('penjualan')->group(function () {
             Route::get('', [PenjualanController::class, 'index'])->name('pengelolaan.penjualan.index');
             Route::post('store-cart', [PenjualanController::class, 'store_cart'])->name('pengelolaan.penjualan.store-cart');
+            Route::post('update-cart', [PenjualanController::class, 'update_cart'])->name('pengelolaan.penjualan.update-cart');
             Route::post('delete-cart', [PenjualanController::class, 'delete_cart'])->name('pengelolaan.penjualan.delete-cart');
             Route::post('store', [PenjualanController::class, 'store'])->name('pengelolaan.penjualan.store');
-            Route::get('check-stock/{id}/{place}',  [PenjualanController::class, 'checkStock']);
+            Route::get('check-stock/{id}',  [PenjualanController::class, 'checkStock']);
             Route::get('check-safety-stock/{id}', [PenjualanController::class, 'checkSafetyStock']);
+            Route::get('check-cart-stock/{barang_id}', [PenjualanController::class, 'checkQuantityCart']);
         });
     });
 

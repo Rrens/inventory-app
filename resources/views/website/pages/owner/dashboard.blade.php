@@ -40,7 +40,7 @@
                     <div class="small-box">
                         <div class="inner">
                             <h3>{{ format_number($total_barang_keluar) }}</h3>
-                            <p>Total Barang Keluar</p>
+                            <p>Total Penjualan</p>
                         </div>
                     </div>
                 </div>

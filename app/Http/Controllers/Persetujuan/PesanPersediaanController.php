@@ -154,6 +154,30 @@ class PesanPersediaanController extends Controller
             ->first();
         // dd($data_detail, $id);
 
+        // GAE NGECEK
+
+        $item_gae_cek = $data_detail[0];
+
+        if (!empty($bulan_tahun->bulan)) {
+            $data_penjualan = DB::table('penjualans as p')
+                ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+                ->whereRaw("b.id = '" . $item_gae_cek->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
+                ->first();
+        } else {
+            $data_penjualan = DB::table('penjualans as p')
+                ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+                ->first();
+        }
+
+        $lead_time = !empty($item_gae_cek->leadtime) ? $item_gae_cek->leadtime : 5;
+        $ss = ($data_penjualan->max - $data_penjualan->avg) * $lead_time;
+        $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
+        $d = (int)round($data_penjualan->total / $jumlah_hari);
+        $rop = ($d * $lead_time) + $ss;
+        dd(['Lead Time' => $lead_time, 'SS' => $ss, 'Demand' => $d]);
+
         foreach ($data_detail as $item) {
 
             if (!empty($bulan_tahun->bulan)) {
@@ -168,12 +192,13 @@ class PesanPersediaanController extends Controller
                     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->first();
             }
+
+
             $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
             $ss = ($data_penjualan->max - $data_penjualan->avg) * $lead_time;
             $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
             $d = (int)round($data_penjualan->total / $jumlah_hari);
             $rop = ($d * $lead_time) + $ss;
-            // dd($item);
             $change_quantiy = Barang::findOrFail($item->id);
             // $change_quantiy->quantity += $item->quantity;
             $change_quantiy->rop = $rop;

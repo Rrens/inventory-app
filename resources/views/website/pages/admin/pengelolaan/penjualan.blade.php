@@ -37,7 +37,7 @@
                                             value="{{ now()->format('Y-m-d') }}" disabled>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                {{-- <div class="col-12">
                                     <div class="form-group">
                                         <label for="order_to">Pilih Tempat Penyimpanan</label>
                                         <select name="order_to" id="order_to" class="form-control">
@@ -46,21 +46,15 @@
                                             <option value="gudang">gudang</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="barang_id">Pilih Barang</label>
-                                                <select name="barang_id" id="barang_id" class="form-control" required
-                                                    disabled>
+                                                <select name="barang_id" id="barang_id" class="form-control" required>
                                                     <option selected hidden>Pilih</option>
                                                     @foreach ($products as $item)
-                                                        {{-- <option data-price="{{ $item->price }}"
-                                                            {{ (empty(old('barang_id')) ? '' : old('barang_id') == $item->id) ? 'selected' : '' }}
-                                                            value="{{ $item->id }}">
-                                                            {{ $item->name }}
-                                                        </option> --}}
                                                         <option data-price="{{ $item->price }}"
                                                             data-stock="{{ $item->quantity }}"
                                                             data-name="{{ $item->name }}"
@@ -87,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="border-top"></div>
-                            <button id="btn-save" onclick="save()"
+                            <button id="btn-save" onclick="save('save')"
                                 class="btn btn-outline-primary btn-block">Simpan</button>
                             {{-- </form> --}}
                         </div>
@@ -116,6 +110,11 @@
                                                     <td>{{ $item->barang[0]->name }}</td>
                                                     <td>{{ format_number($item->quantity) }}</td>
                                                     <td>
+                                                        {{-- <button data-toggle="modal"
+                                                            data-target="#modal-edit{{ $item->id }}"
+                                                            class="btn btn-outline-warning btn-sm">
+                                                            <i class="fa fa-pencil-alt"></i>
+                                                        </button> --}}
                                                         <button data-toggle="modal"
                                                             data-target="#modal-delete{{ $item->id }}"
                                                             class="btn btn-outline-danger btn-sm">
@@ -193,62 +192,56 @@
         </div>
     </div> --}}
 
-    {{-- @foreach ($cart as $item)
-        <div class="modal fade" id="modal-edit">
+    @foreach ($cart as $item)
+        <div class="modal fade" id="modal-edit{{ $item->id }}">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Barang {{ $item->barang[0]->name }}</h4>
+                        <h4 class="modal-title">Edit Keranjang {{ $item->barang[0]->name }}</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('pengelolaan.pesan-barang.update-cart') }}" method="post">
+                    <form action="{{ route('pengelolaan.penjualan.update-cart') }}" method="post">
                         @csrf
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="barang_update_id">Pilih Barang</label>
-                                        <input type="text" class="form-control" value="{{ $item->barang[0]->name }}"
-                                            readonly>
+                                        <label for="barang_update_id">Barang</label>
+                                        {{-- <input type="text" class="form-control" value="{{ $item->barang[0]->name }}"> --}}
+                                        <select name="barang_id" id="barang_id_edit" class="form-control" required>
+                                            <option selected hidden>Pilih</option>
+                                            @foreach ($products as $row)
+                                                <option data-price="{{ $row->price }}"
+                                                    data-stock="{{ $row->quantity }}" data-name="{{ $row->name }}"
+                                                    {{ old('barang_id') == $row->id ? 'selected' : ($row->id == $item->barang[0]->id ? 'selected' : '') }}
+                                                    value="{{ $row->id }}">
+                                                    {{ $row->name . ' || (' . $row->quantity . ')' }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <div class="form-group">
-                                        <label for="price">Harga per Satuan</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Rp</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="price_update" step="0.01"
-                                                min="0" aria-describedby="price"
-                                                value="{{ empty(old('price_update')) ? $item->barang[0]->price : old('price_update') }}"
-                                                name="price" readonly>
-                                        </div>
-                                        <small id="price" class="form-text text-muted">*Tampilan Harga Sesuai Dengan
-                                            data barang</small>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="quantity">Kuantitas Pembelian</label>
+                                        <label for="quantity">Quantity</label>
                                         <input type="number" class="form-control" name="quantity"
                                             value="{{ empty(old('quantity')) ? $item->quantity : old('quantity') }}"
-                                            id="quantity">
+                                            id="quantity_edit{{ $item->id }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary" {{-- onclick="save('update', {{ $row->id }})" --}}>Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 
     @foreach ($cart as $item)
         <div class="modal fade" id="modal-delete{{ $item->id }}">
@@ -287,19 +280,17 @@
             $('#quantity').prop('readonly', false)
         })
 
-        function save() {
+        function save(status, id = false) {
             let place = $('#order_to').val()
             let quantity = $('#quantity').val()
             let orderDate = $('#date_use').val()
             let productID = $('#barang_id option:selected').val();
-            // console.log(productID)
+            let stock = $('#barang_id option:selected').data('stock')
 
             $.ajax({
-                url: `/pengelolaan/penjualan/check-stock/${productID}/${place}`,
+                url: `/pengelolaan/penjualan/check-stock/${productID}`,
                 method: 'GET',
                 success: function(res) {
-                    // console.log(res)
-                    // console.log(productID)
                     if (res === 'data tidak ditemukan') {
                         $('#quantity').val('')
                         // $('#product').prop('disabled', true)
@@ -317,9 +308,17 @@
                             let confirmSafetyStock = false;
                             let valueStock = false;
 
+                            let totalCheckResult = stock - quantity;
                             console.log('ss', ss)
+                            console.log('stock - quantity = ', totalCheckResult)
 
-                            if (quantity > ss) {
+                            if (quantity > res) {
+                                alert('Quantity melebihi stock!!!')
+                                return
+                            }
+
+
+                            if (totalCheckResult <= ss) {
                                 confirmSS = confirm(
                                     'Quantity melebihi Safety Stock, apakah tetap ingin melanjutkan?'
                                 )
@@ -340,7 +339,14 @@
                                 return
                             }
 
-                            doSave(valueStock, productID, quantity)
+                            if (status == 'save') {
+                                doSave(valueStock, productID, quantity)
+                            } else {
+                                // // let barang_id_edit = $('#barang_id_edit').val();
+                                // // console.log(id)
+                                // doUpdate(valueStock, id)
+                            }
+
 
                             // console.log(quantity)
                         },
@@ -378,12 +384,49 @@
             })
         }
 
+        // function doUpdate(value_stock, barang_id) {
+        //     console.log(barang_id)
+        //     let id_quantity = `#quantity_edit${barang_id}`
+        //     let quantity_edit = $(id_quantity).val('100')
+        //     console.log(quantity_edit)
+        //     $.ajax({
+        //         url: `/pengelolaan/penjualan/check-cart-stock/${barang_id}`,
+        //         type: 'GET',
+        //         success: function(stock) {
+        //             // console.log(stock)
+        //             // $.ajax({
+        //             //     url: '{{ route('pengelolaan.penjualan.update-cart') }}',
+        //             //     type: 'POST',
+        //             //     data: {
+        //             //         'status': value_stock,
+        //             //         'barang_id': barang_id,
+        //             //         'quantity': quantity,
+        //             //         '_token': '{{ csrf_token() }}',
+        //             //     },
+        //             //     success: function(res) {
+        //             //         console.log(res)
+        //             //         if (res == 'sukses') {
+        //             //             location.reload();
+        //             //         }
+        //             //     },
+        //             //     error: function(error, xhr) {
+        //             //         console.log(error, xhr)
+        //             //     }
+        //             // })
+        //         },
+        //         error: function(error, xhr) {
+        //             console.log(error, xhr)
+        //         }
+        //     })
+
+        // }
+
         $('#barang_id').on('change', function() {
-            let place = $('#order_to').val()
+            // let place = $('#order_to').val()
             let productID = $('#barang_id option:selected').val();
 
             $.ajax({
-                url: `/pengelolaan/penjualan/check-stock/${productID}/${place}`,
+                url: `/pengelolaan/penjualan/check-stock/${productID}`,
                 method: 'GET',
                 success: function(res) {
                     console.log(res)
@@ -394,6 +437,30 @@
                         alert('Barang tidak ada')
                     } else {
                         $('#date_use').prop('disabled', false)
+                    }
+                },
+                error: function(error, xhr) {
+                    console.log(error, xhr)
+                }
+            })
+        })
+
+        // $('#barang_id_edit').on('change', function() {
+        //     $('#quantity_edit').prop('readonly', false)
+        // })
+
+        $('#quantity_edit').on('input', function() {
+            let productID = $('#barang_id_edit option:selected').val();
+            let quantity = $(this).val()
+
+            $.ajax({
+                url: `/pengelolaan/penjualan/check-stock/${productID}`,
+                method: 'GET',
+                success: function(res) {
+                    if (quantity > res) {
+                        $('#quantity_edit').val(res)
+                        alert('Quantity melebihi stock!!!')
+                        return
                     }
                 },
                 error: function(error, xhr) {

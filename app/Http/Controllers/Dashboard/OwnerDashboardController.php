@@ -84,17 +84,19 @@ class OwnerDashboardController extends Controller
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-                ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
                 ->where('b.place', $filter)
                 // ->where('p.slug', $slug)
+                ->groupBy('b.id')
                 ->get();
         } else {
             $data_detail = DB::table('pemesanans as p')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-                ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
                 // ->where('p.slug', $slug)
+                ->groupBy('b.id')
                 ->get();
         }
 
@@ -125,12 +127,29 @@ class OwnerDashboardController extends Controller
             }
 
             // dd($data);
-            $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
-            $ss = ($data->max - $data->avg) * $lead_time; // SAFETY STOCK
-            $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
-            $d = (int)round($data->total / $jumlah_hari);
-            $rop = ($d * $lead_time) + $ss;
+            // $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
+            // $ss = ($data->max - $data->avg) * $lead_time; // SAFETY STOCK
+            // $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
+            // $d = (int)round($data->total / $jumlah_hari);
+            // $rop = ($d * $lead_time) + $ss;
             // dd($rop, $d, $ss, $lead_time);
+
+            // $temp = (object)[
+            //     'no' => $no++,
+            //     'id' => $item->id,
+            //     'nama_barang' => $item->name,
+            //     'jumlah_pemesanan' => $item->quantity,
+            //     'supplier_name' => $item->supplier_name,
+            //     'stok' => $item->stock,
+            //     'eoq' => $item->eoq,
+            //     'rop' => $rop,
+            //     'max' => $data->max,
+            //     'avg' => $data->avg,
+            //     'sum' => $data->total,
+            //     'd' => $d,
+            //     'lead_time' => $lead_time,
+            //     'ss' => $ss,
+            // ];
 
             $temp = (object)[
                 'no' => $no++,
@@ -140,13 +159,13 @@ class OwnerDashboardController extends Controller
                 'supplier_name' => $item->supplier_name,
                 'stok' => $item->stock,
                 'eoq' => $item->eoq,
-                'rop' => $rop,
+                'rop' => $item->rop,
                 'max' => $data->max,
                 'avg' => $data->avg,
                 'sum' => $data->total,
-                'd' => $d,
-                'lead_time' => $lead_time,
-                'ss' => $ss,
+                // 'd' => $d,
+                // 'lead_time' => $item->lead_time,
+                // 'ss' => $ss,
             ];
 
             array_push($detail_penjualan, $temp);
