@@ -75,36 +75,45 @@ class PenjualanController extends Controller
         }
     }
 
-    public function update_cart(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'barang_id' => 'required|exists:barangs,id',
-            'quantity' => 'required|numeric',
-            'status' => 'required|in:true,false'
-        ], [
-            'barang_id.required' => 'Barang harus diisi',
-            'quantity.required' => 'Quantity harus diisi',
-            'quantity.numeric' => 'Quantity harus berisi nomor',
-            'status.required' => 'Status harus ada',
-            'status.in' => 'Status harus antara true atau false',
-        ]);
+    // public function update_cart(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'barang_id' => 'required|exists:barangs,id',
+    //         'quantity' => 'required|numeric',
+    //         // 'status' => 'required|in:true,false'
+    //     ], [
+    //         'barang_id.required' => 'Barang harus diisi',
+    //         'quantity.required' => 'Quantity harus diisi',
+    //         'quantity.numeric' => 'Quantity harus berisi nomor',
+    //         // 'status.required' => 'Status harus ada',
+    //         // 'status.in' => 'Status harus antara true atau false',
+    //     ]);
+    //     // return response()->json($request->all());
 
-        if ($validator->fails()) {
-            return response()->json($validator->messages()->all(), 404);
-        }
+    //     $stock = Barang::where('id', $request->barang_id)->pluck('quantity')[0];
+    //     $totalCheckResult = $stock - (int) $request->quantity;
+    //     // dd($totalCheckResult, Barang::where('id', $request->barang_id)->pluck('quantity')[0], (int) $request->quantity);
+    //     // if($request->quantity)
 
-        try {
-            unset($request['_token']);
+    //     dd($this->checkSafetyStock_2($request->barang_id));
 
-            $data = CartPenjualan::where('barang_id', $request->id)->first();
-            $data->quantity = $request->quantity;
-            $data->save();
 
-            return response()->json('sukses');
-        } catch (Exception $error) {
-            return response()->json($error->getMessage());
-        }
-    }
+    //     if ($validator->fails()) {
+    //         return response()->json($validator->messages()->all(), 404);
+    //     }
+
+    //     try {
+    //         unset($request['_token']);
+
+    //         $data = CartPenjualan::where('barang_id', $request->id)->first();
+    //         $data->quantity = $request->quantity;
+    //         $data->save();
+
+    //         return response()->json('sukses');
+    //     } catch (Exception $error) {
+    //         return response()->json($error->getMessage());
+    //     }
+    // }
 
     public function delete_cart(Request $request)
     {
@@ -143,6 +152,7 @@ class PenjualanController extends Controller
                 $barang->quantity -= $item->quantity;
                 $barang->save();
             } else {
+                // dd($item->status == true);
                 $data = new Penjualan();
                 $data->penjualan_id = Penjualan::generateID();
                 $data->slug = Penjualan::generateSLUG();
@@ -187,6 +197,15 @@ class PenjualanController extends Controller
         }
     }
 
+    public function checkQuantityCart($barang_id)
+    {
+        $data = CartPenjualan::where('barang_id', $barang_id)->first();
+        if (!empty($data)) {
+            return response()->json($data->quantity);
+        }
+        return response()->json('data tidak ditemukan');
+    }
+
     public function checkSafetyStock($productID)
     {
         $bulan_tahun = DB::table('penjualans')
@@ -207,9 +226,37 @@ class PenjualanController extends Controller
                 ->first();
         }
 
+
         $lead_time = !empty($data->leadtime) ? $data->leadtime : 5;
         $ss = ($data->max - $data->avg) * $lead_time;
 
         return response()->json($ss);
+    }
+
+    public function checkSafetyStock_2($productID)
+    {
+        $bulan_tahun = DB::table('penjualans')
+            ->selectRaw('DATE_FORMAT(MAX(order_date),"%m-%Y") as bulan')
+            ->whereRaw('DATE_FORMAT(order_date, "%m-%Y") < DATE_FORMAT(now(), "%m-%Y")')
+            ->first();
+
+        if (!empty($bulan_tahun->bulan)) {
+            $data = DB::table('penjualans as p')
+                ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total, b.leadtime')
+                ->whereRaw("b.id = '" . $productID . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
+                ->first();
+        } else {
+            $data = DB::table('penjualans as p')
+                ->join('barangs as b', 'p.barang_id', '=', 'b.id')
+                ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total, b.leadtime')
+                ->first();
+        }
+
+
+        $lead_time = !empty($data->leadtime) ? $data->leadtime : 5;
+        $ss = ($data->max - $data->avg) * $lead_time;
+
+        return $ss;
     }
 }

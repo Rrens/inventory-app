@@ -110,11 +110,11 @@
                                                     <td>{{ $item->barang[0]->name }}</td>
                                                     <td>{{ format_number($item->quantity) }}</td>
                                                     <td>
-                                                        <button data-toggle="modal"
+                                                        {{-- <button data-toggle="modal"
                                                             data-target="#modal-edit{{ $item->id }}"
                                                             class="btn btn-outline-warning btn-sm">
                                                             <i class="fa fa-pencil-alt"></i>
-                                                        </button>
+                                                        </button> --}}
                                                         <button data-toggle="modal"
                                                             data-target="#modal-delete{{ $item->id }}"
                                                             class="btn btn-outline-danger btn-sm">
@@ -202,7 +202,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('pengelolaan.pesan-barang.update-cart') }}" method="post">
+                    <form action="{{ route('pengelolaan.penjualan.update-cart') }}" method="post">
                         @csrf
                         <div class="modal-body">
                             <div class="row">
@@ -228,14 +228,14 @@
                                         <label for="quantity">Quantity</label>
                                         <input type="number" class="form-control" name="quantity"
                                             value="{{ empty(old('quantity')) ? $item->quantity : old('quantity') }}"
-                                            id="quantity_edit">
+                                            id="quantity_edit{{ $item->id }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                            <button type="button" class="btn btn-primary" onclick="save('update')">Simpan</button>
+                            <button type="submit" class="btn btn-primary" {{-- onclick="save('update', {{ $row->id }})" --}}>Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -280,14 +280,15 @@
             $('#quantity').prop('readonly', false)
         })
 
-        function save(status) {
+        function save(status, id = false) {
             let place = $('#order_to').val()
             let quantity = $('#quantity').val()
             let orderDate = $('#date_use').val()
             let productID = $('#barang_id option:selected').val();
+            let stock = $('#barang_id option:selected').data('stock')
 
             $.ajax({
-                url: `/pengelolaan/penjualan/check-stock/${productID}/${place}`,
+                url: `/pengelolaan/penjualan/check-stock/${productID}`,
                 method: 'GET',
                 success: function(res) {
                     if (res === 'data tidak ditemukan') {
@@ -307,9 +308,17 @@
                             let confirmSafetyStock = false;
                             let valueStock = false;
 
+                            let totalCheckResult = stock - quantity;
                             console.log('ss', ss)
+                            console.log('stock - quantity = ', totalCheckResult)
 
-                            if (quantity > ss) {
+                            if (quantity > res) {
+                                alert('Quantity melebihi stock!!!')
+                                return
+                            }
+
+
+                            if (totalCheckResult <= ss) {
                                 confirmSS = confirm(
                                     'Quantity melebihi Safety Stock, apakah tetap ingin melanjutkan?'
                                 )
@@ -333,7 +342,9 @@
                             if (status == 'save') {
                                 doSave(valueStock, productID, quantity)
                             } else {
-                                doUpdate(valueStock, productID, quantity)
+                                // // let barang_id_edit = $('#barang_id_edit').val();
+                                // // console.log(id)
+                                // doUpdate(valueStock, id)
                             }
 
 
@@ -373,28 +384,42 @@
             })
         }
 
-        function doUpdate(value_stock, barang_id, quantity) {
-            console.log(value_stock)
-            $.ajax({
-                url: '{{ route('pengelolaan.penjualan.store-cart') }}',
-                type: 'POST',
-                data: {
-                    'status': value_stock,
-                    'barang_id': barang_id,
-                    'quantity': quantity,
-                    '_token': '{{ csrf_token() }}',
-                },
-                success: function(res) {
-                    console.log(res)
-                    if (res == 'sukses') {
-                        location.reload();
-                    }
-                },
-                error: function(error, xhr) {
-                    console.log(error, xhr)
-                }
-            })
-        }
+        // function doUpdate(value_stock, barang_id) {
+        //     console.log(barang_id)
+        //     let id_quantity = `#quantity_edit${barang_id}`
+        //     let quantity_edit = $(id_quantity).val('100')
+        //     console.log(quantity_edit)
+        //     $.ajax({
+        //         url: `/pengelolaan/penjualan/check-cart-stock/${barang_id}`,
+        //         type: 'GET',
+        //         success: function(stock) {
+        //             // console.log(stock)
+        //             // $.ajax({
+        //             //     url: '{{ route('pengelolaan.penjualan.update-cart') }}',
+        //             //     type: 'POST',
+        //             //     data: {
+        //             //         'status': value_stock,
+        //             //         'barang_id': barang_id,
+        //             //         'quantity': quantity,
+        //             //         '_token': '{{ csrf_token() }}',
+        //             //     },
+        //             //     success: function(res) {
+        //             //         console.log(res)
+        //             //         if (res == 'sukses') {
+        //             //             location.reload();
+        //             //         }
+        //             //     },
+        //             //     error: function(error, xhr) {
+        //             //         console.log(error, xhr)
+        //             //     }
+        //             // })
+        //         },
+        //         error: function(error, xhr) {
+        //             console.log(error, xhr)
+        //         }
+        //     })
+
+        // }
 
         $('#barang_id').on('change', function() {
             // let place = $('#order_to').val()

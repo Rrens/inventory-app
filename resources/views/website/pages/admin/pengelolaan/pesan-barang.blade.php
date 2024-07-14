@@ -120,10 +120,10 @@
                                                     <td>0</td>
                                                     <td>{{ format_number($item->quantity) }}</td>
                                                     <td>
-                                                        <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
+                                                        {{-- <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                                             data-target="#modal-edit">
                                                             <i class="fa fa-pencil-alt"></i>
-                                                        </button>
+                                                        </button> --}}
                                                         <button data-toggle="modal" data-target="#modal-delete"
                                                             class="btn btn-outline-danger btn-sm">
                                                             <i class="fa fa-trash"></i>
@@ -338,7 +338,7 @@
     <script>
         function calculateEOQ(data) {
             $.ajax({
-                url: '/pengelolaan/pesan-barang/count-eoq',
+                url: '/pengelolaan/penjualan-barang/count-eoq',
                 method: 'POST',
                 dataType: "json",
                 data: {
