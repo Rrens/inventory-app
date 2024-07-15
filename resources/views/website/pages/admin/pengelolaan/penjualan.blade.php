@@ -246,7 +246,7 @@
     @endforeach --}}
 
     @foreach ($cart as $item)
-        <div class="modal fade" id="modal-delete{{ $item->id }}">
+        <div class="modal fade" id="modal-danger{{ $item->id }}">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">

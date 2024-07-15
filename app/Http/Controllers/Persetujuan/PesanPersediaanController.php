@@ -176,7 +176,7 @@ class PesanPersediaanController extends Controller
         $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
         $d = (int)round($data_penjualan->total / $jumlah_hari);
         $rop = ($d * $lead_time) + $ss;
-        dd(['Lead Time' => $lead_time, 'SS' => $ss, 'Demand' => $d]);
+        // dd(['Lead Time' => $lead_time, 'SS' => $ss, 'Demand' => $d]);
 
         foreach ($data_detail as $item) {
 
