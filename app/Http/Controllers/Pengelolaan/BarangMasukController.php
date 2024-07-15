@@ -52,11 +52,12 @@ class BarangMasukController extends Controller
             ->update(['status' => true, 'date_in' => now()]);
 
         $data_detail = PemesananDetail::where('pemesanan_id', $data->id)->get();
-
         foreach ($data_detail as $item) {
             $barang = Barang::where('id', $item->barang_id)
-                ->where('place', $request->place)
+                // ->where('place', $request->place)
+                // ->where('supplier_id', $request->supplier_id)
                 ->first();
+            // dd($item, $barang);
             if (!empty($barang)) {
                 $barang->quantity += $item->quantity;
                 $barang->save();
