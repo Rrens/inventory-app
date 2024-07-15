@@ -51,7 +51,8 @@ class BarangMasukController extends Controller
             // ->where('supplier_id', $request->supplier_id)
             ->update(['status' => true, 'date_in' => now()]);
 
-        $data_detail = PemesananDetail::where('pemesanan_id', $data->id)->get();
+        $data_detail = PemesananDetail::where('pemesanan_id', $data->id)
+            ->where('barang_id', $request->id)->get();
         foreach ($data_detail as $item) {
             $barang = Barang::where('id', $item->barang_id)
                 // ->where('place', $request->place)
@@ -76,6 +77,7 @@ class BarangMasukController extends Controller
                 $barang_new->save();
             }
         }
+        // dd($item);
 
         Alert::toast('Barang Masuk Selesai disimpan', 'success');
         return back();
