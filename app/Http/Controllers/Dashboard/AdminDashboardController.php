@@ -74,13 +74,12 @@ class AdminDashboardController extends Controller
     public function data($filter = false)
     {
         if ($filter) {
-            $data_detail = DB::table('barangs as b')
-                ->join('pemesanans as p', 'pd.barang_id', '=', 'b.id')
+            $data_detail = DB::table('pemesanans as p')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
+                ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
                 ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
                 ->where('b.place', $filter)
-                // ->where('p.slug', $slug)
                 ->groupBy('b.id')
                 ->get();
         } else {

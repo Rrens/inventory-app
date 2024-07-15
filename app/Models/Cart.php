@@ -13,6 +13,7 @@ class Cart extends Model
         'barang_id',
         'quantity',
         'supplier_id',
+        'order_date',
     ];
 
     public function barang()

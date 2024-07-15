@@ -35,16 +35,20 @@ class PenjualanController extends Controller
 
     public function store_cart(Request $request)
     {
+        // return response()->json($request->all());
         $validator = Validator::make($request->all(), [
             'barang_id' => 'required|exists:barangs,id',
             'quantity' => 'required|numeric',
-            'status' => 'required|in:true,false'
+            'status' => 'required|in:true,false',
+            'order_date' => 'required|date',
         ], [
             'barang_id.required' => 'Barang harus diisi',
             'quantity.required' => 'Quantity harus diisi',
             'quantity.numeric' => 'Quantity harus berisi nomor',
             'status.required' => 'Status harus ada',
             'status.in' => 'Status harus antara true atau false',
+            'order_date.required' => 'Order Date harus diisi',
+            'order_date.date' => 'Order date harus berisi tanggal',
         ]);
 
         if ($validator->fails()) {
@@ -144,7 +148,7 @@ class PenjualanController extends Controller
                 $data->slug = Penjualan::generateSLUG();
                 $data->barang_id = $item->barang_id;
                 $data->quantity = $item->quantity;
-                $data->order_date = Carbon::now();
+                $data->order_date = $item->order_date;
                 $data->status = false;
                 $data->save();
 
@@ -158,7 +162,7 @@ class PenjualanController extends Controller
                 $data->slug = Penjualan::generateSLUG();
                 $data->barang_id = $item->barang_id;
                 $data->quantity = $item->quantity;
-                $data->order_date = Carbon::now();
+                $data->order_date = $item->order_date;
                 $data->status = true;
                 $data->save();
 

@@ -50,12 +50,12 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('owner.dashboard.index') }}"
+                                <a href="{{ route('admin.dashboard.index') }}"
                                     class="btn btn-outline-{{ $value_filter == false ? 'primary' : 'secondary' }} btn-sm">All</a>
-                                <a href="{{ route('owner.dashboard.filter', 'gudang') }}"
+                                <a href="{{ route('admin.dashboard.filter', 'gudang') }}"
                                     class="btn btn-outline-{{ $value_filter == 'gudang' ? 'primary' : 'secondary' }}  btn-sm"
                                     style="margin: 0 5px;">Gudang</a>
-                                <a href="{{ route('owner.dashboard.filter', 'toko') }}"
+                                <a href="{{ route('admin.dashboard.filter', 'toko') }}"
                                     class="btn btn-outline-{{ $value_filter == 'toko' ? 'primary' : 'secondary' }}  btn-sm">Toko</a>
                             </div>
 
