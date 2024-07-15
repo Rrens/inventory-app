@@ -21,9 +21,8 @@ class PesanBarangController extends Controller
         $active = 'pesan-barang';
         $active_group = 'pengelolaan';
 
-        $products = Barang::groupBy('name')->get();
+        $products = Barang::groupBy('name')->with('supplier')->get();
         $suppliers = Supplier::all();
-
         $cart = Cart::all();
 
         return view('website.pages.admin.pengelolaan.pesan-barang', compact('active', 'active_group', 'products', 'suppliers', 'cart'));

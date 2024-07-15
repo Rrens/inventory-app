@@ -36,6 +36,8 @@
                                                 <option selected hidden>Pilih</option>
                                                 @foreach ($products as $item)
                                                     <option data-price="{{ $item->price }}"
+                                                        data-supplier="{{ $item->supplier[0]->name }}"
+                                                        data-supplier_id="{{ $item->supplier[0]->id }}"
                                                         {{ (empty(old('barang_id')) ? '' : old('barang_id') == $item->id) ? 'selected' : '' }}
                                                         value="{{ $item->id }}">
                                                         {{ $item->name }}
@@ -47,13 +49,17 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="supplier_id">Supplier</label>
-                                            <select name="supplier_id" id="supplier_id" class="form-control">
+                                            {{-- <select name="supplier_id" id="supplier_id" class="form-control">
                                                 <option selected hidden>Pilih Supplier...</option>
                                                 @foreach ($suppliers as $item)
                                                     <option {{ old('supplier_id') == $item->id ? 'selected' : '' }}
                                                         value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
+                                            <input type="text" name="supplier_id" class="form-control" id="supplier_id"
+                                                readonly hidden>
+                                            <input type="text" name="supplier" class="form-control" id="supplier"
+                                                readonly>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -400,6 +406,9 @@
             let price_product = $(this).find(':selected');
             let price = price_product[0].attributes[0].value
             $('#price').val(price)
+            // console.log(price_product[0].attributes[1].value)
+            $('#supplier_id').val(price_product[0].attributes[2].value)
+            $('#supplier').val(price_product[0].attributes[1].value)
         })
 
         $('#barang_update_id').on('change', function() {

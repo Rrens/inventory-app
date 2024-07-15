@@ -31,7 +31,7 @@ class Barang extends Model
 
     public function supplier()
     {
-        return $this->hasMany(Supplier::class, 'supplier_id', 'id');
+        return $this->hasMany(Supplier::class, 'id', 'supplier_id');
     }
 
     public function penjualan_detail()

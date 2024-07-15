@@ -68,6 +68,8 @@
                                                         hidden>
                                                     <input type="text"name="place" value="{{ $item->barang[0]->place }}"
                                                         hidden>
+                                                    {{-- <input type="text"name="supplier_id" value="{{ $item->supplier_id }}"
+                                                        hidden> --}}
                                                     <input type="number" name="pemesanan_id"
                                                         value="{{ $item->pemesanan[0]->id }}" hidden>
                                                     <button type="submit" class="btn btn-primary btn-sm"

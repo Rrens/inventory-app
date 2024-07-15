@@ -93,7 +93,7 @@ class PesanPersediaanController extends Controller
 
             array_push($detail_penjualan, $temp);
         }
-        // dd($detail_penjualan);
+        // dd($data_detail);
 
         return view('website.pages.owner.persetujuan.pesan-persediaan-detail', compact(
             'active',
