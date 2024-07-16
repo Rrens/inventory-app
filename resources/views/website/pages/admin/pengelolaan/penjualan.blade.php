@@ -143,21 +143,20 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('pengelolaan.penjualan.store') }}" method="post">
-                        @csrf
-                        <div class="modal-body">
-                            <label for="quantity">Quantity</label>
-                            <input type="number" class="form-control" onchange="changeQuantity(this)" name="quantity"
-                                id="quantity_choose">
-                            <input type="date" name="order_date" id="order_date" value="{{ now()->format('Y-m-d') }}"
-                                hidden>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                            <button type="button" onclick="save({{ $item->id }})"
-                                class="btn btn-primary">Simpan</button>
-                        </div>
-                    </form>
+                    {{-- <form action="" method="post"> --}}
+                    {{-- @csrf --}}
+                    <div class="modal-body">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" onchange="changeQuantity(this)" name="quantity"
+                            id="quantity_choose">
+                        <input type="date" name="order_date" id="order_date" value="{{ now()->format('Y-m-d') }}"
+                            hidden>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="button" onclick="save({{ $item->id }})" class="btn btn-primary">Simpan</button>
+                    </div>
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>
@@ -375,7 +374,7 @@
                                 alert('Quantity melebihi stock!!!')
                                 return
                             }
-                            console.log(quantity)
+                            // console.log(valueStock)
                             doSave(valueStock, productID, quantity, orderDate)
                         },
                         error: function(error, xhr) {

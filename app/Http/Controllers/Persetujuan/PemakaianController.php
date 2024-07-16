@@ -41,7 +41,7 @@ class PemakaianController extends Controller
             $data->status = true;
 
             $penjualan = Penjualan::findOrFail($data->penjualan[0]->penjualan_id);
-            $penjualan->status = true;
+            $penjualan->status = false;
             $penjualan->save();
 
             $barang = Barang::findOrFail($penjualan->barang_id);

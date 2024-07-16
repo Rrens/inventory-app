@@ -35,7 +35,6 @@ class PenjualanController extends Controller
 
     public function store_cart(Request $request)
     {
-        // return response()->json($request->all());
         $validator = Validator::make($request->all(), [
             'barang_id' => 'required|exists:barangs,id',
             'quantity' => 'required|numeric',
@@ -57,6 +56,7 @@ class PenjualanController extends Controller
 
         try {
             unset($request['_token']);
+            // dd($request->all());
 
             $check_cart = CartPenjualan::where('barang_id', $request->barang_id)->first();
             if (!$check_cart) {
@@ -73,6 +73,7 @@ class PenjualanController extends Controller
                 $check_cart->save();
             }
 
+            // return response()->json($request->all());
             return response()->json('sukses');
         } catch (Exception $error) {
             return response()->json($error->getMessage());
@@ -256,7 +257,6 @@ class PenjualanController extends Controller
                 ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total, b.leadtime')
                 ->first();
         }
-
 
         $lead_time = !empty($data->leadtime) ? $data->leadtime : 5;
         $ss = ($data->max - $data->avg) * $lead_time;

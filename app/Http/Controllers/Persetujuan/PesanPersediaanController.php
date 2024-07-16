@@ -7,6 +7,7 @@ use App\Models\Barang;
 use App\Models\Notification;
 use App\Models\Pemesanan;
 use App\Models\PemesananDetail;
+use App\Models\Penjualan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -192,6 +193,10 @@ class PesanPersediaanController extends Controller
                     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->first();
             }
+
+            // $data_penjualan = Penjualan::where('barang_id', $item->id)->where('status', true)->first();
+            // $data_penjualan->status = false;
+            // $data_penjualan->save();
 
 
             $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
