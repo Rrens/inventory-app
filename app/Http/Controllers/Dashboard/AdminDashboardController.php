@@ -204,7 +204,7 @@ class AdminDashboardController extends Controller
 
     public function total_barang_keluar()
     {
-        $total = Penjualan::where('status', true)->count();
+        $total = Penjualan::where('status', false)->count();
         return $total;
     }
 
