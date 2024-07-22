@@ -84,11 +84,17 @@
                                             <td>{{ format_number($item->rop) }}</td>
                                             <td>
                                                 @if ($item->stok >= $item->eoq * 2)
-                                                    {!! $logo_verify !!}
+                                                    {{-- <i class="fa fa-check icon safe"></i> --}}
+                                                    <button class="btn btn-success rounded-pill btn-sm">Aman</button>
+                                                    {{-- {!! $logo_verify !!} --}}
                                                 @elseif ($item->stok >= $item->eoq + 2)
-                                                    {!! $logo_warning !!}
+                                                    {{-- <i class="fa fa-exclamation icon caution"></i> --}}
+                                                    <button class="btn btn-warning rounded-pill btn-sm">Ati2</button>
+                                                    {{-- {!! $logo_warning !!} --}}
                                                 @elseif ($item->stok <= $item->eoq)
-                                                    {!! $logo_danger !!}
+                                                    {{-- <i class="fa fa-exclamation-triangle icon danger"></i> --}}
+                                                    <button class="btn btn-danger rounded-pill btn-sm">Bahaya</button>
+                                                    {{-- {!! $logo_danger !!} --}}
                                                 @endif
                                             </td>
                                         </tr>
