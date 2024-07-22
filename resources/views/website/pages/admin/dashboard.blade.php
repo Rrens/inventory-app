@@ -67,6 +67,7 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Stok</th>
+                                        <th>Safety Stock</th>
                                         <th>EOQ</th>
                                         <th>ROP</th>
                                         <th>Status</th>
@@ -78,6 +79,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->nama_barang }}</td>
                                             <td>{{ format_number($item->stok) }}</td>
+                                            <td>{{ format_number($item->ss) }}</td>
                                             <td>{{ format_number($item->eoq) }}</td>
                                             <td>{{ format_number($item->rop) }}</td>
                                             <td>

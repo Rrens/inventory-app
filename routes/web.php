@@ -106,6 +106,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             Route::get('check-stock/{id}',  [PenjualanController::class, 'checkStock']);
             Route::get('check-safety-stock/{id}', [PenjualanController::class, 'checkSafetyStock']);
             Route::get('check-cart-stock/{barang_id}', [PenjualanController::class, 'checkQuantityCart']);
+            Route::get('check-if-closest-rop-value/{id}', [PenjualanController::class, 'checkIfClosestRopValue']);
         });
     });
 

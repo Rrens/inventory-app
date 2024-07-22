@@ -43,7 +43,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ format_number($item->quantity) }}</td>
+                                            <td>{{ format_number($item->quantity) . ' ' . $item->unit }}</td>
                                             <td>
                                                 <button data-toggle="modal" data-target="#modal-choose{{ $item->id }}"
                                                     class="btn btn-outline-dark btn-sm rounded-circle">
@@ -72,6 +72,7 @@
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
                                                 <th>Quantity</th>
+                                                <th>Tanggal</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -80,7 +81,9 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->barang[0]->name }}</td>
-                                                    <td>{{ format_number($item->quantity) }}</td>
+                                                    <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}
+                                                    </td>
+                                                    <td>{{ $item->order_date }}</td>
                                                     <td>
                                                         {{-- <button data-toggle="modal"
                                                             data-target="#modal-edit{{ $item->id }}"
@@ -374,8 +377,29 @@
                                 alert('Quantity melebihi stock!!!')
                                 return
                             }
+
+                            $.ajax({
+                                url: `/pengelolaan/penjualan/check-if-closest-rop-value/${productID}`,
+                                method: 'GET',
+                                success: (ropValue) => {
+                                    console.log(ropValue)
+                                    let stockBarang = ropValue['quantity'];
+                                    let rop = ropValue['rop'];
+
+                                    let checkRop = (stockBarang - quantity) - 3;
+                                    console.log('check rop', checkRop)
+                                    console.log('rop', rop)
+
+                                    // ropValue += 3
+                                    // console.log('rop_value')
+                                    if (checkRop <= rop) alert(
+                                        'Quantity Mendekati ROP')
+                                    // // console.log(ropValue)
+                                    doSave(valueStock, productID, quantity, orderDate)
+                                }
+                            })
+
                             // console.log(valueStock)
-                            doSave(valueStock, productID, quantity, orderDate)
                         },
                         error: function(error, xhr) {
                             console.log(error, xhr)

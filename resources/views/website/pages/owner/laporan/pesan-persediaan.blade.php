@@ -1,5 +1,5 @@
 @extends('website.components.master')
-@section('title', 'Laporan Pesan Persediaan')
+@section('title', 'Laporan Pesan Persediaan ' . (!empty($filter_date) ? $filter_date : null))
 @section('container')
     <div class="content-header">
         <div class="container-fluid">
@@ -60,12 +60,19 @@
                                             <td>{{ format_number($item->eoq) }}</td>
                                             <td>{{ format_number($item->rop) }}</td>
                                             <td>
+                                                {{-- <i class="fa fa-circle-xmark icon danger"></i> --}}
                                                 @if ($item->stok >= $item->eoq * 2)
-                                                    {!! $logo_verify !!}
+                                                    {{-- <i class="fa fa-check icon safe"></i> --}}
+                                                    <button class="btn btn-success rounded-pill btn-sm">Aman</button>
+                                                    {{-- {!! $logo_verify !!} --}}
                                                 @elseif ($item->stok >= $item->eoq + 2)
-                                                    {!! $logo_warning !!}
+                                                    {{-- <i class="fa fa-exclamation icon caution"></i> --}}
+                                                    <button class="btn btn-warning rounded-pill btn-sm">Ati2</button>
+                                                    {{-- {!! $logo_warning !!} --}}
                                                 @elseif ($item->stok <= $item->eoq)
-                                                    {!! $logo_danger !!}
+                                                    {{-- <i class="fa fa-exclamation-triangle icon danger"></i> --}}
+                                                    <button class="btn btn-danger rounded-pill btn-sm">Bahaya</button>
+                                                    {{-- {!! $logo_danger !!} --}}
                                                 @endif
                                             </td>
                                         </tr>
@@ -85,6 +92,24 @@
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <style>
+        .icon {
+            font-size: 2em;
+            margin: 10px;
+        }
+
+        .safe {
+            color: green;
+        }
+
+        .caution {
+            color: yellow;
+        }
+
+        .danger {
+            color: red;
+        }
+    </style>
 @endpush
 @push('script')
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>

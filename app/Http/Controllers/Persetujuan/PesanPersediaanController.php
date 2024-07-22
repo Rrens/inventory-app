@@ -21,7 +21,9 @@ class PesanPersediaanController extends Controller
         $active = 'pesan-persediaan';
         $active_group = 'persetujuan';
 
-        $data = Pemesanan::all();
+        $data = Pemesanan::orderByRaw('is_verify IS NULL DESC')
+            ->orderBy('created_at', 'desc')
+            ->get();
         // dd($data);
         return view('website.pages.owner.persetujuan.pesan-persediaan', compact('active', 'active_group', 'data'));
     }

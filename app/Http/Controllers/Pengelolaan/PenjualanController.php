@@ -263,4 +263,11 @@ class PenjualanController extends Controller
 
         return $ss;
     }
+
+    public function checkIfClosestRopValue($id)
+    {
+        $data = Barang::where('id', $id)->first();
+
+        return response()->json($data);
+    }
 }
