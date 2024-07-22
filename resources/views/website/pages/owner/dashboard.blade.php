@@ -93,15 +93,18 @@
                                             <td>
                                                 @if ($item->stok >= $item->eoq * 2)
                                                     {{-- <i class="fa fa-check icon safe"></i> --}}
-                                                    <button class="btn btn-success rounded-pill btn-sm">Aman</button>
+                                                    <button
+                                                        class="btn btn-success rounded-pill btn-sm">{{ env('aman') }}</button>
                                                     {{-- {!! $logo_verify !!} --}}
                                                 @elseif ($item->stok >= $item->eoq + 2)
                                                     {{-- <i class="fa fa-exclamation icon caution"></i> --}}
-                                                    <button class="btn btn-warning rounded-pill btn-sm">Ati2</button>
+                                                    <button
+                                                        class="btn btn-warning rounded-pill btn-sm">{{ env('ati2') }}</button>
                                                     {{-- {!! $logo_warning !!} --}}
                                                 @elseif ($item->stok <= $item->eoq)
                                                     {{-- <i class="fa fa-exclamation-triangle icon danger"></i> --}}
-                                                    <button class="btn btn-danger rounded-pill btn-sm">Bahaya</button>
+                                                    <button
+                                                        class="btn btn-danger rounded-pill btn-sm">{{ env('bahaya') }}</button>
                                                     {{-- {!! $logo_danger !!} --}}
                                                 @endif
                                             </td>
