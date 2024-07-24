@@ -14,6 +14,7 @@ class Cart extends Model
         'quantity',
         'supplier_id',
         'order_date',
+        'order_cost',
     ];
 
     public function barang()

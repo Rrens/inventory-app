@@ -41,6 +41,7 @@
                                         <th>Stok Sekarang</th>
                                         <th>EOQ</th>
                                         <th>ROP</th>
+                                        <th>Biaya Pemesanan</th>
                                         <th>Jumlah Pemesanan</th>
                                     </tr>
                                 </thead>
@@ -52,6 +53,7 @@
                                             <td>{{ format_number($item->stok) }}</td>
                                             <td>{{ format_number($item->eoq) }}</td>
                                             <td>{{ format_number($item->rop) }}</td>
+                                            <td>{{ format_rupiah($item->order_cost) }}</td>
                                             <td>{{ format_number($item->jumlah_pemesanan) }}</td>
                                         </tr>
                                     @endforeach

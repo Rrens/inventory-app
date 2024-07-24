@@ -41,7 +41,7 @@ class PesanPersediaanController extends Controller
             ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
             ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
             ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name, pd.order_cost')
             ->where('p.slug', $slug)
             ->get();
 
@@ -90,7 +90,8 @@ class PesanPersediaanController extends Controller
                 'sum' => $data->total,
                 'd' => $d,
                 'lead_time' => $lead_time,
-                'ss' => $ss
+                'ss' => $ss,
+                'order_cost' => $item->order_cost,
             ];
             // dd($temp);
 

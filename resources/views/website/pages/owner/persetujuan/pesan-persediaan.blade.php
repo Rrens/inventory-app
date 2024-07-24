@@ -33,7 +33,7 @@
                                         {{-- <th>Supplier</th> --}}
                                         <th>Status Pemesanan</th>
                                         <th>Tanggal Pemesanan</th>
-                                        <th>Biaya Pemesanan</th>
+                                        {{-- <th>Biaya Pemesanan</th> --}}
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -46,7 +46,7 @@
                                             <td>{{ ternary_3($item->is_verify != false, $item->is_verify == true, 'Diterima', 'Ditolak', 'Menunggu Persetujuan') }}
                                             </td>
                                             <td>{{ format_date($item->created_at) }}</td>
-                                            <td>{{ format_rupiah($item->order_cost) }}</td>
+                                            {{-- <td>{{ format_rupiah($item->order_cost) }}</td> --}}
                                             <td>
                                                 <a href="{{ route('persetujuan.pesan-persetujuan.detail', $item->slug) }}"
                                                     class="btn btn-{{ $item->is_verify != true ? 'success' : 'primary' }}">{{ $item->is_verify != true ? 'Persetujuan' : 'Detail' }}</a>

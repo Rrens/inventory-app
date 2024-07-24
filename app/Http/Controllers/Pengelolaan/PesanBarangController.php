@@ -102,7 +102,7 @@ class PesanBarangController extends Controller
     {
         $validator = Validator::make($request->all(), [
             // 'store_for' => 'required|in:gudang,toko',
-            'order_cost' => 'required|numeric',
+            // 'order_cost' => 'required|numeric',
         ]);
 
         if ($validator->fails()) {
@@ -121,7 +121,7 @@ class PesanBarangController extends Controller
         $data->pemesanan_id = $pemesanan_ID;
         $data->slug = generate_slug('PEM');
         // $data->store_for = $request->store_for;
-        $data->order_cost = $request->order_cost;
+        // $data->order_cost = $request->order_cost;
         $data->order_date = $request->order_date;
         // dd($data);
         $data->save();
@@ -132,7 +132,7 @@ class PesanBarangController extends Controller
         foreach ($cart as $item) {
 
             $product = Barang::findOrFail($item->barang_id);
-            $eoq = $this->count_eoq_store($request->order_cost, $product->id);
+            $eoq = $this->count_eoq_store($item->order_cost, $product->id);
             $product->eoq = $eoq;
             $product->save();
 
@@ -147,6 +147,7 @@ class PesanBarangController extends Controller
             $data_detail->barang_id = $item->barang_id;
             $data_detail->quantity = $item->quantity;
             $data_detail->supplier_id = $item->supplier_id;
+            $data_detail->order_cost = $item->order_cost;
             $data_detail->eoq = $eoq;
             $data_detail->save();
 

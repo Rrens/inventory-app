@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id')->nullable();
             $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->integer('quantity');
+            $table->double('order_cost')->default(0);
             $table->date('order_date')->nullable();
             $table->timestamps();
         });

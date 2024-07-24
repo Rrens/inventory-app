@@ -395,7 +395,7 @@
                                     if (checkRop <= rop) alert(
                                         'Quantity Mendekati ROP')
                                     // // console.log(ropValue)
-                                    doSave(valueStock, productID, quantity, orderDate)
+                                    // doSave(valueStock, productID, quantity, orderDate)
                                 }
                             })
 
