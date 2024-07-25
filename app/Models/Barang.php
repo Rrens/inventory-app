@@ -21,6 +21,7 @@ class Barang extends Model
         'eoq',
         'rop',
         'place',
+        'max_quantity',
         'supplier_id'
     ];
 

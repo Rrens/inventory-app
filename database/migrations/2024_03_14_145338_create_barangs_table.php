@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('rop')->default(0);
             $table->integer('quantity')->default(0);
             $table->integer('leadtime')->nullable();
+            $table->integer('max_quantity');
             $table->string('place')->nullable();
             $table->softDeletes();
             $table->timestamps();

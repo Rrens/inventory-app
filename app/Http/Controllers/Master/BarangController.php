@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
+use App\Models\Listrik;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,7 +20,9 @@ class BarangController extends Controller
         $data = Barang::all();
         $id_barang = Barang::count() + 1;
         $supplier = Supplier::all();
-        return view('website.pages.admin.master.barang', compact('active', 'active_group', 'data', 'id_barang', 'supplier'));
+        $listrik_gudang = Listrik::where('place', 'Gudang')->pluck('price')[0];
+        $listrik_toko = Listrik::where('place', 'Toko')->pluck('price')[0];
+        return view('website.pages.admin.master.barang', compact('active', 'active_group', 'data', 'id_barang', 'supplier', 'listrik_gudang', 'listrik_toko'));
     }
 
     public function store(Request $request)
@@ -27,16 +30,17 @@ class BarangController extends Controller
         // VALIDASI INPUT REQUEST
         $validator = Validator::make($request->all(), [
             'id_barang' => 'required|unique:barangs,id',
-            'saving_cost' => 'required|numeric',
             'name' => 'required',
             'price' => 'required|numeric',
             'leadtime' => 'required|numeric',
             'unit' => 'required|in:unit,pcs,pack,zak,m3',
             'place' => 'required|in:gudang,toko',
-            'supplier_id' => 'required'
+            'supplier_id' => 'required',
+            'max_quantity' => 'required',
         ], [
             'name.required' => 'Gagal menyimpan data barang',
             'price.required' => 'Gagal menyimpan data barang',
+            'max_quantity.required' => 'Gagal menyimpan data barang',
             'price.numeric' => 'Harga harus berisi nomor',
             'leadtime.required' => 'Gagal menyimpan data barang',
             'leadtime.numeric' => 'Leadtime harus berisi nomor',
@@ -73,11 +77,15 @@ class BarangController extends Controller
             }
         }
         // dd($data_check_name);
+        $listrik = Listrik::query();
+        $saving_cost = $listrik->where('place', $request->place)->pluck('price')[0] / $request->max_quantity;
+        // dd($saving_cost, $request->max_quantity);
 
         // MENYIMPAN BARANG BARU
         unset($request['_token']);
         $data = new Barang();
         $data->fill($request->all());
+        $data->saving_cost = $saving_cost;
         $data->save();
 
         Alert::toast('Sukses Menyimpan', 'success');
@@ -91,15 +99,16 @@ class BarangController extends Controller
             $request->all(),
             [
                 'id_barang' => 'required|exists:barangs,id',
-                'saving_cost' => 'required|numeric',
                 'name' => 'required',
                 'price' => 'required|numeric',
                 'leadtime' => 'required|numeric',
                 'unit' => 'required|in:unit,pcs,pack,zak,m3',
                 'place' => 'required|in:gudang,toko',
+                'max_quantity' => 'required',
             ],
             [
                 'name.required' => 'Gagal ubah data barang',
+                'max_quantity.required' => 'Gagal menyimpan data barang',
                 'price.required' => 'Gagal ubah data barang',
                 'price.numeric' => 'Harga harus berisi nomor',
                 'leadtime.required' => 'Gagal ubah data barang',
@@ -118,10 +127,15 @@ class BarangController extends Controller
             return back()->withInput();
         }
 
+        $listrik = Listrik::query();
+        $saving_cost = $listrik->where('place', $request->place)->pluck('price')[0] / $request->max_quantity;
+        // dd($saving_cost, $request->max_quantity);
+
         unset($request['_token']);
         // MENCARI BARANG DENGAN ID SESUAI REQUEST
         $data = Barang::findOrFail($request->id_barang);
         $data->fill($request->all());
+        $data->saving_cost = $saving_cost;
         $data->update();
 
         Alert::toast('Sukses Mengubah', 'success');

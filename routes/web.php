@@ -9,6 +9,7 @@ use App\Http\Controllers\Laporan\PersetujuanPemakaianBarangController;
 use App\Http\Controllers\Laporan\PersetujuanPesanBarangController;
 use App\Http\Controllers\Laporan\PesanBarangController as LaporanPesanBarangController;
 use App\Http\Controllers\Laporan\PesanPersediaanController;
+use App\Http\Controllers\ListrikController;
 use App\Http\Controllers\Master\BarangController;
 use App\Http\Controllers\Master\SupplierController;
 use App\Http\Controllers\NotificationController;
@@ -43,6 +44,11 @@ Route::prefix('auth')->group(function () {
 Route::redirect('/master', '/master/barang', 301);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    Route::prefix('listrik')->group(function () {
+        Route::get('', [ListrikController::class, 'update'])->name('listrik.update');
+    });
+
     Route::prefix('master')->group(function () {
         Route::prefix('barang')->group(function () {
             Route::get('', [BarangController::class, 'index'])->name('master.barang.index');

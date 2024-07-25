@@ -4,8 +4,12 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-6 d-flex justify-content-start align-items-center">
                     <h1 class="m-0">Master Barang</h1>
+                    <button type="button" class="btn btn-outline-primary btn-sm ml-2" data-toggle="modal"
+                        data-target="#modal-listrik">
+                        Biaya Listrik
+                    </button>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -78,6 +82,42 @@
         </div>
     </section>
 
+    <div class="modal fade" id="modal-listrik">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Biaya September</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('listrik.update') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="gudang">Gudang</label>
+                                <input type="number" class="form-control" name="gudang" value="{{ $listrik_gudang }}"
+                                    id="gudang">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="toko">Toko</label>
+                                <input type="number" class="form-control" name="toko" value="{{ $listrik_toko }}"
+                                    id="toko">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="modal-add">
         <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
@@ -101,8 +141,8 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="name">Nama Barang</label>
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}"
-                                        id="name">
+                                    <input type="text" class="form-control" name="name"
+                                        value="{{ old('name') }}" id="name">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -140,14 +180,9 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="saving_cost">Biaya Simpan Barang</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Rp</span>
-                                        </div>
-                                        <input type="number" class="form-control" id="saving_cost"
-                                            value="{{ old('saving_cost') }}" name="saving_cost">
-                                    </div>
+                                    <label for="max_quantity">Maksimum Kapasitas</label>
+                                    <input type="number" class="form-control" id="max_quantity" name="max_quantity"
+                                        value="{{ old('max_quantity') }}">
                                 </div>
                             </div>
                         </div>
@@ -256,16 +291,9 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="saving_cost">Biaya Simpan Barang</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Rp</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="saving_cost"
-                                                oninput="savingCost(this)"
-                                                value="{{ !empty(old('saving_cost')) ? old('saving_cost') : $item->saving_cost }}"
-                                                name="saving_cost">
-                                        </div>
+                                        <label for="max_quantity">Maksimum Kapasitas</label>
+                                        <input type="number" class="form-control" id="max_quantity" name="max_quantity"
+                                            value="{{ !empty(old('max_quantity')) ? old('max_quantity') : $item->max_quantity }}">
                                     </div>
                                 </div>
                             </div>
