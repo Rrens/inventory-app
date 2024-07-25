@@ -46,7 +46,7 @@ Route::redirect('/master', '/master/barang', 301);
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::prefix('listrik')->group(function () {
-        Route::get('', [ListrikController::class, 'update'])->name('listrik.update');
+        Route::post('', [ListrikController::class, 'update'])->name('listrik.update');
     });
 
     Route::prefix('master')->group(function () {

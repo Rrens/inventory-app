@@ -23,14 +23,11 @@ class ListrikController extends Controller
             Alert::toast($validator->messages()->all(), 'error');
             return back()->withInput();
         }
+        // dd($request->all());
 
-        $listrik_gudang = Listrik::where('place', 'Gudang')->first();
-        $listrik_gudang->price = $request->gudang;
-        $listrik_gudang->save();
+        Listrik::where('place', 'Gudang')->update(['price' => $request->gudang]);
 
-        $listrik_toko = Listrik::where('place', 'Toko')->first();
-        $listrik_toko->price = $request->toko;
-        $listrik_gudang->save();
+        Listrik::where('place', 'Toko')->update(['price' => $request->toko]);
 
         Alert::toast('Sukses Merubah Biaya Listrik', 'success');
         return back();

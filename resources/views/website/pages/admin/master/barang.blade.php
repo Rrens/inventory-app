@@ -86,7 +86,7 @@
         <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Biaya September</h4>
+                    <h4 class="modal-title">Biaya Listrik</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -97,14 +97,14 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="gudang">Gudang</label>
-                                <input type="number" class="form-control" name="gudang" value="{{ $listrik_gudang }}"
+                                <input type="text" class="form-control" name="gudang" value="{{ $listrik_gudang }}"
                                     id="gudang">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="toko">Toko</label>
-                                <input type="number" class="form-control" name="toko" value="{{ $listrik_toko }}"
+                                <input type="text" class="form-control" name="toko" value="{{ $listrik_toko }}"
                                     id="toko">
                             </div>
                         </div>
