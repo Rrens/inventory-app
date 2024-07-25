@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('barang_id')->references('id')->on('barangs');
             $table->integer('quantity');
             $table->integer('eoq');
+            $table->double('order_cost')->default(0);
             $table->string('status')->nullable();
             $table->date('date_in')->nullable();
             $table->softDeletes();

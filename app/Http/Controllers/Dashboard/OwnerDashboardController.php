@@ -84,7 +84,7 @@ class OwnerDashboardController extends Controller
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name, b.leadtime')
                 ->where('b.place', $filter)
                 // ->where('p.slug', $slug)
                 ->groupBy('b.id')
@@ -94,7 +94,7 @@ class OwnerDashboardController extends Controller
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
                 ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+                ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name, b.leadtime')
                 // ->where('p.slug', $slug)
                 ->groupBy('b.id')
                 ->get();
@@ -127,8 +127,8 @@ class OwnerDashboardController extends Controller
             }
 
             // dd($data);
-            // $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
-            // $ss = ($data->max - $data->avg) * $lead_time; // SAFETY STOCK
+            $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
+            $ss = ($data->max - $data->avg) * $lead_time; // SAFETY STOCK
             // $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
             // $d = (int)round($data->total / $jumlah_hari);
             // $rop = ($d * $lead_time) + $ss;
@@ -165,7 +165,7 @@ class OwnerDashboardController extends Controller
                 'sum' => $data->total,
                 // 'd' => $d,
                 // 'lead_time' => $item->lead_time,
-                // 'ss' => $ss,
+                'ss' => $ss,
             ];
 
             array_push($detail_penjualan, $temp);
@@ -188,7 +188,7 @@ class OwnerDashboardController extends Controller
 
     public function total_barang_keluar()
     {
-        $total = Penjualan::where('status', true)->count();
+        $total = Penjualan::where('status', false)->count();
         return $total;
     }
 

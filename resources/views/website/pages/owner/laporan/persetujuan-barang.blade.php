@@ -56,7 +56,7 @@
                                             <td>{{ $item->barang[0]->name }}</td>
                                             <td>{{ $item->supplier[0]->name }}</td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>{{ format_rupiah($item->quantity) . ' ' . $item->barang[0]->price }}</td>
+                                            <td>{{ format_rupiah($item->quantity * $item->barang[0]->price) }}</td>
                                             <td>
                                                 <span
                                                     class="btn-{{ $item->pemesanan[0]->is_verify == true ? 'success' : 'danger' }} btn-sm">{{ $item->pemesanan[0]->is_verify == true ? 'SETUJU' : 'TIDAK SETUJU' }}</span>

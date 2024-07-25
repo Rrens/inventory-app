@@ -74,13 +74,12 @@ class AdminDashboardController extends Controller
     public function data($filter = false)
     {
         if ($filter) {
-            $data_detail = DB::table('barangs as b')
-                ->join('pemesanans as p', 'pd.barang_id', '=', 'b.id')
+            $data_detail = DB::table('pemesanans as p')
                 ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
+                ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
                 ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
                 ->selectRaw('b.id, b.rop, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
                 ->where('b.place', $filter)
-                // ->where('p.slug', $slug)
                 ->groupBy('b.id')
                 ->get();
         } else {
@@ -113,13 +112,13 @@ class AdminDashboardController extends Controller
             if (!empty($bulan_tahun->bulan)) {
                 $data = DB::table('penjualans as p')
                     ->join('barangs as b', 'p.barang_id', '=', 'b.id')
-                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total, b.leadtime')
                     ->whereRaw("b.id = '" . $item->id . "' AND DATE_FORMAT(p.order_date, '%m-%Y') = '" . $bulan_tahun->bulan . "'")
                     ->first();
             } else {
                 $data = DB::table('penjualans as p')
                     ->join('barangs as b', 'p.barang_id', '=', 'b.id')
-                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
+                    ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total, b.leadtime')
                     ->first();
 
                 // $barangs = DB::table('barangs as b')
@@ -162,8 +161,9 @@ class AdminDashboardController extends Controller
             //     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
             //     ->first();
 
-            // $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
-            // $ss = ($data->max - $data->avg) * $lead_time;
+            $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;
+            $ss = ($data->max - $data->avg) * $lead_time;
+            // dd($ss);
             // $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
             // $d = (int)round($data->total / $jumlah_hari);
             // $rop = ($d * $lead_time) + $ss;
@@ -182,8 +182,9 @@ class AdminDashboardController extends Controller
                 'sum' => $data->total,
                 // 'd' => $d,
                 // 'lead_time' => $item->lead_time,
-                // 'ss' => $ss,
+                'ss' => $ss,
             ];
+            // dd($temp);
 
             array_push($detail_penjualan, $temp);
         }
@@ -205,7 +206,7 @@ class AdminDashboardController extends Controller
 
     public function total_barang_keluar()
     {
-        $total = Penjualan::where('status', true)->count();
+        $total = Penjualan::where('status', false)->count();
         return $total;
     }
 

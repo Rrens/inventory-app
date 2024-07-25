@@ -38,13 +38,16 @@ class PenjualanController extends Controller
         $validator = Validator::make($request->all(), [
             'barang_id' => 'required|exists:barangs,id',
             'quantity' => 'required|numeric',
-            'status' => 'required|in:true,false'
+            'status' => 'required|in:true,false',
+            'order_date' => 'required|date',
         ], [
             'barang_id.required' => 'Barang harus diisi',
             'quantity.required' => 'Quantity harus diisi',
             'quantity.numeric' => 'Quantity harus berisi nomor',
             'status.required' => 'Status harus ada',
             'status.in' => 'Status harus antara true atau false',
+            'order_date.required' => 'Order Date harus diisi',
+            'order_date.date' => 'Order date harus berisi tanggal',
         ]);
 
         if ($validator->fails()) {
@@ -53,6 +56,7 @@ class PenjualanController extends Controller
 
         try {
             unset($request['_token']);
+            // dd($request->all());
 
             $check_cart = CartPenjualan::where('barang_id', $request->barang_id)->first();
             if (!$check_cart) {
@@ -69,6 +73,7 @@ class PenjualanController extends Controller
                 $check_cart->save();
             }
 
+            // return response()->json($request->all());
             return response()->json('sukses');
         } catch (Exception $error) {
             return response()->json($error->getMessage());
@@ -144,7 +149,7 @@ class PenjualanController extends Controller
                 $data->slug = Penjualan::generateSLUG();
                 $data->barang_id = $item->barang_id;
                 $data->quantity = $item->quantity;
-                $data->order_date = Carbon::now();
+                $data->order_date = $item->order_date;
                 $data->status = false;
                 $data->save();
 
@@ -158,7 +163,7 @@ class PenjualanController extends Controller
                 $data->slug = Penjualan::generateSLUG();
                 $data->barang_id = $item->barang_id;
                 $data->quantity = $item->quantity;
-                $data->order_date = Carbon::now();
+                $data->order_date = $item->order_date;
                 $data->status = true;
                 $data->save();
 
@@ -253,10 +258,16 @@ class PenjualanController extends Controller
                 ->first();
         }
 
-
         $lead_time = !empty($data->leadtime) ? $data->leadtime : 5;
         $ss = ($data->max - $data->avg) * $lead_time;
 
         return $ss;
+    }
+
+    public function checkIfClosestRopValue($id)
+    {
+        $data = Barang::where('id', $id)->first();
+
+        return response()->json($data);
     }
 }

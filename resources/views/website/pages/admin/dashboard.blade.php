@@ -50,12 +50,12 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('owner.dashboard.index') }}"
+                                <a href="{{ route('admin.dashboard.index') }}"
                                     class="btn btn-outline-{{ $value_filter == false ? 'primary' : 'secondary' }} btn-sm">All</a>
-                                <a href="{{ route('owner.dashboard.filter', 'gudang') }}"
+                                <a href="{{ route('admin.dashboard.filter', 'gudang') }}"
                                     class="btn btn-outline-{{ $value_filter == 'gudang' ? 'primary' : 'secondary' }}  btn-sm"
                                     style="margin: 0 5px;">Gudang</a>
-                                <a href="{{ route('owner.dashboard.filter', 'toko') }}"
+                                <a href="{{ route('admin.dashboard.filter', 'toko') }}"
                                     class="btn btn-outline-{{ $value_filter == 'toko' ? 'primary' : 'secondary' }}  btn-sm">Toko</a>
                             </div>
 
@@ -67,6 +67,7 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Stok</th>
+                                        <th>Safety Stock</th>
                                         <th>EOQ</th>
                                         <th>ROP</th>
                                         <th>Status</th>
@@ -78,15 +79,25 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->nama_barang }}</td>
                                             <td>{{ format_number($item->stok) }}</td>
+                                            <td>{{ format_number($item->ss) }}</td>
                                             <td>{{ format_number($item->eoq) }}</td>
                                             <td>{{ format_number($item->rop) }}</td>
                                             <td>
                                                 @if ($item->stok >= $item->eoq * 2)
-                                                    {!! $logo_verify !!}
+                                                    {{-- <i class="fa fa-check icon safe"></i> --}}
+                                                    <button
+                                                        class="btn btn-success rounded-pill btn-sm">{{ env('aman') }}</button>
+                                                    {{-- {!! $logo_verify !!} --}}
                                                 @elseif ($item->stok >= $item->eoq + 2)
-                                                    {!! $logo_warning !!}
+                                                    {{-- <i class="fa fa-exclamation icon caution"></i> --}}
+                                                    <button
+                                                        class="btn btn-warning rounded-pill btn-sm">{{ env('ati2') }}</button>
+                                                    {{-- {!! $logo_warning !!} --}}
                                                 @elseif ($item->stok <= $item->eoq)
-                                                    {!! $logo_danger !!}
+                                                    {{-- <i class="fa fa-exclamation-triangle icon danger"></i> --}}
+                                                    <button
+                                                        class="btn btn-danger rounded-pill btn-sm">{{ env('bahaya') }}</button>
+                                                    {{-- {!! $logo_danger !!} --}}
                                                 @endif
                                             </td>
                                         </tr>

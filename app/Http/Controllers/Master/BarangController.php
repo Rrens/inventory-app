@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -17,7 +18,8 @@ class BarangController extends Controller
         $active = 'barang';
         $data = Barang::all();
         $id_barang = Barang::count() + 1;
-        return view('website.pages.admin.master.barang', compact('active', 'active_group', 'data', 'id_barang'));
+        $supplier = Supplier::all();
+        return view('website.pages.admin.master.barang', compact('active', 'active_group', 'data', 'id_barang', 'supplier'));
     }
 
     public function store(Request $request)
@@ -31,6 +33,7 @@ class BarangController extends Controller
             'leadtime' => 'required|numeric',
             'unit' => 'required|in:unit,pcs,pack,zak,m3',
             'place' => 'required|in:gudang,toko',
+            'supplier_id' => 'required'
         ], [
             'name.required' => 'Gagal menyimpan data barang',
             'price.required' => 'Gagal menyimpan data barang',

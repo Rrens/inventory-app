@@ -44,11 +44,11 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data_detail as $item)
-                                        {{-- @dd($item, $data, $data->where('id', $item->pemesanan_id)[0]->order_cost) --}}
+                                        {{-- @dd($item->order_cost) --}}
                                         <tr>
                                             <td>{{ $item->pemesanan[0]->order_date }}</td>
                                             <td>{{ $item->barang[0]->name }}</td>
-                                            <td>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</td>
+                                            <td>{{ format_rupiah($item->order_cost) }}</td>
                                             </td>
                                             <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
                                             <td>
@@ -98,7 +98,7 @@
                             <div class="col-6">
                                 <p>{{ $item->barang[0]->name }}</p>
                                 <p>{{ $item->barang[0]->place }}</p>
-                                <p>{{ $item->pemesanan[0]->order_date }}</p>
+                                <p>{{ $item->order_date }}</p>
                                 <p>{{ $item->date_in }}</p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-6">
                                 <p>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</p>
-                                <p>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</p>
+                                <p>{{ format_rupiah($item->order_cost) }}</p>
                                 <p>{{ format_rupiah($item->barang[0]->price) }}</p>
                             </div>
                         </div>

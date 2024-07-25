@@ -107,6 +107,20 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label for="supplier_id">Nama Supplier</label>
+                                    {{-- <input type="text" class="form-control" name="supplier_id"
+                                        value="{{ old('supplier_id') }}" id="supplier_id"> --}}
+                                    <select name="supplier_id" class="form-control" id="supplier_id">
+                                        <option selected hidden>Pilih Supplier</option>
+                                        @foreach ($supplier as $item)
+                                            <option {{ $item->id == old('supplier_id') ? 'selected' : '' }}
+                                                value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
                                     <label for="leadtime">Lead Time</label>
                                     <input type="text" class="form-control" name="leadtime"
                                         value="{{ old('leadtime') }}" id="leadtime">
@@ -200,6 +214,20 @@
                                         <label for="name">Nama Barang</label>
                                         <input type="text" class="form-control" name="name"
                                             value="{{ !empty(old('name')) ? old('name') : $item->name }}" id="name">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="supplier_id">Nama Supplier</label>
+                                        {{-- <input type="text" class="form-control" name="supplier_id"
+                                            value="{{ old('supplier_id') }}" id="supplier_id"> --}}
+                                        <select name="supplier_id" class="form-control" id="supplier_id">
+                                            <option selected hidden>Pilih Supplier</option>
+                                            @foreach ($supplier as $row)
+                                                <option {{ $item->supplier_id == $row->id ? 'selected' : '' }}
+                                                    value="{{ $row->id }}">{{ $row->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12">

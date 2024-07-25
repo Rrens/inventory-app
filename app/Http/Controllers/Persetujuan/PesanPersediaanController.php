@@ -7,6 +7,7 @@ use App\Models\Barang;
 use App\Models\Notification;
 use App\Models\Pemesanan;
 use App\Models\PemesananDetail;
+use App\Models\Penjualan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,9 @@ class PesanPersediaanController extends Controller
         $active = 'pesan-persediaan';
         $active_group = 'persetujuan';
 
-        $data = Pemesanan::all();
+        $data = Pemesanan::orderByRaw('is_verify IS NULL DESC')
+            ->orderBy('created_at', 'desc')
+            ->get();
         // dd($data);
         return view('website.pages.owner.persetujuan.pesan-persediaan', compact('active', 'active_group', 'data'));
     }
@@ -38,7 +41,7 @@ class PesanPersediaanController extends Controller
             ->join('pemesanan_details as pd', 'pd.pemesanan_id', '=', 'p.id')
             ->join('barangs as b', 'pd.barang_id', '=', 'b.id')
             ->join('suppliers as s', 's.id', '=', 'pd.supplier_id')
-            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name')
+            ->selectRaw('b.id, b.name, pd.quantity, p.slug, pd.eoq, b.quantity as stock, b.leadtime, s.name as supplier_name, pd.order_cost')
             ->where('p.slug', $slug)
             ->get();
 
@@ -87,13 +90,14 @@ class PesanPersediaanController extends Controller
                 'sum' => $data->total,
                 'd' => $d,
                 'lead_time' => $lead_time,
-                'ss' => $ss
+                'ss' => $ss,
+                'order_cost' => $item->order_cost,
             ];
             // dd($temp);
 
             array_push($detail_penjualan, $temp);
         }
-        // dd($detail_penjualan);
+        // dd($data_detail);
 
         return view('website.pages.owner.persetujuan.pesan-persediaan-detail', compact(
             'active',
@@ -176,7 +180,7 @@ class PesanPersediaanController extends Controller
         $jumlah_hari = $this->jumlahHari($bulan_tahun->bulan);
         $d = (int)round($data_penjualan->total / $jumlah_hari);
         $rop = ($d * $lead_time) + $ss;
-        dd(['Lead Time' => $lead_time, 'SS' => $ss, 'Demand' => $d]);
+        // dd(['Lead Time' => $lead_time, 'SS' => $ss, 'Demand' => $d]);
 
         foreach ($data_detail as $item) {
 
@@ -192,6 +196,10 @@ class PesanPersediaanController extends Controller
                     ->selectRaw('max(p.quantity) as max, round(avg(p.quantity)) as avg, sum(p.quantity) as total')
                     ->first();
             }
+
+            // $data_penjualan = Penjualan::where('barang_id', $item->id)->where('status', true)->first();
+            // $data_penjualan->status = false;
+            // $data_penjualan->save();
 
 
             $lead_time = !empty($item->leadtime) ? $item->leadtime : 5;

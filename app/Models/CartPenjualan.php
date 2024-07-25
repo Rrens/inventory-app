@@ -14,6 +14,7 @@ class CartPenjualan extends Model
         'barang_id',
         'quantity',
         'status',
+        'order_date'
     ];
 
     public function barang()

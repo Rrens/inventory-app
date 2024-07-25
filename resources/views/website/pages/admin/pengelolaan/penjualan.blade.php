@@ -22,68 +22,40 @@
             <div class="row">
                 <section class="col-lg-12 connectedSortable">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex align-items-center justify-content-between">
                             <h3 class="card-title">Penjualan Barang</h3>
+                            <input class="form-control btn-sm" type="date" style="margin-left: 900px;"
+                                value="{{ now()->format('Y-m-d') }}" id="date_1" />
                         </div>
                         <div class="card-body">
-                            {{-- <form action="{{ route('pengelolaan.penjualan.store-cart') }}" method="post"> --}}
-                            {{-- @csrf --}}
-                            <div class="row">
-                                {{-- @dd(now()->format('d/m/Y')) --}}
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="date_use">Tanggal digunakan</label>
-                                        <input type="date" class="form-control" name="date_use" id="date_use"
-                                            value="{{ now()->format('Y-m-d') }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="order_to">Pilih Tempat Penyimpanan</label>
-                                        <select name="order_to" id="order_to" class="form-control">
-                                            <option selected hidden>Pilih</option>
-                                            <option value="toko">toko</option>
-                                            <option value="gudang">gudang</option>
-                                        </select>
-                                    </div>
-                                </div> --}}
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="barang_id">Pilih Barang</label>
-                                                <select name="barang_id" id="barang_id" class="form-control" required>
-                                                    <option selected hidden>Pilih</option>
-                                                    @foreach ($products as $item)
-                                                        <option data-price="{{ $item->price }}"
-                                                            data-stock="{{ $item->quantity }}"
-                                                            data-name="{{ $item->name }}"
-                                                            {{ (empty(old('barang_id')) ? '' : old('barang_id') == $item->id) ? 'selected' : '' }}
-                                                            value="{{ $item->id }}">
-                                                            {{ $item->name . ' || (' . $item->quantity . ')' }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="price">Quantity</label>
-                                                        <input type="number" class="form-control" name="quantity"
-                                                            id="quantity" readonly>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {{-- <div class="row"> --}}
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Barang</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($products as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ format_number($item->quantity) . ' ' . $item->unit }}</td>
+                                            <td>
+                                                <button data-toggle="modal" data-target="#modal-choose{{ $item->id }}"
+                                                    class="btn btn-outline-dark btn-sm rounded-circle">
+                                                    <i class="fa fa-plus-circle"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{-- </div> --}}
                             <div class="border-top"></div>
-                            <button id="btn-save" onclick="save('save')"
-                                class="btn btn-outline-primary btn-block">Simpan</button>
-                            {{-- </form> --}}
                         </div>
                     </div>
 
@@ -100,6 +72,7 @@
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
                                                 <th>Quantity</th>
+                                                <th>Tanggal</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -108,7 +81,9 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->barang[0]->name }}</td>
-                                                    <td>{{ format_number($item->quantity) }}</td>
+                                                    <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}
+                                                    </td>
+                                                    <td>{{ $item->order_date }}</td>
                                                     <td>
                                                         {{-- <button data-toggle="modal"
                                                             data-target="#modal-edit{{ $item->id }}"
@@ -116,7 +91,7 @@
                                                             <i class="fa fa-pencil-alt"></i>
                                                         </button> --}}
                                                         <button data-toggle="modal"
-                                                            data-target="#modal-delete{{ $item->id }}"
+                                                            data-target="#modal-danger{{ $item->id }}"
                                                             class="btn btn-outline-danger btn-sm">
                                                             <i class="fa fa-trash"></i>
                                                         </button>
@@ -160,6 +135,36 @@
         </div>
     </div>
 
+    <input type="number" hidden id="quantity">
+    @foreach ($products as $item)
+        <div class="modal fade" id="modal-choose{{ $item->id }}">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Simpan Pesanan</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{-- <form action="" method="post"> --}}
+                    {{-- @csrf --}}
+                    <div class="modal-body">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" onchange="changeQuantity(this)" name="quantity"
+                            id="quantity_choose">
+                        <input type="date" name="order_date" id="order_date" value="{{ now()->format('Y-m-d') }}"
+                            hidden>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="button" onclick="save({{ $item->id }})" class="btn btn-primary">Simpan</button>
+                    </div>
+                    {{-- </form> --}}
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     {{-- <div class="modal fade" id="modal-biaya-pemesanan">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -192,7 +197,7 @@
         </div>
     </div> --}}
 
-    @foreach ($cart as $item)
+    {{-- @foreach ($cart as $item)
         <div class="modal fade" id="modal-edit{{ $item->id }}">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -209,12 +214,11 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="barang_update_id">Barang</label>
-                                        {{-- <input type="text" class="form-control" value="{{ $item->barang[0]->name }}"> --}}
                                         <select name="barang_id" id="barang_id_edit" class="form-control" required>
                                             <option selected hidden>Pilih</option>
                                             @foreach ($products as $row)
-                                                <option data-price="{{ $row->price }}"
-                                                    data-stock="{{ $row->quantity }}" data-name="{{ $row->name }}"
+                                                <option data-price="{{ $row->price }}" data-stock="{{ $row->quantity }}"
+                                                    data-name="{{ $row->name }}"
                                                     {{ old('barang_id') == $row->id ? 'selected' : ($row->id == $item->barang[0]->id ? 'selected' : '') }}
                                                     value="{{ $row->id }}">
                                                     {{ $row->name . ' || (' . $row->quantity . ')' }}
@@ -235,16 +239,16 @@
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary" {{-- onclick="save('update', {{ $row->id }})" --}}>Simpan</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 
     @foreach ($cart as $item)
-        <div class="modal fade" id="modal-delete{{ $item->id }}">
+        <div class="modal fade" id="modal-danger{{ $item->id }}">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -267,11 +271,47 @@
     @endforeach
 @endsection
 
-
 @push('css')
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @endpush
 @push('script')
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+    <script>
+        function changeQuantity(value) {
+            console.log(value.value)
+            $('#quantity').val(value.value)
+        }
+
+        $('#date_1').on('change', function() {
+            let date = $(this).val();
+            // format_date(date)
+            $('#order_date').val(date)
+            // let order_date = $('#order_date').val('')
+            // console.log(order_date)
+        })
         $('#order_to').on('change', function() {
             $('#barang_id').prop('disabled', false)
         })
@@ -280,24 +320,23 @@
             $('#quantity').prop('readonly', false)
         })
 
-        function save(status, id = false) {
-            let place = $('#order_to').val()
+        function save(id) {
+            // let place = $('#order_to').val()
             let quantity = $('#quantity').val()
-            let orderDate = $('#date_use').val()
-            let productID = $('#barang_id option:selected').val();
-            let stock = $('#barang_id option:selected').data('stock')
+            let orderDate = $('#order_date').val()
+            let productID = id
+            console.log(quantity)
+            // let stock = $('#barang_id option:selected').data('stock')
 
             $.ajax({
                 url: `/pengelolaan/penjualan/check-stock/${productID}`,
                 method: 'GET',
                 success: function(res) {
+
+                    let stock = res
                     if (res === 'data tidak ditemukan') {
                         $('#quantity').val('')
-                        // $('#product').prop('disabled', true)
-                        $('#quantity').prop('readonly', true)
-                        // $('#date_use').prop('disabled', true)
-                        // alert('Barang tidak ada')
-                        // return
+                        // $('#quantity').prop('readonly', true)
                     }
 
                     $.ajax({
@@ -339,16 +378,28 @@
                                 return
                             }
 
-                            if (status == 'save') {
-                                doSave(valueStock, productID, quantity)
-                            } else {
-                                // // let barang_id_edit = $('#barang_id_edit').val();
-                                // // console.log(id)
-                                // doUpdate(valueStock, id)
-                            }
+                            $.ajax({
+                                url: `/pengelolaan/penjualan/check-if-closest-rop-value/${productID}`,
+                                method: 'GET',
+                                success: (ropValue) => {
+                                    console.log(ropValue)
+                                    let stockBarang = ropValue['quantity'];
+                                    let rop = ropValue['rop'];
 
+                                    let checkRop = (stockBarang - quantity) - 3;
+                                    console.log('check rop', checkRop)
+                                    console.log('rop', rop)
 
-                            // console.log(quantity)
+                                    // ropValue += 3
+                                    // console.log('rop_value')
+                                    if (checkRop <= rop) alert(
+                                        'Quantity Mendekati ROP')
+                                    // // console.log(ropValue)
+                                    // doSave(valueStock, productID, quantity, orderDate)
+                                }
+                            })
+
+                            // console.log(valueStock)
                         },
                         error: function(error, xhr) {
                             console.log(error, xhr)
@@ -361,8 +412,8 @@
             })
         }
 
-        function doSave(value_stock, barang_id, quantity) {
-            console.log(value_stock)
+        function doSave(value_stock, barang_id, quantity, orderDate) {
+            // console.log(orderDate)
             $.ajax({
                 url: '{{ route('pengelolaan.penjualan.store-cart') }}',
                 type: 'POST',
@@ -370,6 +421,7 @@
                     'status': value_stock,
                     'barang_id': barang_id,
                     'quantity': quantity,
+                    'order_date': orderDate,
                     '_token': '{{ csrf_token() }}',
                 },
                 success: function(res) {

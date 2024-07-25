@@ -13,7 +13,7 @@ class BarangKeluarController extends Controller
     {
         $active = 'riwayat-barang-keluar';
         $active_group = 'riwayat';
-        $data_detail = Penjualan::where('status', true)->get();
+        $data_detail = Penjualan::where('status', false)->get();
         $value_filter = false;
         return view('website.pages.admin.riwayat.barang-keluar', compact(
             'active',
@@ -27,7 +27,7 @@ class BarangKeluarController extends Controller
     {
         $active = 'barang-keluar';
         $active_group = 'riwayat';
-        $data_detail = Penjualan::where('status', true)
+        $data_detail = Penjualan::where('status', false)
             ->whereDate('updated_at', $filter)
             ->get();
         $value_filter = $filter;

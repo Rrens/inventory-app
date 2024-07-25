@@ -32,10 +32,12 @@ class BarangMasukController extends Controller
 
     public function barang_masuk_selesai(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'id' => 'required|exists:barangs,id|exists:pemesanan_details,barang_id',
             'pemesanan_id' => 'required|exists:pemesanans,id',
             'place' => 'required|in:toko,gudang',
+            // 'supplier_id' => 'required|exists:suppliers,id',
         ]);
 
         if ($validator->fails()) {
@@ -45,14 +47,18 @@ class BarangMasukController extends Controller
 
         $data = Pemesanan::find($request->pemesanan_id);
 
-        PemesananDetail::where('pemesanan_id', $data->id)->where('barang_id', (int) $request->id)->update(['status' => true, 'date_in' => now()]);
+        PemesananDetail::where('pemesanan_id', $data->id)->where('barang_id', (int) $request->id)
+            // ->where('supplier_id', $request->supplier_id)
+            ->update(['status' => true, 'date_in' => now()]);
 
-        $data_detail = PemesananDetail::where('pemesanan_id', $data->id)->get();
-
+        $data_detail = PemesananDetail::where('pemesanan_id', $data->id)
+            ->where('barang_id', $request->id)->get();
         foreach ($data_detail as $item) {
             $barang = Barang::where('id', $item->barang_id)
-                ->where('place', $request->place)
+                // ->where('place', $request->place)
+                // ->where('supplier_id', $request->supplier_id)
                 ->first();
+            // dd($item, $barang);
             if (!empty($barang)) {
                 $barang->quantity += $item->quantity;
                 $barang->save();
@@ -67,9 +73,11 @@ class BarangMasukController extends Controller
                 $barang_new->eoq = $barang_other_place->eoq;
                 $barang_new->unit = $barang_other_place->unit;
                 $barang_new->place = $request->place;
+                // $barang_new->supplier_id = $request->supplier_id;
                 $barang_new->save();
             }
         }
+        // dd($item);
 
         Alert::toast('Barang Masuk Selesai disimpan', 'success');
         return back();

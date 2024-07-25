@@ -19,6 +19,7 @@ return new class extends Migration
                 ->on('barangs');
             $table->integer('quantity');
             $table->boolean('status')->nullable();
+            $table->date('order_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

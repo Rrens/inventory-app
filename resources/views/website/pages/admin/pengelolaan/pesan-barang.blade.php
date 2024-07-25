@@ -36,6 +36,8 @@
                                                 <option selected hidden>Pilih</option>
                                                 @foreach ($products as $item)
                                                     <option data-price="{{ $item->price }}"
+                                                        data-supplier="{{ $item->supplier[0]->name }}"
+                                                        data-supplier_id="{{ $item->supplier[0]->id }}"
                                                         {{ (empty(old('barang_id')) ? '' : old('barang_id') == $item->id) ? 'selected' : '' }}
                                                         value="{{ $item->id }}">
                                                         {{ $item->name }}
@@ -47,16 +49,20 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="supplier_id">Supplier</label>
-                                            <select name="supplier_id" id="supplier_id" class="form-control">
+                                            {{-- <select name="supplier_id" id="supplier_id" class="form-control">
                                                 <option selected hidden>Pilih Supplier...</option>
                                                 @foreach ($suppliers as $item)
                                                     <option {{ old('supplier_id') == $item->id ? 'selected' : '' }}
                                                         value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
+                                            <input type="text" name="supplier_id" class="form-control" id="supplier_id"
+                                                readonly hidden>
+                                            <input type="text" name="supplier" class="form-control" id="supplier"
+                                                readonly>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="price">Harga per Satuan</label>
                                             <div class="input-group">
@@ -71,11 +77,24 @@
                                                 data barang</small>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="quantity">Kuantitas Pembelian</label>
                                             <input type="number" class="form-control" name="quantity"
                                                 value="{{ old('quantity') }}" id="quantity" readonly required>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="order_cost">Biaya Pemesanan</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Rp</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="order_cost" step="0.01"
+                                                    min="0" aria-describedby="order_cost"
+                                                    value="{{ old('order_cost') }}" name="order_cost">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -88,17 +107,17 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header d-flex align-items-center">
+                                {{-- <div class="card-header d-flex align-items-center">
                                     <h3 class="card-title">List Pemesanan</h3>
                                     <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
                                         data-target="#modal-biaya-pemesanan" style="margin-left: 10px;">
                                         Biaya Pemesanan
                                     </button>
-                                </div>
+                                </div> --}}
                                 <div class="card-body
                                         table-responsive p-0">
-                                    <p style="margin-top: 10px; margin-left: 20px;">Biaya Pemesanan: <span id="biaya">Rp
-                                            0,00</span></p>
+                                    {{-- <p style="margin-top: 10px; margin-left: 20px;">Biaya Pemesanan: <span id="biaya">Rp
+                                            0,00</span></p> --}}
 
                                     <table class="table table-head-fixed text-nowrap" id="table-pesan-barang">
                                         <thead>
@@ -108,6 +127,7 @@
                                                 <th>Supplier</th>
                                                 <th>EOQ</th>
                                                 <th>Jumlah Pemesanan</th>
+                                                <th>Biaya Pemesanan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -119,6 +139,7 @@
                                                     <td>{{ $item->supplier[0]->name }}</td>
                                                     <td>0</td>
                                                     <td>{{ format_number($item->quantity) }}</td>
+                                                    <td class="order-cost">{{ format_rupiah($item->order_cost) }}</td>
                                                     <td>
                                                         {{-- <button class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                                             data-target="#modal-edit">
@@ -136,7 +157,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="button" class="btn btn-default float-right" data-toggle="modal"
-                                        data-target="#modal-save" id="btn-simpan-cart" hidden>
+                                        data-target="#modal-save" id="btn-simpan-cart">
                                         Simpan
                                     </button>
                                 </div>
@@ -168,7 +189,7 @@
                                         value="{{ !empty(old('order_date')) ? old('order_date') : now()->format('Y-m-d') }}"
                                         </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="order_cost">Biaya Pemesanan</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -177,7 +198,7 @@
                                         <input type="number" class="form-control" name="order_cost" id="order_cost"
                                             readonly>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -363,28 +384,45 @@
         }
 
         // Event listener for the input field
-        $('#biaya-pemesanan-modal').on('change', function() {
-            let orderingCost = $(this).val();
-            let arrayData = [];
-
-            if (orderingCost > 0) {
-                $('#btn-simpan-cart').prop('hidden', false)
-            } else {
-                $('#btn-simpan-cart').prop('hidden', true)
+        $(document).ready(function() {
+            function getTotalOrderingCost() {
+                let totalOrderingCost = 0;
+                $('#table-pesan-barang tbody tr').each(function() {
+                    let orderCostText = $(this).find('.order-cost').text();
+                    let orderCost = parseInt(orderCostText.replace(/[^0-9]/g,
+                        '')); // Menghapus format rupiah dan mengambil angka
+                    totalOrderingCost += orderCost;
+                });
+                console.log(totalOrderingCost)
+                return totalOrderingCost;
             }
-            $('#order_cost').val(orderingCost)
-            $('#biaya').text(formatRupiah(orderingCost))
-            $('#table-pesan-barang tbody tr').each(function(index) {
-                let itemId = $(this).data('item-id');
-                if (itemId) {
-                    arrayData.push({
-                        itemId: itemId,
-                        orderingCost: orderingCost,
-                        rowIndex: index
-                    });
+
+            function updateOrderingCost() {
+                let orderingCost = getTotalOrderingCost(); // Ambil biaya pemesanan dari tabel
+                let arrayData = [];
+
+                if (orderingCost > 0) {
+                    $('#btn-simpan-cart').prop('hidden', false)
+                } else {
+                    $('#btn-simpan-cart').prop('hidden', true)
                 }
-            });
-            calculateEOQ(arrayData)
+                $('#order_cost').val(orderingCost)
+                $('#biaya').text(formatRupiah(orderingCost))
+                $('#table-pesan-barang tbody tr').each(function(index) {
+                    let itemId = $(this).data('item-id');
+                    if (itemId) {
+                        arrayData.push({
+                            itemId: itemId,
+                            orderingCost: orderingCost,
+                            rowIndex: index
+                        });
+                    }
+                });
+                calculateEOQ(arrayData)
+            }
+
+            // Panggil fungsi updateOrderingCost saat halaman dimuat
+            updateOrderingCost();
         });
 
         function formatRupiah(angka) {
@@ -400,6 +438,9 @@
             let price_product = $(this).find(':selected');
             let price = price_product[0].attributes[0].value
             $('#price').val(price)
+            // console.log(price_product[0].attributes[1].value)
+            $('#supplier_id').val(price_product[0].attributes[2].value)
+            $('#supplier').val(price_product[0].attributes[1].value)
         })
 
         $('#barang_update_id').on('change', function() {

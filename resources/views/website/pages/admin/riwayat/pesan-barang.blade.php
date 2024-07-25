@@ -48,7 +48,7 @@
                                         <tr>
                                             <td>{{ $item->pemesanan[0]->order_date }}</td>
                                             <td>{{ $item->barang[0]->name }}</td>
-                                            <td>{{ $item->pemesanan[0]->order_cost }}</td>
+                                            <td>{{ $item->order_cost }}</td>
                                             </td>
                                             <td>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</td>
                                             <td>
@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-6">
                                 <p>{{ format_number($item->quantity) . ' ' . $item->barang[0]->unit }}</p>
-                                <p>{{ format_rupiah($item->pemesanan[0]->order_cost) }}</p>
+                                <p>{{ format_rupiah($item->order_cost) }}</p>
                                 <p>{{ format_rupiah($item->barang[0]->price) }}</p>
                             </div>
                         </div>

@@ -18,6 +18,7 @@ class PemesananDetail extends Model
         'eoq',
         'status',
         'date_in',
+        'order_cost',
         'supplier_id',
     ];
 
