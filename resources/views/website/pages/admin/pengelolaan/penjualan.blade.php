@@ -386,7 +386,8 @@
                                     let stockBarang = ropValue['quantity'];
                                     let rop = ropValue['rop'];
 
-                                    let checkRop = (stockBarang - quantity) - 3;
+                                    // let checkRop = (stockBarang - quantity) - 3;
+                                    let checkRop = (stockBarang - quantity);
                                     console.log('check rop', checkRop)
                                     console.log('rop', rop)
 
@@ -395,7 +396,7 @@
                                     if (checkRop <= rop) alert(
                                         'Quantity Mendekati ROP')
                                     // // console.log(ropValue)
-                                    doSave(valueStock, productID, quantity, orderDate)
+                                    // doSave(valueStock, productID, quantity, orderDate)
                                 }
                             })
 
